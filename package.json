@@ -4,7 +4,7 @@
   "version": "0.8.0",
   "license": "ISC",
   "author": "zjutjh",
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.27.0",
   "description": "Eslint config used by zjutjh",
   "scripts": {
     "build": "tsdown",
@@ -112,6 +112,7 @@
     "eslint-plugin-react-hooks": "catalog:optional",
     "eslint-plugin-react-refresh": "catalog:optional",
     "eslint-plugin-vue": "catalog:optional",
+    "eslint-typegen": "catalog:dev",
     "jiti": "catalog:infra",
     "prettier": "catalog:binary",
     "simple-git-hooks": "catalog:infra",

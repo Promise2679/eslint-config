@@ -11,12 +11,13 @@ import react from "./configs/react";
 import stylistic from "./configs/stylistic";
 import typescript from "./configs/typescript";
 import vue from "./configs/vue";
+import type { FlatConfigItem } from "./types";
 import { OptionsConfig } from "./types";
 import { getOverrides, resolveSubOptions } from "./utils";
 
 export default async function zjutjh(
   options: OptionsConfig = {},
-  ...userConfigs: Awaited<Linter.Config[]>
+  ...userConfigs: FlatConfigItem[]
 ) {
   const {
     componentExts = [],

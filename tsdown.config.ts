@@ -5,5 +5,6 @@ export default defineConfig({
   format: ["esm"],
   clean: true,
   dts: true,
-  shims: true
+  shims: true,
+  hash: false
 });

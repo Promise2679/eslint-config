@@ -1,10 +1,10 @@
-import { ParserOptions } from "@typescript-eslint/parser";
-import { Linter } from "eslint";
-import { Options as PrettierOptions } from "prettier";
+import { ParserOptions } from '@typescript-eslint/parser';
+import { Linter } from 'eslint';
+import { Options as PrettierOptions } from 'prettier';
 
-import type { RuleOptions } from "../eslint-typegen";
+import type { RuleOptions } from '../eslint-typegen';
 
-export type FlatConfigItem = Omit<Linter.Config, "plugins" | "rules"> & {
+export type FlatConfigItem = Omit<Linter.Config, 'plugins' | 'rules'> & {
   plugins?: Record<string, unknown>;
   rules?: { [key: string]: Linter.RuleEntry } & RuleOptions;
 };

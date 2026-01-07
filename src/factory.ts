@@ -26,18 +26,16 @@ export default async function zjutjh(
     jsx: enableJSX = isPackageExists("react"),
     react: enableReact = isPackageExists("react"),
     ignores: userIgnores,
-    prettier: enablePrettier = false
+    prettier: enablePrettier = true
   } = options;
 
-  const configs: Linter.Config[][] = [];
-
-  configs.push(
+  const configs: Linter.Config[][] = [
     ignores({ userIgnores }),
     javascript(),
     imports(),
     stylistic({ overrides: getOverrides(options, "stylistic") }),
     misc()
-  );
+  ];
 
   if (enableVue) componentExts.push("vue");
 
@@ -70,5 +68,5 @@ export default async function zjutjh(
   const codeStyleOptions = resolveSubOptions(options, "prettier");
   if (enablePrettier) configs.push(await prettier(codeStyleOptions));
 
-  return configs.flat(1).concat(userConfigs);
+  return [...configs.flat(), ...userConfigs];
 }

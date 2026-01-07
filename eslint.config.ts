@@ -1,3 +1,3 @@
 import zjutjh from "./src";
 
-export default zjutjh({ prettier: true });
+export default zjutjh();

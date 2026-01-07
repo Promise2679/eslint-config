@@ -37,7 +37,8 @@ export default function javascript(): Linter.Config[] {
         "no-else-return": "error",
         "no-implicit-coercion": "error",
         "no-useless-concat": "error",
-        "prefer-template": "error"
+        "prefer-template": "error",
+        "no-lonely-if": "error"
       }
     }
   ];

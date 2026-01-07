@@ -1,14 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "language": "en",
-  "dictionaries": [
-    "typescript",
-    "node",
-    "html",
-    "css",
-    "bash",
-    "npm"
-  ],
+  "dictionaries": ["typescript", "node", "html", "css", "bash", "npm"],
   "words": [
     "bumpp",
     "dbaeumer",

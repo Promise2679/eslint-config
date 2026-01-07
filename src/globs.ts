@@ -25,7 +25,6 @@ export const GLOBS_EXCLUDES = [
   "**/yarn.lock",
   "**/pnpm-lock.yaml",
   "**/bun.lockb",
-
   "**/output",
   "**/coverage",
   "**/temp",
@@ -45,7 +44,6 @@ export const GLOBS_EXCLUDES = [
   "**/.vite-inspect",
   "**/.yarn",
   "**/vite.config.*.timestamp-*",
-
   "**/CHANGELOG*.md",
   "**/*.min.*",
   "**/LICENSE*",

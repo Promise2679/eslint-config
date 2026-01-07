@@ -14,7 +14,10 @@ import vue from "./configs/vue";
 import { OptionsConfig } from "./types";
 import { getOverrides, resolveSubOptions } from "./utils";
 
-export default async function zjutjh(options: OptionsConfig = {}, ...userConfigs: Awaited<Linter.Config[]>) {
+export default async function zjutjh(
+  options: OptionsConfig = {},
+  ...userConfigs: Awaited<Linter.Config[]>
+) {
   const {
     componentExts = [],
     vue: enableVue = isPackageExists("vue"),
@@ -32,15 +35,11 @@ export default async function zjutjh(options: OptionsConfig = {}, ...userConfigs
     ignores({ userIgnores }),
     javascript(),
     imports(),
-    stylistic({
-      overrides: getOverrides(options, "stylistic")
-    }),
+    stylistic({ overrides: getOverrides(options, "stylistic") }),
     misc()
   );
 
-  if (enableVue) {
-    componentExts.push("vue");
-  }
+  if (enableVue) componentExts.push("vue");
 
   const typescriptOptions = resolveSubOptions(options, "ts");
   if (enableTs) {
@@ -63,23 +62,13 @@ export default async function zjutjh(options: OptionsConfig = {}, ...userConfigs
     );
   }
 
-  if (enableJSX) {
-    configs.push(jsx());
-  }
+  if (enableJSX) configs.push(jsx());
 
-  if (enableReact) {
-    configs.push(
-      await react({
-        overrides: getOverrides(options, "react")
-      })
-    );
-  }
+  if (enableReact) configs.push(await react({ overrides: getOverrides(options, "react") }));
 
   // 放到最后，eslint-config-prettier 需要覆盖一些冲突的配置
   const codeStyleOptions = resolveSubOptions(options, "prettier");
-  if (enablePrettier) {
-    configs.push(await prettier(codeStyleOptions));
-  }
+  if (enablePrettier) configs.push(await prettier(codeStyleOptions));
 
   return configs.flat(1).concat(userConfigs);
 }

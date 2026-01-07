@@ -11,11 +11,7 @@ export default async function react(options: OptionsOverrides): Promise<Linter.C
     "eslint-plugin-react-refresh"
   ]);
 
-  const [
-    pluginReact,
-    pluginReactHooks,
-    pluginReactRefresh
-  ] = await Promise.all([
+  const [pluginReact, pluginReactHooks, pluginReactRefresh] = await Promise.all([
     interopDefault(import("@eslint-react/eslint-plugin")),
     interopDefault(import("eslint-plugin-react-hooks")),
     interopDefault(import("eslint-plugin-react-refresh"))
@@ -33,7 +29,6 @@ export default async function react(options: OptionsOverrides): Promise<Linter.C
         "@eslint-react/hooks-extra": plugins["@eslint-react/hooks-extra"],
         "@eslint-react/naming-convention": plugins["@eslint-react/naming-convention"],
         "@eslint-react/web-api": plugins["@eslint-react/web-api"],
-
         "react-hooks": pluginReactHooks,
         "react-refresh": pluginReactRefresh
       }

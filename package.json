@@ -15,28 +15,17 @@
     "prepublish": "pnpm build",
     "postinstall": "npx simple-git-hooks"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
+    ".": { "import": "./dist/index.js", "types": "./dist/index.d.ts" }
   },
-  "engines": {
-    "node": ">=20.19.0"
-  },
+  "engines": { "node": ">=20.19.0" },
   "repository": {
     "type": "git",
     "url": "https://github.com/zjutjh/eslint-config.git"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpx lint-staged"
-  },
+  "publishConfig": { "registry": "https://registry.npmjs.org/" },
+  "simple-git-hooks": { "pre-commit": "pnpx lint-staged" },
   "peerDependencies": {
     "@eslint-react/eslint-plugin": "catalog:optional",
     "@typescript-eslint/eslint-plugin": "catalog:optional",
@@ -52,39 +41,17 @@
     "vue-eslint-parser": "catalog:optional"
   },
   "peerDependenciesMeta": {
-    "@eslint-react/eslint-plugin": {
-      "optional": true
-    },
-    "@typescript-eslint/eslint-plugin": {
-      "optional": true
-    },
-    "@typescript-eslint/parser": {
-      "optional": true
-    },
-    "eslint-config-prettier": {
-      "optional": true
-    },
-    "eslint-plugin-format": {
-      "optional": true
-    },
-    "eslint-plugin-prettier": {
-      "optional": true
-    },
-    "eslint-plugin-react-hooks": {
-      "optional": true
-    },
-    "eslint-plugin-react-refresh": {
-      "optional": true
-    },
-    "eslint-plugin-vue": {
-      "optional": true
-    },
-    "prettier": {
-      "optional": true
-    },
-    "vue-eslint-parser": {
-      "optional": true
-    }
+    "@eslint-react/eslint-plugin": { "optional": true },
+    "@typescript-eslint/eslint-plugin": { "optional": true },
+    "@typescript-eslint/parser": { "optional": true },
+    "eslint-config-prettier": { "optional": true },
+    "eslint-plugin-format": { "optional": true },
+    "eslint-plugin-prettier": { "optional": true },
+    "eslint-plugin-react-hooks": { "optional": true },
+    "eslint-plugin-react-refresh": { "optional": true },
+    "eslint-plugin-vue": { "optional": true },
+    "prettier": { "optional": true },
+    "vue-eslint-parser": { "optional": true }
   },
   "dependencies": {
     "@antfu/install-pkg": "catalog:helper",

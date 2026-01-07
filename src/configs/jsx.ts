@@ -7,13 +7,7 @@ export default function jsx() {
     {
       name: "zjutjh/jsx/setup",
       files: [GLOB_TSX, GLOB_JSX],
-      languageOptions: {
-        parserOptions: {
-          ecmaFeatures: {
-            jsx: true
-          }
-        }
-      }
+      languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } }
     }
   ] satisfies Linter.Config[];
 }

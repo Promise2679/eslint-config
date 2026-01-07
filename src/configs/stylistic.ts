@@ -3,16 +3,11 @@ import { Linter } from "eslint";
 
 import { OptionsOverrides } from "../types";
 
-export default function stylistic(
-  options: OptionsOverrides
-): Linter.Config[] {
-
+export default function stylistic(options: OptionsOverrides): Linter.Config[] {
   return [
     {
       name: "zjutjh/stylistic/rules",
-      plugins: {
-        "@stylistic": pluginStylistic
-      },
+      plugins: { "@stylistic": pluginStylistic },
       rules: {
         "@stylistic/eol-last": ["error", "always"],
         "@stylistic/indent": ["error", 2],
@@ -33,17 +28,14 @@ export default function stylistic(
         "@stylistic/comma-spacing": "error",
         "@stylistic/switch-colon-spacing": "error",
         "@stylistic/type-annotation-spacing": "error",
-
         "@stylistic/space-before-blocks": "error",
-        "@stylistic/space-before-function-paren": ["error", {
-          "anonymous": "never",
-          "named": "never",
-          "asyncArrow": "always"
-        }],
+        "@stylistic/space-before-function-paren": [
+          "error",
+          { anonymous: "never", named: "never", asyncArrow: "always" }
+        ],
         "@stylistic/space-in-parens": "error",
         "@stylistic/space-infix-ops": "error",
         "@stylistic/spaced-comment": "error",
-
         ...options.overrides
       }
     }

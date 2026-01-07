@@ -5,12 +5,6 @@ import { OptionsIgnores } from "../types";
 
 export default function ignores(options?: OptionsIgnores): Linter.Config[] {
   return [
-    {
-      name: "zjutjh/ignores",
-      ignores: [
-        ...GLOBS_EXCLUDES,
-        ...options?.userIgnores ?? []
-      ]
-    }
+    { name: "zjutjh/ignores", ignores: [...GLOBS_EXCLUDES, ...(options?.userIgnores ?? [])] }
   ];
 }

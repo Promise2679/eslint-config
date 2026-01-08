@@ -15,7 +15,9 @@
     "prepublish": "pnpm build",
     "postinstall": "npx simple-git-hooks"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -88,8 +90,8 @@
     "@antfu/install-pkg": "catalog:helper",
     "@clack/prompts": "catalog:helper",
     "@eslint/js": "catalog:required",
-    "@stylistic/eslint-plugin": "catalog:required",
     "eslint-plugin-import": "catalog:required",
+    "eslint-plugin-prettier": "catalog:required",
     "eslint-plugin-simple-import-sort": "catalog:required",
     "eslint-plugin-unicorn": "catalog:required",
     "globals": "catalog:helper",
@@ -106,7 +108,6 @@
     "eslint": "catalog:binary",
     "eslint-config-prettier": "catalog:optional",
     "eslint-plugin-format": "catalog:optional",
-    "eslint-plugin-prettier": "catalog:optional",
     "eslint-plugin-react-hooks": "catalog:optional",
     "eslint-plugin-react-refresh": "catalog:optional",
     "eslint-plugin-vue": "catalog:optional",

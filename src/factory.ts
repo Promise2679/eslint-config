@@ -8,7 +8,6 @@ import jsx from './configs/jsx';
 import misc from './configs/misc';
 import prettier from './configs/prettier';
 import react from './configs/react';
-import stylistic from './configs/stylistic';
 import typescript from './configs/typescript';
 import vue from './configs/vue';
 import type { FlatConfigItem } from './types';
@@ -30,13 +29,7 @@ export default async function zjutjh(
     prettier: enablePrettier = true
   } = options;
 
-  const configs: Linter.Config[][] = [
-    ignores({ userIgnores }),
-    javascript(),
-    imports(),
-    stylistic({ overrides: getOverrides(options, 'stylistic') }),
-    misc()
-  ];
+  const configs: Linter.Config[][] = [ignores({ userIgnores }), javascript(), imports(), misc()];
 
   if (enableVue) componentExts.push('vue');
 

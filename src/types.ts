@@ -12,7 +12,6 @@ export type FlatConfigItem = Omit<Linter.Config, 'plugins' | 'rules'> & {
 export interface OverridesConfigs {
   vue?: Linter.RulesRecord;
   ts?: Linter.RulesRecord;
-  stylistic?: Linter.RulesRecord;
   react?: Linter.RulesRecord;
 }
 

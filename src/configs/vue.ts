@@ -30,16 +30,7 @@ export default async function vue(
       },
       processor: pluginVue.processors['.vue'],
       rules: {
-        ...pluginVue.configs['flat/recommended']
-          .map((c) => c.rules)
-          .reduce((prev, curr) => ({ ...prev, ...curr }), {}),
-        ...pluginVue.configs['flat/essential']
-          .map((c) => c.rules)
-          .reduce((prev, curr) => ({ ...prev, ...curr }), {}),
-        ...pluginVue.configs['flat/strongly-recommended']
-          .map((c) => c.rules)
-          .reduce((prev, curr) => ({ ...prev, ...curr }), {}),
-
+        ...pluginVue.configs.essential.rules,
         'vue/multi-word-component-names': ['warn', { ignores: ['index'] }],
         'vue/component-name-in-template-casing': [
           'error',

@@ -8,9 +8,8 @@ type Awaitable<T> = T | Promise<T>;
 export async function interopDefault<T>(
   m: Awaitable<T>
 ): Promise<T extends { default: infer U } ? U : T> {
-  const resolved = await m;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (resolved as any).default || resolved;
+  const resolved = (await m) as { default?: unknown };
+  return (resolved.default || resolved) as T extends { default: infer U } ? U : T;
 }
 
 export async function ensurePackages(packages: (string | undefined)[]): Promise<void> {
@@ -42,8 +41,5 @@ export function getOverrides<K extends keyof OverridesConfigs>(
   options: OptionsConfig,
   key: K
 ): Linter.RulesRecord {
-  return {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ...(options.overrides as any)?.[key]
-  };
+  return { ...options.overrides?.[key] };
 }

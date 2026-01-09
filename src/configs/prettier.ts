@@ -1,4 +1,3 @@
-import { Linter } from 'eslint';
 import { Options as PrettierOptions } from 'prettier';
 
 import {
@@ -15,7 +14,7 @@ import {
   GLOB_TSX,
   GLOB_VUE
 } from '../globs';
-import { OptionsPrettier } from '../types';
+import { FlatConfigItem, OptionsPrettier } from '../types';
 import { ensurePackages, interopDefault } from '../utils';
 
 /**
@@ -43,7 +42,7 @@ const prettierOptions: PrettierOptions = {
   singleAttributePerLine: false
 };
 
-export default async function prettier(options?: OptionsPrettier): Promise<Linter.Config[]> {
+export default async function prettier(options?: OptionsPrettier): Promise<FlatConfigItem[]> {
   await ensurePackages([
     'eslint-plugin-format',
     'eslint-plugin-prettier',
@@ -65,47 +64,52 @@ export default async function prettier(options?: OptionsPrettier): Promise<Linte
 
   const mergedPrettierOptions = { ...prettierOptions, ...options?.prettierSelfOptions };
 
-  return [
-    enableESFormat
-      ? {
-          name: 'zjutjh/prettier/setup',
-          files: [GLOB_VUE, GLOB_TS, GLOB_JS, GLOB_TSX, GLOB_JSX],
-          ...configPrettier
-        }
-      : {},
-    enableESFormat
-      ? {
-          name: 'zjutjh/prettier/es',
-          files: [GLOB_VUE, GLOB_TS, GLOB_JS, GLOB_TSX, GLOB_JSX],
-          rules: { 'prettier/prettier': ['error', mergedPrettierOptions] }
-        }
-      : {},
-    enableCSSFormat
-      ? {
-          name: 'zjutjh/prettier/css',
-          files: [GLOB_CSS, GLOB_LESS, GLOB_SCSS],
-          languageOptions: { parser: pluginFormat.parserPlain },
-          plugins: { format: pluginFormat },
-          rules: { 'format/prettier': ['error', { parser: 'css', mergedPrettierOptions }] }
-        }
-      : {},
-    enableHTMLFormat
-      ? {
-          name: 'zjutjh/prettier/html',
-          files: [GLOB_HTML],
-          languageOptions: { parser: pluginFormat.parserPlain },
-          plugins: { format: pluginFormat },
-          rules: { 'format/prettier': ['error', { parser: 'html', mergedPrettierOptions }] }
-        }
-      : {},
-    enableJSONFormat
-      ? {
-          name: 'zjutjh/prettier/json',
-          files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
-          languageOptions: { parser: pluginFormat.parserPlain },
-          plugins: { format: pluginFormat },
-          rules: { 'format/prettier': ['error', { parser: 'json', mergedPrettierOptions }] }
-        }
-      : {}
-  ];
+  const configs: FlatConfigItem[] = [];
+
+  if (enableESFormat) {
+    configs.push(
+      {
+        name: 'zjutjh/prettier/setup',
+        files: [GLOB_VUE, GLOB_TS, GLOB_JS, GLOB_TSX, GLOB_JSX],
+        ...(configPrettier as FlatConfigItem)
+      },
+      {
+        name: 'zjutjh/prettier/es',
+        files: [GLOB_VUE, GLOB_TS, GLOB_JS, GLOB_TSX, GLOB_JSX],
+        rules: { 'prettier/prettier': ['error', mergedPrettierOptions] }
+      }
+    );
+  }
+
+  if (enableCSSFormat) {
+    configs.push({
+      name: 'zjutjh/prettier/css',
+      files: [GLOB_CSS, GLOB_LESS, GLOB_SCSS],
+      languageOptions: { parser: pluginFormat.parserPlain },
+      plugins: { format: pluginFormat },
+      rules: { 'format/prettier': ['error', { parser: 'css', mergedPrettierOptions }] }
+    });
+  }
+
+  if (enableHTMLFormat) {
+    configs.push({
+      name: 'zjutjh/prettier/html',
+      files: [GLOB_HTML],
+      languageOptions: { parser: pluginFormat.parserPlain },
+      plugins: { format: pluginFormat },
+      rules: { 'format/prettier': ['error', { parser: 'html', mergedPrettierOptions }] }
+    });
+  }
+
+  if (enableJSONFormat) {
+    configs.push({
+      name: 'zjutjh/prettier/json',
+      files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
+      languageOptions: { parser: pluginFormat.parserPlain },
+      plugins: { format: pluginFormat },
+      rules: { 'format/prettier': ['error', { parser: 'json', mergedPrettierOptions }] }
+    });
+  }
+
+  return configs;
 }

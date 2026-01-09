@@ -1,12 +1,15 @@
-import { Linter } from 'eslint';
-
 import { GLOB_TS, GLOB_TSX } from '../globs';
-import { OptionsComponentExts, OptionsOverrides, OptionsTypeScriptParserOptions } from '../types';
+import {
+  FlatConfigItem,
+  OptionsComponentExts,
+  OptionsOverrides,
+  OptionsTypeScriptParserOptions
+} from '../types';
 import { ensurePackages, interopDefault } from '../utils';
 
 export default async function typescript(
   options: OptionsOverrides & OptionsTypeScriptParserOptions & OptionsComponentExts
-): Promise<Linter.Config[]> {
+): Promise<FlatConfigItem[]> {
   const { componentExts = [], overrides, parserOptions } = options;
 
   const files = [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)];
@@ -19,7 +22,6 @@ export default async function typescript(
   ] as const);
 
   return [
-    // @ts-expect-error 依赖的类型有问题，不影响使用
     { name: 'zjutjh/typescript/setup', plugins: { '@typescript-eslint': pluginTs } },
     {
       name: 'zjutjh/typescript/parser',

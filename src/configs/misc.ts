@@ -1,7 +1,8 @@
-import { Linter } from 'eslint';
 import uniconPlugin from 'eslint-plugin-unicorn';
 
-export default function misc(): Linter.Config[] {
+import type { FlatConfigItem } from '../types';
+
+export default function misc(): FlatConfigItem[] {
   return [
     { name: 'zjutjh/misc/setup', plugins: { unicorn: uniconPlugin } },
     {
@@ -14,7 +15,8 @@ export default function misc(): Linter.Config[] {
         'unicorn/prefer-export-from': 'off',
         'unicorn/better-regex': 'error',
         'unicorn/no-lonely-if': 'error',
-        'unicorn/explicit-length-check': 'off'
+        'unicorn/explicit-length-check': 'off',
+        'unicorn/filename-case': 'off'
       }
     }
   ];

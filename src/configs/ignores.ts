@@ -1,9 +1,7 @@
-import { Linter } from 'eslint';
-
 import { GLOBS_EXCLUDES } from '../globs';
-import { OptionsIgnores } from '../types';
+import { FlatConfigItem, OptionsIgnores } from '../types';
 
-export default function ignores(options?: OptionsIgnores): Linter.Config[] {
+export default function ignores(options?: OptionsIgnores): FlatConfigItem[] {
   return [
     { name: 'zjutjh/ignores', ignores: [...GLOBS_EXCLUDES, ...(options?.userIgnores ?? [])] }
   ];

@@ -1,10 +1,8 @@
-import { Linter } from 'eslint';
-
 import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from '../globs';
-import { OptionsOverrides } from '../types';
+import { FlatConfigItem, OptionsOverrides } from '../types';
 import { ensurePackages, interopDefault } from '../utils';
 
-export default async function react(options: OptionsOverrides): Promise<Linter.Config[]> {
+export default async function react(options: OptionsOverrides): Promise<FlatConfigItem[]> {
   await ensurePackages([
     '@eslint-react/eslint-plugin',
     'eslint-plugin-react-hooks',
@@ -46,5 +44,5 @@ export default async function react(options: OptionsOverrides): Promise<Linter.C
         ...options.overrides
       }
     }
-  ] satisfies Linter.Config[];
+  ] satisfies FlatConfigItem[];
 }

@@ -1,12 +1,10 @@
-import { Linter } from 'eslint';
-
 import { GLOB_VUE } from '../globs';
-import { OptionsOverrides, OptionsVue } from '../types';
+import { FlatConfigItem, OptionsOverrides, OptionsVue } from '../types';
 import { ensurePackages, interopDefault } from '../utils';
 
 export default async function vue(
   options?: OptionsVue & OptionsOverrides
-): Promise<Linter.Config[]> {
+): Promise<FlatConfigItem[]> {
   await ensurePackages(['eslint-plugin-vue', 'vue-eslint-parser']);
 
   const [pluginVue, parserVue] = await Promise.all([
@@ -32,11 +30,6 @@ export default async function vue(
       rules: {
         ...pluginVue.configs.essential.rules,
         'vue/multi-word-component-names': ['warn', { ignores: ['index'] }],
-        'vue/component-name-in-template-casing': [
-          'error',
-          'kebab-case',
-          { registeredComponentsOnly: true }
-        ],
         'vue/max-attributes-per-line': ['error', { singleline: { max: 3 } }],
         'vue/prefer-true-attribute-shorthand': ['warn', options?.taro ? 'never' : 'always'],
         ...options?.overrides

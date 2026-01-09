@@ -1,4 +1,3 @@
-import { Linter } from 'eslint';
 import { isPackageExists } from 'local-pkg';
 
 import ignores from './configs/ignores';
@@ -29,7 +28,7 @@ export default async function zjutjh(
     prettier: enablePrettier = true
   } = options;
 
-  const configs: Linter.Config[][] = [ignores({ userIgnores }), javascript(), imports(), misc()];
+  const configs: FlatConfigItem[][] = [ignores({ userIgnores }), javascript(), imports(), misc()];
 
   if (enableVue) componentExts.push('vue');
 

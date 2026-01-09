@@ -1,8 +1,9 @@
 import eslintJS from '@eslint/js';
-import { Linter } from 'eslint';
 import globals from 'globals';
 
-export default function javascript(): Linter.Config[] {
+import type { FlatConfigItem } from '../types';
+
+export default function javascript(): FlatConfigItem[] {
   return [
     {
       name: 'zjutjh/javascript/setup',

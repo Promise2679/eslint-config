@@ -33,6 +33,7 @@ export default function javascript(): FlatConfigItem[] {
         'no-undef': 'off',
         'prefer-const': 'error',
         'no-nested-ternary': 'error',
+        'no-unneeded-ternary': 'error',
         'no-else-return': 'error',
         'no-implicit-coercion': 'error',
         'no-useless-concat': 'error',

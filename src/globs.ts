@@ -21,6 +21,7 @@ export const GLOB_JSONC = '**/*.jsonc';
 export const GLOBS_EXCLUDES = [
   '**/node_modules',
   '**/dist',
+  '**/package.json',
   '**/package-lock.json',
   '**/yarn.lock',
   '**/pnpm-lock.yaml',

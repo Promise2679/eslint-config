@@ -16,6 +16,10 @@
     "prepublish": "pnpm build",
     "postinstall": "npx simple-git-hooks"
   },
+  "lint-staged": {
+    "*.ts": "eslint --fix",
+    "*": "cspell"
+  },
   "files": [
     "dist"
   ],

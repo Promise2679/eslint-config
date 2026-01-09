@@ -10,6 +10,7 @@
     "build": "tsdown",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "typegen": "jiti scripts/typegen.ts",
     "dev": "config-inspector",
     "release": "bumpp && pnpm publish --access public",
     "prepublish": "pnpm build",

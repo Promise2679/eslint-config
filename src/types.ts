@@ -2,7 +2,7 @@ import { ParserOptions } from '@typescript-eslint/parser';
 import { Linter } from 'eslint';
 import { Options as PrettierOptions } from 'prettier';
 
-import type { RuleOptions } from '../eslint-typegen';
+import type { RuleOptions } from './typegen';
 
 export type FlatConfigItem = Omit<Linter.Config, 'plugins' | 'rules'> & {
   plugins?: Record<string, unknown>;

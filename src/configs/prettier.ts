@@ -76,7 +76,10 @@ export default async function prettier(options?: OptionsPrettier): Promise<FlatC
       {
         name: 'zjutjh/prettier/es',
         files: [GLOB_VUE, GLOB_TS, GLOB_JS, GLOB_TSX, GLOB_JSX],
-        rules: { 'prettier/prettier': ['error', mergedPrettierOptions] }
+        rules: {
+          'prettier/prettier': ['error', mergedPrettierOptions],
+          'arrow-body-style': ['error', 'as-needed']
+        }
       }
     );
   }

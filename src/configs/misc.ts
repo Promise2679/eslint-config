@@ -12,7 +12,6 @@ export default function misc(): FlatConfigItem[] {
         'unicorn/prevent-abbreviations': 'off',
         'unicorn/no-array-reduce': 'off',
         'unicorn/no-null': 'off',
-        'unicorn/prefer-export-from': 'off',
         'unicorn/better-regex': 'error',
         'unicorn/no-lonely-if': 'error',
         'unicorn/explicit-length-check': 'off',

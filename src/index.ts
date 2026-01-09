@@ -1,3 +1,1 @@
-import zjutjh from './factory';
-
-export default zjutjh;
+export { default } from './factory';

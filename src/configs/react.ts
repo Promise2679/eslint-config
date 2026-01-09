@@ -15,18 +15,11 @@ export default async function react(options: OptionsOverrides): Promise<FlatConf
     interopDefault(import('eslint-plugin-react-refresh'))
   ]);
 
-  const plugins = pluginReact.configs.all.plugins;
-
   return [
     {
       name: 'zjutjh/react/setup',
       plugins: {
-        '@eslint-react': plugins['@eslint-react'],
-        '@eslint-react/debug': plugins['@eslint-react/debug'],
-        '@eslint-react/dom': plugins['@eslint-react/dom'],
-        '@eslint-react/hooks-extra': plugins['@eslint-react/hooks-extra'],
-        '@eslint-react/naming-convention': plugins['@eslint-react/naming-convention'],
-        '@eslint-react/web-api': plugins['@eslint-react/web-api'],
+        '@eslint-react': pluginReact,
         'react-hooks': pluginReactHooks,
         'react-refresh': pluginReactRefresh
       }

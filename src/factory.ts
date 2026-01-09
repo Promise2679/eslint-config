@@ -17,7 +17,7 @@ import { getOverrides, resolveSubOptions } from './utils';
 export default async function zjutjh(
   options: OptionsConfig = {},
   ...userConfigs: FlatConfigItem[]
-) {
+): Promise<FlatConfigItem[]> {
   const {
     componentExts = [],
     vue: enableVue = isPackageExists('vue'),
@@ -62,5 +62,5 @@ export default async function zjutjh(
   const codeStyleOptions = resolveSubOptions(options, 'prettier');
   if (enablePrettier) configs.push(await prettier(codeStyleOptions));
 
-  return [...configs.flat(), ...userConfigs];
+  return [...configs.flat(), ...userConfigs] as FlatConfigItem[];
 }

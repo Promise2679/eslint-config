@@ -13,7 +13,8 @@ export default function misc(): Linter.Config[] {
         'unicorn/no-null': 'off',
         'unicorn/prefer-export-from': 'off',
         'unicorn/better-regex': 'error',
-        'unicorn/no-lonely-if': 'error'
+        'unicorn/no-lonely-if': 'error',
+        'unicorn/explicit-length-check': 'off'
       }
     }
   ];

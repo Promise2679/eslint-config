@@ -16,7 +16,9 @@ export default function misc(): FlatConfigItem[] {
         'unicorn/no-lonely-if': 'error',
         'unicorn/explicit-length-check': 'off',
         'unicorn/filename-case': 'off',
-        'unicorn/prefer-import-meta-properties': 'error'
+        'unicorn/prefer-import-meta-properties': 'error',
+        'unicorn/numeric-separators-style': 'off',
+        'unicorn/catch-error-name': 'off'
       }
     }
   ];

@@ -34,7 +34,7 @@ export default function javascript(): FlatConfigItem[] {
         'prefer-const': 'error',
         'no-nested-ternary': 'error',
         'no-unneeded-ternary': 'error',
-        'no-else-return': 'error',
+        'no-else-return': ['error', { allowElseIf: false }],
         'no-implicit-coercion': 'error',
         'no-useless-concat': 'error',
         'prefer-template': 'error',

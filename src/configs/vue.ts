@@ -29,9 +29,7 @@ export default async function vue(
       processor: pluginVue.processors['.vue'],
       rules: {
         ...pluginVue.configs.essential.rules,
-        'vue/multi-word-component-names': ['warn', { ignores: ['index'] }],
-        'vue/max-attributes-per-line': ['error', { singleline: { max: 3 } }],
-        'vue/prefer-true-attribute-shorthand': ['warn', options?.taro ? 'never' : 'always'],
+        'vue/prefer-true-attribute-shorthand': 'error',
         ...options?.overrides
       }
     }

@@ -12,15 +12,11 @@ export type FlatConfigItem = Omit<Linter.Config, 'plugins' | 'rules'> & {
 export interface OverridesConfigs {
   vue?: Linter.RulesRecord;
   ts?: Linter.RulesRecord;
-  react?: Linter.RulesRecord;
 }
 
 export interface OptionsConfig extends OptionsComponentExts {
   vue?: boolean;
   ts?: boolean | OptionsTypeScriptParserOptions;
-  taro?: boolean;
-  jsx?: boolean;
-  react?: boolean;
   prettier?: boolean | OptionsPrettier;
   ignores?: string[];
   overrides?: OverridesConfigs;
@@ -36,7 +32,6 @@ export interface OptionsComponentExts {
 
 export interface OptionsVue {
   ts: boolean;
-  taro: boolean;
 }
 
 export interface OptionsTypeScriptParserOptions {

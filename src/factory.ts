@@ -3,10 +3,8 @@ import { isPackageExists } from 'local-pkg';
 import ignores from './configs/ignores';
 import imports from './configs/imports';
 import javascript from './configs/javascript';
-import jsx from './configs/jsx';
 import misc from './configs/misc';
 import prettier from './configs/prettier';
-import react from './configs/react';
 import typescript from './configs/typescript';
 import vue from './configs/vue';
 import type { FlatConfigItem } from './types';
@@ -21,9 +19,6 @@ export default async function zjutjh(
     componentExts = [],
     vue: enableVue = isPackageExists('vue'),
     ts: enableTs = isPackageExists('typescript'),
-    taro: enableTaro = isPackageExists('@tarojs/taro'),
-    jsx: enableJSX = isPackageExists('react'),
-    react: enableReact = isPackageExists('react'),
     ignores: userIgnores,
     prettier: enablePrettier = true
   } = options;
@@ -44,18 +39,8 @@ export default async function zjutjh(
   }
 
   if (enableVue) {
-    configs.push(
-      await vue({
-        ts: Boolean(enableTs),
-        taro: enableTaro,
-        overrides: getOverrides(options, 'vue')
-      })
-    );
+    configs.push(await vue({ ts: Boolean(enableTs), overrides: getOverrides(options, 'vue') }));
   }
-
-  if (enableJSX) configs.push(jsx());
-
-  if (enableReact) configs.push(await react({ overrides: getOverrides(options, 'react') }));
 
   // 放到最后，eslint-config-prettier 需要覆盖一些冲突的配置
   const codeStyleOptions = resolveSubOptions(options, 'prettier');

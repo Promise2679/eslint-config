@@ -13,7 +13,6 @@ export default function misc(): FlatConfigItem[] {
         'unicorn/no-array-reduce': 'off',
         'unicorn/no-null': 'off',
         'unicorn/better-regex': 'error',
-        'unicorn/no-lonely-if': 'error',
         'unicorn/explicit-length-check': 'off',
         'unicorn/filename-case': 'off',
         'unicorn/prefer-import-meta-properties': 'error',

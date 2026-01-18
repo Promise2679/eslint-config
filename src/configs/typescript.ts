@@ -22,9 +22,9 @@ export default async function typescript(
   ] as const);
 
   return [
-    { name: 'zjutjh/typescript/setup', plugins: { '@typescript-eslint': pluginTs } },
     {
-      name: 'zjutjh/typescript/parser',
+      name: 'typescript/setup',
+      plugins: { '@typescript-eslint': pluginTs },
       files,
       languageOptions: {
         parser: parserTs,
@@ -35,11 +35,7 @@ export default async function typescript(
           tsconfigRootDir: process.cwd(),
           ...parserOptions
         }
-      }
-    },
-    {
-      name: 'zjutjh/typescript/rules',
-      files,
+      },
       rules: {
         ...pluginTs.configs.strict.rules,
         '@typescript-eslint/no-unused-expressions': [

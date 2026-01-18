@@ -6,7 +6,7 @@ import type { FlatConfigItem } from '../types';
 export default function javascript(): FlatConfigItem[] {
   return [
     {
-      name: 'zjutjh/javascript/setup',
+      name: 'javascript',
       languageOptions: {
         ecmaVersion: 2022,
         globals: {
@@ -20,10 +20,7 @@ export default function javascript(): FlatConfigItem[] {
         parserOptions: { ecmaFeatures: { jsx: true }, ecmaVersion: 2022, sourceType: 'module' },
         sourceType: 'module'
       },
-      linterOptions: { reportUnusedDisableDirectives: true }
-    },
-    {
-      name: 'zjutjh/javascript/rules',
+      linterOptions: { reportUnusedDisableDirectives: true },
       rules: {
         ...eslintJS.configs.recommended.rules,
         camelcase: 'error',

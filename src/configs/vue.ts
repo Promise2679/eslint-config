@@ -13,9 +13,9 @@ export default async function vue(
   ] as const);
 
   return [
-    { name: 'zjutjh/vue/setup', plugins: { vue: pluginVue } },
     {
-      name: 'zjutjh/vue/rules',
+      name: 'vue',
+      plugins: { vue: pluginVue },
       files: [GLOB_VUE],
       languageOptions: {
         parser: parserVue,

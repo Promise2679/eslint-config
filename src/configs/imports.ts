@@ -6,11 +6,8 @@ import type { FlatConfigItem } from '../types';
 export default function imports(): FlatConfigItem[] {
   return [
     {
-      name: 'zjutjh/imports/setup',
-      plugins: { 'simple-import-sort': simpleImportSortPlugin, import: eslintImportPlugin }
-    },
-    {
-      name: 'zjutjh/imports/rules',
+      name: 'imports',
+      plugins: { 'simple-import-sort': simpleImportSortPlugin, import: eslintImportPlugin },
       rules: {
         'simple-import-sort/imports': 'error',
         'simple-import-sort/exports': 'error',

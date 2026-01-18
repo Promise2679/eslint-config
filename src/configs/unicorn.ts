@@ -4,9 +4,9 @@ import type { FlatConfigItem } from '../types';
 
 export default function unicorn(): FlatConfigItem[] {
   return [
-    { name: 'zjutjh/unicorn/setup', plugins: { unicorn: uniconPlugin } },
     {
-      name: 'zjutjh/unicorn/rules',
+      name: 'unicorn',
+      plugins: { unicorn: uniconPlugin },
       rules: {
         ...uniconPlugin.configs.recommended.rules,
         'unicorn/prevent-abbreviations': 'off',

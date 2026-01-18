@@ -67,26 +67,20 @@ export default async function prettier(options?: OptionsPrettier): Promise<FlatC
   const configs: FlatConfigItem[] = [];
 
   if (enableESFormat) {
-    configs.push(
-      {
-        name: 'zjutjh/prettier/setup',
-        files: [GLOB_VUE, GLOB_TS, GLOB_JS, GLOB_TSX, GLOB_JSX],
-        ...(configPrettier as FlatConfigItem)
-      },
-      {
-        name: 'zjutjh/prettier/es',
-        files: [GLOB_VUE, GLOB_TS, GLOB_JS, GLOB_TSX, GLOB_JSX],
-        rules: {
-          'prettier/prettier': ['error', mergedPrettierOptions],
-          'arrow-body-style': ['error', 'as-needed']
-        }
+    configs.push({
+      name: 'prettier/es',
+      files: [GLOB_VUE, GLOB_TS, GLOB_JS, GLOB_TSX, GLOB_JSX],
+      ...(configPrettier as FlatConfigItem),
+      rules: {
+        'prettier/prettier': ['error', mergedPrettierOptions],
+        'arrow-body-style': ['error', 'as-needed']
       }
-    );
+    });
   }
 
   if (enableCSSFormat) {
     configs.push({
-      name: 'zjutjh/prettier/css',
+      name: 'prettier/css',
       files: [GLOB_CSS, GLOB_LESS, GLOB_SCSS],
       languageOptions: { parser: pluginFormat.parserPlain },
       plugins: { format: pluginFormat },
@@ -96,7 +90,7 @@ export default async function prettier(options?: OptionsPrettier): Promise<FlatC
 
   if (enableHTMLFormat) {
     configs.push({
-      name: 'zjutjh/prettier/html',
+      name: 'prettier/html',
       files: [GLOB_HTML],
       languageOptions: { parser: pluginFormat.parserPlain },
       plugins: { format: pluginFormat },
@@ -106,7 +100,7 @@ export default async function prettier(options?: OptionsPrettier): Promise<FlatC
 
   if (enableJSONFormat) {
     configs.push({
-      name: 'zjutjh/prettier/json',
+      name: 'prettier/json',
       files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
       languageOptions: { parser: pluginFormat.parserPlain },
       plugins: { format: pluginFormat },

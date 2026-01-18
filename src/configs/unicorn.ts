@@ -2,11 +2,11 @@ import uniconPlugin from 'eslint-plugin-unicorn';
 
 import type { FlatConfigItem } from '../types';
 
-export default function misc(): FlatConfigItem[] {
+export default function unicorn(): FlatConfigItem[] {
   return [
-    { name: 'zjutjh/misc/setup', plugins: { unicorn: uniconPlugin } },
+    { name: 'zjutjh/unicorn/setup', plugins: { unicorn: uniconPlugin } },
     {
-      name: 'zjutjh/misc/rules',
+      name: 'zjutjh/unicorn/rules',
       rules: {
         ...uniconPlugin.configs.recommended.rules,
         'unicorn/prevent-abbreviations': 'off',

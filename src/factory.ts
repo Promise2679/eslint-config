@@ -3,9 +3,9 @@ import { isPackageExists } from 'local-pkg';
 import ignores from './configs/ignores';
 import imports from './configs/imports';
 import javascript from './configs/javascript';
-import misc from './configs/misc';
 import prettier from './configs/prettier';
 import typescript from './configs/typescript';
+import unicorn from './configs/unicorn';
 import vue from './configs/vue';
 import type { FlatConfigItem } from './types';
 import { OptionsConfig } from './types';
@@ -23,7 +23,12 @@ export default async function zjutjh(
     prettier: enablePrettier = true
   } = options;
 
-  const configs: FlatConfigItem[][] = [ignores({ userIgnores }), javascript(), imports(), misc()];
+  const configs: FlatConfigItem[][] = [
+    ignores({ userIgnores }),
+    javascript(),
+    imports(),
+    unicorn()
+  ];
 
   if (enableVue) componentExts.push('vue');
 

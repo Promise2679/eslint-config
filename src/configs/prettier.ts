@@ -21,25 +21,11 @@ import { ensurePackages, interopDefault } from '../utils';
  * @see https://prettier.io/docs/options
  */
 const prettierOptions: PrettierOptions = {
-  arrowParens: 'always',
-  bracketSameLine: false,
-  bracketSpacing: true,
-  embeddedLanguageFormatting: 'auto',
-  endOfLine: 'lf',
-  htmlWhitespaceSensitivity: 'css',
-  insertPragma: false,
-  jsxSingleQuote: false,
+  arrowParens: 'avoid',
+  objectWrap: 'collapse',
   printWidth: 100,
-  proseWrap: 'preserve',
-  quoteProps: 'as-needed',
-  requirePragma: false,
-  semi: true,
-  singleAttributePerLine: false,
   singleQuote: true,
-  tabWidth: 2,
-  trailingComma: 'none',
-  useTabs: false,
-  vueIndentScriptAndStyle: false
+  trailingComma: 'none'
 };
 
 export default async function prettier(options?: OptionsPrettier): Promise<FlatConfigItem[]> {

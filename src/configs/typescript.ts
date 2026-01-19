@@ -12,7 +12,7 @@ export default async function typescript(
 ): Promise<FlatConfigItem[]> {
   const { componentExts = [], overrides, parserOptions } = options;
 
-  const files = [GLOB_TS, GLOB_TSX, ...componentExts.map((ext) => `**/*.${ext}`)];
+  const files = [GLOB_TS, GLOB_TSX, ...componentExts.map(ext => `**/*.${ext}`)];
 
   await ensurePackages(['@typescript-eslint/eslint-plugin', '@typescript-eslint/parser']);
 

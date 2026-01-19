@@ -8,7 +8,7 @@ export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>;
 type Awaitable<T> = Promise<T> | T;
 
 export async function ensurePackages(packages: (string | undefined)[]): Promise<void> {
-  const nonExistingPackages = packages.filter((i) => i && !isPackageExists(i)) as string[];
+  const nonExistingPackages = packages.filter(i => i && !isPackageExists(i)) as string[];
   if (nonExistingPackages.length === 0) return;
 
   const p = await import('@clack/prompts');

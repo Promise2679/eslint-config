@@ -3,9 +3,9 @@ import { isPackageExists } from 'local-pkg';
 import type { FlatConfigItem } from './types';
 
 import ignores from './configs/ignores';
-import imports from './configs/imports';
 import javascript from './configs/javascript';
 import prettier from './configs/prettier';
+import sort from './configs/sort';
 import typescript from './configs/typescript';
 import unicorn from './configs/unicorn';
 import vue from './configs/vue';
@@ -24,12 +24,7 @@ export default async function zjutjh(
     vue: enableVue = isPackageExists('vue')
   } = options;
 
-  const configs: FlatConfigItem[][] = [
-    ignores({ userIgnores }),
-    javascript(),
-    imports(),
-    unicorn()
-  ];
+  const configs: FlatConfigItem[][] = [ignores({ userIgnores }), javascript(), sort(), unicorn()];
 
   if (enableVue) componentExts.push('vue');
 

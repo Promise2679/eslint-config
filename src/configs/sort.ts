@@ -3,10 +3,10 @@ import perfectionistPlugin from 'eslint-plugin-perfectionist';
 
 import type { FlatConfigItem } from '../types';
 
-export default function imports(): FlatConfigItem[] {
+export default function sort(): FlatConfigItem[] {
   return [
     {
-      name: 'imports',
+      name: 'sort',
       plugins: { import: eslintImportPlugin, perfectionist: perfectionistPlugin },
       rules: {
         ...perfectionistPlugin.configs['recommended-alphabetical'].rules,

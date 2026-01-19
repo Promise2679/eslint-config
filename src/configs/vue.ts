@@ -3,7 +3,7 @@ import { FlatConfigItem, OptionsOverrides, OptionsVue } from '../types';
 import { ensurePackages, interopDefault } from '../utils';
 
 export default async function vue(
-  options?: OptionsVue & OptionsOverrides
+  options?: OptionsOverrides & OptionsVue
 ): Promise<FlatConfigItem[]> {
   await ensurePackages(['eslint-plugin-vue', 'vue-eslint-parser']);
 
@@ -14,8 +14,6 @@ export default async function vue(
 
   return [
     {
-      name: 'vue',
-      plugins: { vue: pluginVue },
       files: [GLOB_VUE],
       languageOptions: {
         parser: parserVue,
@@ -26,6 +24,8 @@ export default async function vue(
           sourceType: 'module'
         }
       },
+      name: 'vue',
+      plugins: { vue: pluginVue },
       processor: pluginVue.processors['.vue'],
       rules: {
         ...pluginVue.configs.essential.rules,

@@ -1,5 +1,7 @@
 import { isPackageExists } from 'local-pkg';
 
+import type { FlatConfigItem } from './types';
+
 import ignores from './configs/ignores';
 import imports from './configs/imports';
 import javascript from './configs/javascript';
@@ -7,7 +9,6 @@ import prettier from './configs/prettier';
 import typescript from './configs/typescript';
 import unicorn from './configs/unicorn';
 import vue from './configs/vue';
-import type { FlatConfigItem } from './types';
 import { OptionsConfig } from './types';
 import { getOverrides, resolveSubOptions } from './utils';
 
@@ -17,10 +18,10 @@ export default async function zjutjh(
 ): Promise<FlatConfigItem[]> {
   const {
     componentExts = [],
-    vue: enableVue = isPackageExists('vue'),
-    ts: enableTs = isPackageExists('typescript'),
     ignores: userIgnores,
-    prettier: enablePrettier = true
+    prettier: enablePrettier = true,
+    ts: enableTs = isPackageExists('typescript'),
+    vue: enableVue = isPackageExists('vue')
   } = options;
 
   const configs: FlatConfigItem[][] = [
@@ -44,7 +45,7 @@ export default async function zjutjh(
   }
 
   if (enableVue) {
-    configs.push(await vue({ ts: Boolean(enableTs), overrides: getOverrides(options, 'vue') }));
+    configs.push(await vue({ overrides: getOverrides(options, 'vue'), ts: Boolean(enableTs) }));
   }
 
   // 放到最后，eslint-config-prettier 需要覆盖一些冲突的配置

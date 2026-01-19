@@ -1,10 +1,10 @@
 import { defineConfig } from 'tsdown';
 
 export default defineConfig({
-  entry: ['src/index.ts'],
-  format: ['esm'],
   clean: true,
   dts: true,
-  shims: true,
-  hash: false
+  entry: ['src/index.ts'],
+  format: ['esm'],
+  hash: false,
+  shims: true
 });

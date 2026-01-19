@@ -21,25 +21,25 @@ import { ensurePackages, interopDefault } from '../utils';
  * @see https://prettier.io/docs/options
  */
 const prettierOptions: PrettierOptions = {
-  printWidth: 100,
-  tabWidth: 2,
-  useTabs: false,
-  semi: true,
-  singleQuote: true,
-  quoteProps: 'as-needed',
-  jsxSingleQuote: false,
-  trailingComma: 'none',
-  bracketSpacing: true,
-  bracketSameLine: false,
   arrowParens: 'always',
-  requirePragma: false,
-  insertPragma: false,
-  proseWrap: 'preserve',
-  htmlWhitespaceSensitivity: 'css',
-  vueIndentScriptAndStyle: false,
-  endOfLine: 'lf',
+  bracketSameLine: false,
+  bracketSpacing: true,
   embeddedLanguageFormatting: 'auto',
-  singleAttributePerLine: false
+  endOfLine: 'lf',
+  htmlWhitespaceSensitivity: 'css',
+  insertPragma: false,
+  jsxSingleQuote: false,
+  printWidth: 100,
+  proseWrap: 'preserve',
+  quoteProps: 'as-needed',
+  requirePragma: false,
+  semi: true,
+  singleAttributePerLine: false,
+  singleQuote: true,
+  tabWidth: 2,
+  trailingComma: 'none',
+  useTabs: false,
+  vueIndentScriptAndStyle: false
 };
 
 export default async function prettier(options?: OptionsPrettier): Promise<FlatConfigItem[]> {
@@ -56,9 +56,9 @@ export default async function prettier(options?: OptionsPrettier): Promise<FlatC
   ] as const);
 
   const {
+    css: enableCSSFormat = true,
     es: enableESFormat = true,
     html: enableHTMLFormat = true,
-    css: enableCSSFormat = true,
     json: enableJSONFormat = true
   } = options?.lang ?? {};
 
@@ -68,43 +68,43 @@ export default async function prettier(options?: OptionsPrettier): Promise<FlatC
 
   if (enableESFormat) {
     configs.push({
-      name: 'prettier/es',
       files: [GLOB_VUE, GLOB_TS, GLOB_JS, GLOB_TSX, GLOB_JSX],
+      name: 'prettier/es',
       ...(configPrettier as FlatConfigItem),
       rules: {
-        'prettier/prettier': ['error', mergedPrettierOptions],
-        'arrow-body-style': ['error', 'as-needed']
+        'arrow-body-style': ['error', 'as-needed'],
+        'prettier/prettier': ['error', mergedPrettierOptions]
       }
     });
   }
 
   if (enableCSSFormat) {
     configs.push({
-      name: 'prettier/css',
       files: [GLOB_CSS, GLOB_LESS, GLOB_SCSS],
       languageOptions: { parser: pluginFormat.parserPlain },
+      name: 'prettier/css',
       plugins: { format: pluginFormat },
-      rules: { 'format/prettier': ['error', { parser: 'css', mergedPrettierOptions }] }
+      rules: { 'format/prettier': ['error', { mergedPrettierOptions, parser: 'css' }] }
     });
   }
 
   if (enableHTMLFormat) {
     configs.push({
-      name: 'prettier/html',
       files: [GLOB_HTML],
       languageOptions: { parser: pluginFormat.parserPlain },
+      name: 'prettier/html',
       plugins: { format: pluginFormat },
-      rules: { 'format/prettier': ['error', { parser: 'html', mergedPrettierOptions }] }
+      rules: { 'format/prettier': ['error', { mergedPrettierOptions, parser: 'html' }] }
     });
   }
 
   if (enableJSONFormat) {
     configs.push({
-      name: 'prettier/json',
       files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
       languageOptions: { parser: pluginFormat.parserPlain },
+      name: 'prettier/json',
       plugins: { format: pluginFormat },
-      rules: { 'format/prettier': ['error', { parser: 'json', mergedPrettierOptions }] }
+      rules: { 'format/prettier': ['error', { mergedPrettierOptions, parser: 'json' }] }
     });
   }
 

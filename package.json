@@ -80,7 +80,7 @@
     "@clack/prompts": "catalog:helper",
     "@eslint/js": "catalog:required",
     "eslint-plugin-import": "catalog:required",
-    "eslint-plugin-simple-import-sort": "catalog:required",
+    "eslint-plugin-perfectionist": "catalog:required",
     "eslint-plugin-unicorn": "catalog:required",
     "globals": "catalog:helper",
     "local-pkg": "catalog:helper"

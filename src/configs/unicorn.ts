@@ -9,15 +9,15 @@ export default function unicorn(): FlatConfigItem[] {
       plugins: { unicorn: uniconPlugin },
       rules: {
         ...uniconPlugin.configs.recommended.rules,
-        'unicorn/prevent-abbreviations': 'off',
-        'unicorn/no-array-reduce': 'off',
-        'unicorn/no-null': 'off',
         'unicorn/better-regex': 'error',
+        'unicorn/catch-error-name': 'off',
         'unicorn/explicit-length-check': 'off',
         'unicorn/filename-case': 'off',
-        'unicorn/prefer-import-meta-properties': 'error',
+        'unicorn/no-array-reduce': 'off',
+        'unicorn/no-null': 'off',
         'unicorn/numeric-separators-style': 'off',
-        'unicorn/catch-error-name': 'off'
+        'unicorn/prefer-import-meta-properties': 'error',
+        'unicorn/prevent-abbreviations': 'off'
       }
     }
   ];

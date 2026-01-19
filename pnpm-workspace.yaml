@@ -25,7 +25,7 @@ catalogs:
   required:
     '@eslint/js': ^9.39.2
     eslint-plugin-import: ^2.32.0
-    eslint-plugin-simple-import-sort: ^12.1.1
+    eslint-plugin-perfectionist: ^5.3.1
     eslint-plugin-unicorn: ^62.0.0
   typing:
     '@types/node': ^22.18.9

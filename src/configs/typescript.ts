@@ -8,7 +8,7 @@ import {
 import { ensurePackages, interopDefault } from '../utils';
 
 export default async function typescript(
-  options: OptionsOverrides & OptionsTypeScriptParserOptions & OptionsComponentExts
+  options: OptionsComponentExts & OptionsOverrides & OptionsTypeScriptParserOptions
 ): Promise<FlatConfigItem[]> {
   const { componentExts = [], overrides, parserOptions } = options;
 
@@ -23,19 +23,19 @@ export default async function typescript(
 
   return [
     {
-      name: 'typescript/setup',
-      plugins: { '@typescript-eslint': pluginTs },
       files,
       languageOptions: {
         parser: parserTs,
         parserOptions: {
           ecmaVersion: 2022,
-          sourceType: 'module',
           projectService: { allowDefaultProject: ['./*.js'], defaultProject: './tsconfig.json' },
+          sourceType: 'module',
           tsconfigRootDir: process.cwd(),
           ...parserOptions
         }
       },
+      name: 'typescript/setup',
+      plugins: { '@typescript-eslint': pluginTs },
       rules: {
         ...pluginTs.configs.strict.rules,
         '@typescript-eslint/no-unused-expressions': [

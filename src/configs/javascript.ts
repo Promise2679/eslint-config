@@ -24,6 +24,7 @@ export default function javascript(): FlatConfigItem[] {
       rules: {
         ...eslintJS.configs.recommended.rules,
         camelcase: 'error',
+        curly: ['error', 'multi'],
         'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
         'no-else-return': ['error', { allowElseIf: false }],
         'no-implicit-coercion': 'error',

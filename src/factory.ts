@@ -34,7 +34,7 @@ export default async function zjutjh(
   if (enableVue) componentExts.push('vue');
 
   const typescriptOptions = resolveSubOptions(options, 'ts');
-  if (enableTs) {
+  if (enableTs)
     configs.push(
       await typescript({
         ...typescriptOptions,
@@ -42,11 +42,9 @@ export default async function zjutjh(
         overrides: getOverrides(options, 'ts')
       })
     );
-  }
 
-  if (enableVue) {
+  if (enableVue)
     configs.push(await vue({ overrides: getOverrides(options, 'vue'), ts: Boolean(enableTs) }));
-  }
 
   // 放到最后，eslint-config-prettier 需要覆盖一些冲突的配置
   const codeStyleOptions = resolveSubOptions(options, 'prettier');

@@ -11,6 +11,7 @@ export default function unicorn(): FlatConfigItem[] {
         ...uniconPlugin.configs.recommended.rules,
         'unicorn/better-regex': 'error',
         'unicorn/catch-error-name': 'off',
+        'unicorn/error-message': 'off',
         'unicorn/explicit-length-check': 'off',
         'unicorn/filename-case': 'off',
         'unicorn/no-array-reduce': 'off',

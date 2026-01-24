@@ -23,6 +23,7 @@ export default function javascript(): FlatConfigItem[] {
       name: 'javascript',
       rules: {
         ...eslintJS.configs.recommended.rules,
+        'arrow-body-style': 'error',
         camelcase: 'error',
         curly: ['error', 'multi'],
         'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
@@ -33,7 +34,7 @@ export default function javascript(): FlatConfigItem[] {
         'no-undef': 'off',
         'no-unneeded-ternary': 'error',
         'no-useless-concat': 'error',
-        'no-useless-return': 'error',
+        'no-useless-return': 'off',
         'no-var': 'error',
         'no-warning-comments': 'warn',
         'prefer-const': 'error',

@@ -57,10 +57,7 @@ export default async function prettier(options?: OptionsPrettier): Promise<FlatC
       files: [GLOB_VUE, GLOB_TS, GLOB_JS, GLOB_TSX, GLOB_JSX],
       name: 'prettier/es',
       ...(configPrettier as FlatConfigItem),
-      rules: {
-        'arrow-body-style': ['error', 'as-needed'],
-        'prettier/prettier': ['error', mergedPrettierOptions]
-      }
+      rules: { 'prettier/prettier': ['error', mergedPrettierOptions] }
     });
 
   if (enableCSSFormat)

@@ -4,6 +4,7 @@ import type { FlatConfigItem } from './types';
 
 import ignores from './configs/ignores';
 import javascript from './configs/javascript';
+import misc from './configs/misc';
 import prettier from './configs/prettier';
 import sort from './configs/sort';
 import typescript from './configs/typescript';
@@ -24,7 +25,13 @@ export default async function zjutjh(
     vue: enableVue = isPackageExists('vue')
   } = options;
 
-  const configs: FlatConfigItem[][] = [ignores({ userIgnores }), javascript(), sort(), unicorn()];
+  const configs: FlatConfigItem[][] = [
+    ignores({ userIgnores }),
+    javascript(),
+    misc(),
+    sort(),
+    unicorn()
+  ];
 
   if (enableVue) componentExts.push('vue');
 

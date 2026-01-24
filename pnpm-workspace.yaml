@@ -26,6 +26,7 @@ catalogs:
     '@eslint/js': ^9.39.2
     eslint-plugin-import: ^2.32.0
     eslint-plugin-perfectionist: ^5.4.0
+    eslint-plugin-sonarjs: ^3.0.5
     eslint-plugin-unicorn: ^62.0.0
   typing:
     '@types/node': ^22.19.7

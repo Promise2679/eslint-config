@@ -1,11 +1,11 @@
 {
-  "name": "@zjutjh/eslint-config",
+  "name": "eslint-config",
   "type": "module",
   "version": "0.8.0",
   "license": "ISC",
-  "author": "zjutjh",
-  "packageManager": "pnpm@10.18.0",
-  "description": "Eslint config used by zjutjh",
+  "author": "Promise2679",
+  "packageManager": "pnpm@10.28.1",
+  "description": "Eslint config used by Promise2679",
   "scripts": {
     "build": "tsdown",
     "lint": "eslint .",
@@ -21,8 +21,8 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.mts"
     }
   },
   "engines": {
@@ -30,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zjutjh/eslint-config.git"
+    "url": "https://github.com/Promise2679/eslint-config.git"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

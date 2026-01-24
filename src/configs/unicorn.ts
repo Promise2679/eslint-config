@@ -1,4 +1,4 @@
-import uniconPlugin from 'eslint-plugin-unicorn';
+import unicornPlugin from 'eslint-plugin-unicorn';
 
 import type { FlatConfigItem } from '../types';
 
@@ -6,9 +6,9 @@ export default function unicorn(): FlatConfigItem[] {
   return [
     {
       name: 'unicorn',
-      plugins: { unicorn: uniconPlugin },
+      plugins: { unicorn: unicornPlugin },
       rules: {
-        ...uniconPlugin.configs.recommended.rules,
+        ...unicornPlugin.configs.recommended.rules,
         'unicorn/better-regex': 'error',
         'unicorn/catch-error-name': 'off',
         'unicorn/empty-brace-spaces': 'off',

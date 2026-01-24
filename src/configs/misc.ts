@@ -6,7 +6,10 @@ export default function misc(): FlatConfigItem[] {
     {
       name: 'sonarjs',
       plugins: { sonarjs: sonarjsPlugin },
-      rules: { ...(sonarjsPlugin.configs.recommended.rules as FlatConfigItem['rules']) }
+      rules: {
+        ...(sonarjsPlugin.configs.recommended.rules as FlatConfigItem['rules']),
+        'sonarjs/unused-import': 'off'
+      }
     }
   ];
 }

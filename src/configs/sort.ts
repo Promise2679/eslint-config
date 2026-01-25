@@ -1,7 +1,7 @@
-import eslintImportPlugin from 'eslint-plugin-import';
-import perfectionistPlugin from 'eslint-plugin-perfectionist';
+import eslintImportPlugin from 'eslint-plugin-import'
+import perfectionistPlugin from 'eslint-plugin-perfectionist'
 
-import type { FlatConfigItem } from '../types';
+import type { FlatConfigItem } from '../types'
 
 export default function sort(): FlatConfigItem[] {
   return [
@@ -10,5 +10,5 @@ export default function sort(): FlatConfigItem[] {
       plugins: { import: eslintImportPlugin, perfectionist: perfectionistPlugin },
       rules: { ...perfectionistPlugin.configs['recommended-alphabetical'].rules, 'import/no-duplicates': 'error' }
     }
-  ];
+  ]
 }

@@ -1,5 +1,5 @@
-import sonarjsPlugin from 'eslint-plugin-sonarjs';
-import { FlatConfigItem } from 'src/types';
+import sonarjsPlugin from 'eslint-plugin-sonarjs'
+import { FlatConfigItem } from 'src/types'
 
 export default function misc(): FlatConfigItem[] {
   return [
@@ -21,5 +21,5 @@ export default function misc(): FlatConfigItem[] {
         'sonarjs/unused-import': 'off'
       }
     }
-  ];
+  ]
 }

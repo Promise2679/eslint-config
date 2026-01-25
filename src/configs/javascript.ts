@@ -1,7 +1,7 @@
-import eslintJS from '@eslint/js';
-import globals from 'globals';
+import eslintJS from '@eslint/js'
+import globals from 'globals'
 
-import type { FlatConfigItem } from '../types';
+import type { FlatConfigItem } from '../types'
 
 export default function javascript(): FlatConfigItem[] {
   return [
@@ -41,5 +41,5 @@ export default function javascript(): FlatConfigItem[] {
         'prefer-template': 'error'
       }
     }
-  ];
+  ]
 }

@@ -1,4 +1,4 @@
-import { Options as PrettierOptions } from 'prettier';
+import { Options as PrettierOptions } from 'prettier'
 
 import {
   GLOB_CSS,
@@ -13,9 +13,9 @@ import {
   GLOB_TS,
   GLOB_TSX,
   GLOB_VUE
-} from '../globs';
-import { FlatConfigItem, OptionsPrettier } from '../types';
-import { ensurePackages, interopDefault } from '../utils';
+} from '../globs'
+import { FlatConfigItem, OptionsPrettier } from '../types'
+import { ensurePackages, interopDefault } from '../utils'
 
 /**
  * @see https://prettier.io/docs/options
@@ -24,28 +24,29 @@ const prettierOptions: PrettierOptions = {
   arrowParens: 'avoid',
   objectWrap: 'collapse',
   printWidth: 120,
+  semi: false,
   singleQuote: true,
   trailingComma: 'none'
-};
+}
 
 export default async function prettier(options?: OptionsPrettier): Promise<FlatConfigItem[]> {
-  await ensurePackages(['eslint-plugin-format', 'eslint-plugin-prettier', 'eslint-config-prettier', 'prettier']);
+  await ensurePackages(['eslint-plugin-format', 'eslint-plugin-prettier', 'eslint-config-prettier', 'prettier'])
 
   const [configPrettier, pluginFormat] = await Promise.all([
     interopDefault(import('eslint-plugin-prettier/recommended')),
     interopDefault(import('eslint-plugin-format'))
-  ] as const);
+  ] as const)
 
   const {
     css: enableCSSFormat = true,
     es: enableESFormat = true,
     html: enableHTMLFormat = true,
     json: enableJSONFormat = true
-  } = options?.lang ?? {};
+  } = options?.lang ?? {}
 
-  const mergedPrettierOptions = { ...prettierOptions, ...options?.prettierSelfOptions };
+  const mergedPrettierOptions = { ...prettierOptions, ...options?.prettierSelfOptions }
 
-  const configs: FlatConfigItem[] = [];
+  const configs: FlatConfigItem[] = []
 
   if (enableESFormat)
     configs.push({
@@ -53,7 +54,7 @@ export default async function prettier(options?: OptionsPrettier): Promise<FlatC
       name: 'prettier/es',
       ...(configPrettier as FlatConfigItem),
       rules: { 'prettier/prettier': ['error', mergedPrettierOptions] }
-    });
+    })
 
   if (enableCSSFormat)
     configs.push({
@@ -62,7 +63,7 @@ export default async function prettier(options?: OptionsPrettier): Promise<FlatC
       name: 'prettier/css',
       plugins: { format: pluginFormat },
       rules: { 'format/prettier': ['error', { mergedPrettierOptions, parser: 'css' }] }
-    });
+    })
 
   if (enableHTMLFormat)
     configs.push({
@@ -71,7 +72,7 @@ export default async function prettier(options?: OptionsPrettier): Promise<FlatC
       name: 'prettier/html',
       plugins: { format: pluginFormat },
       rules: { 'format/prettier': ['error', { mergedPrettierOptions, parser: 'html' }] }
-    });
+    })
 
   if (enableJSONFormat)
     configs.push({
@@ -80,7 +81,7 @@ export default async function prettier(options?: OptionsPrettier): Promise<FlatC
       name: 'prettier/json',
       plugins: { format: pluginFormat },
       rules: { 'format/prettier': ['error', { mergedPrettierOptions, parser: 'json' }] }
-    });
+    })
 
-  return configs;
+  return configs
 }

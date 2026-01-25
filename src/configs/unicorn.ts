@@ -1,6 +1,6 @@
-import unicornPlugin from 'eslint-plugin-unicorn';
+import unicornPlugin from 'eslint-plugin-unicorn'
 
-import type { FlatConfigItem } from '../types';
+import type { FlatConfigItem } from '../types'
 
 export default function unicorn(): FlatConfigItem[] {
   return [
@@ -24,5 +24,5 @@ export default function unicorn(): FlatConfigItem[] {
         'unicorn/switch-case-braces': ['error', 'avoid']
       }
     }
-  ];
+  ]
 }

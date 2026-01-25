@@ -1,14 +1,14 @@
-import { GLOB_VUE } from '../globs';
-import { FlatConfigItem, OptionsOverrides, OptionsVue } from '../types';
-import { ensurePackages, interopDefault } from '../utils';
+import { GLOB_VUE } from '../globs'
+import { FlatConfigItem, OptionsOverrides, OptionsVue } from '../types'
+import { ensurePackages, interopDefault } from '../utils'
 
 export default async function vue(options?: OptionsOverrides & OptionsVue): Promise<FlatConfigItem[]> {
-  await ensurePackages(['eslint-plugin-vue', 'vue-eslint-parser']);
+  await ensurePackages(['eslint-plugin-vue', 'vue-eslint-parser'])
 
   const [pluginVue, parserVue] = await Promise.all([
     interopDefault(import('eslint-plugin-vue')),
     interopDefault(import('vue-eslint-parser'))
-  ] as const);
+  ] as const)
 
   return [
     {
@@ -33,5 +33,5 @@ export default async function vue(options?: OptionsOverrides & OptionsVue): Prom
         ...options?.overrides
       }
     }
-  ];
+  ]
 }

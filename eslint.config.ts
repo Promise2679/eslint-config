@@ -1,3 +1,3 @@
-import promise from './src';
+import promise from './src'
 
-export default promise();
+export default promise()

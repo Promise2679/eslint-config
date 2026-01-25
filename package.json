@@ -8,13 +8,13 @@
   "description": "Eslint config used by Promise2679",
   "scripts": {
     "build": "tsdown",
-    "lint": "eslint .",
+    "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "typegen": "jiti scripts/typegen.ts",
     "postinstall": "npx simple-git-hooks"
   },
   "lint-staged": {
-    "*.ts": "eslint --fix"
+    "*.ts": "eslint"
   },
   "files": [
     "dist"

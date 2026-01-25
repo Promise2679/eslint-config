@@ -25,32 +25,19 @@ export default async function zjutjh(
     vue: enableVue = isPackageExists('vue')
   } = options;
 
-  const configs: FlatConfigItem[][] = [
-    ignores({ userIgnores }),
-    javascript(),
-    misc(),
-    sort(),
-    unicorn()
-  ];
+  const configs = [ignores({ userIgnores }), javascript(), misc(), sort(), unicorn()];
 
   if (enableVue) componentExts.push('vue');
 
   const typescriptOptions = resolveSubOptions(options, 'ts');
   if (enableTs)
-    configs.push(
-      await typescript({
-        ...typescriptOptions,
-        componentExts,
-        overrides: getOverrides(options, 'ts')
-      })
-    );
+    configs.push(await typescript({ ...typescriptOptions, componentExts, overrides: getOverrides(options, 'ts') }));
 
-  if (enableVue)
-    configs.push(await vue({ overrides: getOverrides(options, 'vue'), ts: Boolean(enableTs) }));
+  if (enableVue) configs.push(await vue({ overrides: getOverrides(options, 'vue'), ts: Boolean(enableTs) }));
 
   // 放到最后，eslint-config-prettier 需要覆盖一些冲突的配置
   const codeStyleOptions = resolveSubOptions(options, 'prettier');
   if (enablePrettier) configs.push(await prettier(codeStyleOptions));
 
-  return [...configs.flat(), ...userConfigs] as FlatConfigItem[];
+  return [...configs.flat(), ...userConfigs];
 }

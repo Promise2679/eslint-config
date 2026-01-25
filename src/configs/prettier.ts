@@ -23,18 +23,13 @@ import { ensurePackages, interopDefault } from '../utils';
 const prettierOptions: PrettierOptions = {
   arrowParens: 'avoid',
   objectWrap: 'collapse',
-  printWidth: 100,
+  printWidth: 120,
   singleQuote: true,
   trailingComma: 'none'
 };
 
 export default async function prettier(options?: OptionsPrettier): Promise<FlatConfigItem[]> {
-  await ensurePackages([
-    'eslint-plugin-format',
-    'eslint-plugin-prettier',
-    'eslint-config-prettier',
-    'prettier'
-  ]);
+  await ensurePackages(['eslint-plugin-format', 'eslint-plugin-prettier', 'eslint-config-prettier', 'prettier']);
 
   const [configPrettier, pluginFormat] = await Promise.all([
     interopDefault(import('eslint-plugin-prettier/recommended')),

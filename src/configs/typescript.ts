@@ -1,10 +1,5 @@
 import { GLOB_TS, GLOB_TSX } from '../globs';
-import {
-  FlatConfigItem,
-  OptionsComponentExts,
-  OptionsOverrides,
-  OptionsTypeScriptParserOptions
-} from '../types';
+import { FlatConfigItem, OptionsComponentExts, OptionsOverrides, OptionsTypeScriptParserOptions } from '../types';
 import { ensurePackages, interopDefault } from '../utils';
 
 export default async function typescript(

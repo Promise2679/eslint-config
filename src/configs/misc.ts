@@ -8,6 +8,8 @@ export default function misc(): FlatConfigItem[] {
       plugins: { sonarjs: sonarjsPlugin },
       rules: {
         ...(sonarjsPlugin.configs.recommended.rules as FlatConfigItem['rules']),
+        'sonarjs/no-dead-store': 'off',
+        'sonarjs/no-unused-vars': 'off',
         'sonarjs/unused-import': 'off'
       }
     }

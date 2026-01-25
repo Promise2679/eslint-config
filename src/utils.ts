@@ -22,16 +22,11 @@ export async function ensurePackages(packages: (string | undefined)[]): Promise<
   }
 }
 
-export function getOverrides<K extends keyof OverridesConfigs>(
-  options: OptionsConfig,
-  key: K
-): Linter.RulesRecord {
+export function getOverrides<K extends keyof OverridesConfigs>(options: OptionsConfig, key: K): Linter.RulesRecord {
   return { ...options.overrides?.[key] };
 }
 
-export async function interopDefault<T>(
-  m: Awaitable<T>
-): Promise<T extends { default: infer U } ? U : T> {
+export async function interopDefault<T>(m: Awaitable<T>): Promise<T extends { default: infer U } ? U : T> {
   const resolved = (await m) as { default?: unknown };
   return (resolved.default || resolved) as T extends { default: infer U } ? U : T;
 }

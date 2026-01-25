@@ -27,7 +27,9 @@ export default async function vue(options?: OptionsOverrides & OptionsVue): Prom
       processor: pluginVue.processors['.vue'],
       rules: {
         ...pluginVue.configs.essential.rules,
+        'vue/multi-word-component-names': 'off',
         'vue/prefer-true-attribute-shorthand': 'error',
+        'vue/return-in-computed-property': 'off',
         ...options?.overrides
       }
     }

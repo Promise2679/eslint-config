@@ -1,8 +1,8 @@
 import { Linter } from 'eslint';
 import typegen from 'eslint-typegen';
 
-import zjutjh from '../src';
+import promise from '../src';
 
-const configs = await zjutjh({ ts: true, vue: true });
+const configs = await promise({ ts: true, vue: true });
 
 typegen(configs as Linter.Config[], { dtsPath: 'src/typegen.d.ts' });

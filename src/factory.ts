@@ -13,7 +13,7 @@ import vue from './configs/vue';
 import { OptionsConfig } from './types';
 import { getOverrides, resolveSubOptions } from './utils';
 
-export default async function zjutjh(
+export default async function promise(
   options: OptionsConfig = {},
   ...userConfigs: FlatConfigItem[]
 ): Promise<FlatConfigItem[]> {

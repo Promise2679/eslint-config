@@ -1,3 +1,3 @@
-import zjutjh from './src';
+import promise from './src';
 
-export default zjutjh();
+export default promise();

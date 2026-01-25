@@ -17,9 +17,11 @@ export default function unicorn(): FlatConfigItem[] {
         'unicorn/filename-case': 'off',
         'unicorn/no-array-reduce': 'off',
         'unicorn/no-null': 'off',
+        'unicorn/no-static-only-class': 'off',
         'unicorn/numeric-separators-style': 'off',
         'unicorn/prefer-import-meta-properties': 'error',
-        'unicorn/prevent-abbreviations': 'off'
+        'unicorn/prevent-abbreviations': 'off',
+        'unicorn/switch-case-braces': ['error', 'avoid']
       }
     }
   ];

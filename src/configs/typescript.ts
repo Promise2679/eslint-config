@@ -12,9 +12,9 @@ export default async function typescript(
   await ensurePackages(['@typescript-eslint/eslint-plugin', '@typescript-eslint/parser'])
 
   const [pluginTs, parserTs] = await Promise.all([
-    await interopDefault(import('@typescript-eslint/eslint-plugin')),
-    await interopDefault(import('@typescript-eslint/parser'))
-  ] as const)
+    interopDefault(import('@typescript-eslint/eslint-plugin')),
+    interopDefault(import('@typescript-eslint/parser'))
+  ])
 
   return [
     {
@@ -32,11 +32,23 @@ export default async function typescript(
       name: 'typescript/setup',
       plugins: { '@typescript-eslint': pluginTs },
       rules: {
-        ...pluginTs.configs.strict.rules,
+        ...pluginTs.configs['strict-type-checked'].rules,
+        ...pluginTs.configs['stylistic-type-checked'].rules,
+        '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
+        '@typescript-eslint/no-deprecated': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
         '@typescript-eslint/no-unused-expressions': [
           'error',
           { allowShortCircuit: true, allowTaggedTemplates: true, allowTernary: true }
         ],
+        '@typescript-eslint/prefer-find': 'off',
+        '@typescript-eslint/prefer-for-of': 'off',
+        '@typescript-eslint/prefer-includes': 'off',
+        '@typescript-eslint/prefer-promise-reject-errors': 'off',
+        '@typescript-eslint/restrict-template-expressions': 'error',
         ...overrides
       }
     }

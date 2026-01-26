@@ -6,7 +6,7 @@ import type { RuleOptions } from './typegen'
 
 export type FlatConfigItem = {
   plugins?: Record<string, unknown>
-  rules?: { [key: string]: Linter.RuleEntry } & RuleOptions
+  rules?: Record<string, Linter.RuleEntry> & RuleOptions
 } & Omit<Linter.Config, 'plugins' | 'rules'>
 
 export interface OptionsComponentExts {
@@ -27,6 +27,7 @@ export interface OptionsIgnores {
 
 export interface OptionsOverrides {
   overrides?: Linter.RulesRecord
+  ts?: boolean
 }
 
 export interface OptionsPrettier {
@@ -45,10 +46,6 @@ export interface OptionsPrettier {
 
 export interface OptionsTypeScriptParserOptions {
   parserOptions?: Partial<ParserOptions>
-}
-
-export interface OptionsVue {
-  ts: boolean
 }
 
 export interface OverridesConfigs {

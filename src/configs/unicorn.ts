@@ -1,8 +1,9 @@
 import unicornPlugin from 'eslint-plugin-unicorn'
 
-import type { FlatConfigItem } from '../types'
+import type { FlatConfigItem, OptionsOverrides } from '../types'
 
-export default function unicorn(): FlatConfigItem[] {
+export default function unicorn(options?: OptionsOverrides): FlatConfigItem[] {
+  const enableTs = options?.ts
   return [
     {
       name: 'unicorn',
@@ -20,6 +21,7 @@ export default function unicorn(): FlatConfigItem[] {
         'unicorn/no-static-only-class': 'off',
         'unicorn/numeric-separators-style': 'off',
         'unicorn/prefer-import-meta-properties': 'error',
+        'unicorn/prefer-string-starts-ends-with': enableTs ? 'off' : 'error',
         'unicorn/prevent-abbreviations': 'off',
         'unicorn/switch-case-braces': ['error', 'avoid']
       }

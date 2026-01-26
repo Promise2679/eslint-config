@@ -13,10 +13,7 @@ import vue from './configs/vue'
 import { OptionsConfig } from './types'
 import { getOverrides, resolveSubOptions } from './utils'
 
-export default async function promise(
-  options: OptionsConfig = {},
-  ...userConfigs: FlatConfigItem[]
-): Promise<FlatConfigItem[]> {
+export default async function promise(options: OptionsConfig = {}, ...userConfigs: FlatConfigItem[]) {
   const {
     componentExts = [],
     ignores: userIgnores,
@@ -25,7 +22,13 @@ export default async function promise(
     vue: enableVue = isPackageExists('vue')
   } = options
 
-  const configs = [ignores({ userIgnores }), javascript(), misc(), sort(), unicorn()]
+  const configs = [
+    ignores({ userIgnores }),
+    javascript(),
+    misc({ ts: Boolean(enableTs) }),
+    sort(),
+    unicorn({ ts: Boolean(enableTs) })
+  ]
 
   if (enableVue) componentExts.push('vue')
 

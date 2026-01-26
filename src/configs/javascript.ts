@@ -26,6 +26,7 @@ export default function javascript(): FlatConfigItem[] {
         'arrow-body-style': 'error',
         camelcase: 'error',
         curly: ['error', 'multi'],
+        'dot-notation': 'error',
         'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
         'no-else-return': ['error', { allowElseIf: false }],
         'no-implicit-coercion': 'error',

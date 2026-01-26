@@ -7,7 +7,7 @@ export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>
 
 type Awaitable<T> = Promise<T> | T
 
-export async function ensurePackages(packages: (string | undefined)[]): Promise<void> {
+export async function ensurePackages(packages: Array<string | undefined>) {
   const nonExistingPackages = packages.filter(i => i && !isPackageExists(i)) as string[]
   if (nonExistingPackages.length === 0) return
 
@@ -22,13 +22,13 @@ export async function ensurePackages(packages: (string | undefined)[]): Promise<
   }
 }
 
-export function getOverrides<K extends keyof OverridesConfigs>(options: OptionsConfig, key: K): Linter.RulesRecord {
+export function getOverrides(options: OptionsConfig, key: keyof OverridesConfigs): Linter.RulesRecord {
   return { ...options.overrides?.[key] }
 }
 
 export async function interopDefault<T>(m: Awaitable<T>): Promise<T extends { default: infer U } ? U : T> {
   const resolved = (await m) as { default?: unknown }
-  return (resolved.default || resolved) as T extends { default: infer U } ? U : T
+  return (resolved.default ?? resolved) as T extends { default: infer U } ? U : T
 }
 
 export function resolveSubOptions<K extends keyof OptionsConfig>(

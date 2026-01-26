@@ -29,13 +29,13 @@ const prettierOptions: PrettierOptions = {
   trailingComma: 'none'
 }
 
-export default async function prettier(options?: OptionsPrettier): Promise<FlatConfigItem[]> {
+export default async function prettier(options?: OptionsPrettier) {
   await ensurePackages(['eslint-plugin-format', 'eslint-plugin-prettier', 'eslint-config-prettier', 'prettier'])
 
   const [configPrettier, pluginFormat] = await Promise.all([
     interopDefault(import('eslint-plugin-prettier/recommended')),
     interopDefault(import('eslint-plugin-format'))
-  ] as const)
+  ])
 
   const {
     css: enableCSSFormat = true,
@@ -52,7 +52,7 @@ export default async function prettier(options?: OptionsPrettier): Promise<FlatC
     configs.push({
       files: [GLOB_VUE, GLOB_TS, GLOB_JS, GLOB_TSX, GLOB_JSX],
       name: 'prettier/es',
-      ...(configPrettier as FlatConfigItem),
+      ...configPrettier,
       rules: { 'prettier/prettier': ['error', mergedPrettierOptions] }
     })
 

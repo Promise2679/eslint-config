@@ -1,13 +1,13 @@
-import { GLOB_TS, GLOB_TSX } from '../globs'
-import { FlatConfigItem, OptionsComponentExts, OptionsOverrides, OptionsTypeScriptParserOptions } from '../types'
+import { GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
+import { FlatConfigItem, OptionsOverrides, OptionsTypeScriptParserOptions } from '../types'
 import { ensurePackages, interopDefault } from '../utils'
 
 export default async function typescript(
-  options: OptionsComponentExts & OptionsOverrides & OptionsTypeScriptParserOptions
+  options: OptionsOverrides & OptionsTypeScriptParserOptions
 ): Promise<FlatConfigItem[]> {
-  const { componentExts = [], overrides, parserOptions } = options
+  const { overrides, parserOptions } = options
 
-  const files = [GLOB_TS, GLOB_TSX, ...componentExts.map(ext => `**/*.${ext}`)]
+  const files = [GLOB_TS, GLOB_TSX, GLOB_VUE]
 
   await ensurePackages(['@typescript-eslint/eslint-plugin', '@typescript-eslint/parser'])
 

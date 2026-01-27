@@ -1,5 +1,7 @@
+import { Linter } from 'eslint'
 import sonarjsPlugin from 'eslint-plugin-sonarjs'
-import { FlatConfigItem, OptionsOverrides } from 'src/types'
+
+import { FlatConfigItem, OptionsOverrides } from '../types'
 
 export default function misc(options?: OptionsOverrides): FlatConfigItem[] {
   const enableTs = options?.ts
@@ -8,7 +10,7 @@ export default function misc(options?: OptionsOverrides): FlatConfigItem[] {
       name: 'sonarjs',
       plugins: { sonarjs: sonarjsPlugin },
       rules: {
-        ...sonarjsPlugin.configs.recommended.rules,
+        ...(sonarjsPlugin.configs?.recommended as Linter.Config).rules,
         'sonarjs/cognitive-complexity': 'off',
         'sonarjs/concise-regex': 'off',
         'sonarjs/function-return-type': 'off',

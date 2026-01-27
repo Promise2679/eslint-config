@@ -15,7 +15,6 @@ import { getOverrides, resolveSubOptions } from './utils'
 
 export default async function promise(options: OptionsConfig = {}, ...userConfigs: FlatConfigItem[]) {
   const {
-    componentExts = [],
     ignores: userIgnores,
     prettier: enablePrettier = true,
     ts: enableTs = isPackageExists('typescript'),
@@ -30,11 +29,8 @@ export default async function promise(options: OptionsConfig = {}, ...userConfig
     unicorn({ ts: Boolean(enableTs) })
   ]
 
-  if (enableVue) componentExts.push('vue')
-
   const typescriptOptions = resolveSubOptions(options, 'ts')
-  if (enableTs)
-    configs.push(await typescript({ ...typescriptOptions, componentExts, overrides: getOverrides(options, 'ts') }))
+  if (enableTs) configs.push(await typescript({ ...typescriptOptions, overrides: getOverrides(options, 'ts') }))
 
   if (enableVue) configs.push(await vue({ overrides: getOverrides(options, 'vue'), ts: Boolean(enableTs) }))
 

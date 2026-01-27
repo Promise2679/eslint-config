@@ -9,11 +9,7 @@ export type FlatConfigItem = {
   rules?: Record<string, Linter.RuleEntry> & RuleOptions
 } & Omit<Linter.Config, 'plugins' | 'rules'>
 
-export interface OptionsComponentExts {
-  componentExts?: string[]
-}
-
-export interface OptionsConfig extends OptionsComponentExts {
+export interface OptionsConfig {
   ignores?: string[]
   overrides?: OverridesConfigs
   prettier?: boolean | OptionsPrettier

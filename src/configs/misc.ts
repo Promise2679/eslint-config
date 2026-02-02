@@ -1,10 +1,9 @@
 import { Linter } from 'eslint'
 import sonarjsPlugin from 'eslint-plugin-sonarjs'
 
-import { FlatConfigItem, OptionsOverrides } from '../types'
+import { FlatConfigItem } from '../types'
 
-export default function misc(options?: OptionsOverrides): FlatConfigItem[] {
-  const enableTs = options?.ts
+export default function misc(enableTs: boolean): FlatConfigItem[] {
   return [
     {
       name: 'sonarjs',

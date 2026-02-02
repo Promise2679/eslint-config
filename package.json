@@ -38,9 +38,6 @@
   "simple-git-hooks": {
     "pre-commit": "pnpx lint-staged"
   },
-  "peerDependencies": {
-    "eslint": "catalog:binary"
-  },
   "dependencies": {
     "@antfu/install-pkg": "catalog:helper",
     "@clack/prompts": "catalog:helper",
@@ -68,5 +65,42 @@
     "tsdown": "catalog:infra",
     "typescript": "catalog:infra",
     "vue-eslint-parser": "catalog:optional"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "catalog:optional",
+    "@typescript-eslint/parser": "catalog:optional",
+    "eslint": "catalog:binary",
+    "eslint-config-prettier": "catalog:optional",
+    "eslint-plugin-format": "catalog:optional",
+    "eslint-plugin-prettier": "catalog:optional",
+    "eslint-plugin-vue": "catalog:optional",
+    "vue-eslint-parser": "catalog:optional",
+    "prettier": "catalog:optional"
+  },
+  "peerDependenciesMeta": {
+    "@typescript-eslint/eslint-plugin": {
+      "optional": true
+    },
+    "@typescript-eslint/parser": {
+      "optional": true
+    },
+    "eslint-config-prettier": {
+      "optional": true
+    },
+    "eslint-plugin-format": {
+      "optional": true
+    },
+    "eslint-plugin-prettier": {
+      "optional": true
+    },
+    "eslint-plugin-vue": {
+      "optional": true
+    },
+    "vue-eslint-parser": {
+      "optional": true
+    },
+    "prettier": {
+      "optional": true
+    }
   }
 }

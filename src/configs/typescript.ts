@@ -1,14 +1,8 @@
 import { GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
-import { FlatConfigItem, OptionsOverrides, OptionsTypeScriptParserOptions } from '../types'
+import { FlatConfigItem } from '../types'
 import { ensurePackages, interopDefault } from '../utils'
 
-export default async function typescript(
-  options: OptionsOverrides & OptionsTypeScriptParserOptions
-): Promise<FlatConfigItem[]> {
-  const { overrides, parserOptions } = options
-
-  const files = [GLOB_TS, GLOB_TSX, GLOB_VUE]
-
+export default async function typescript(): Promise<FlatConfigItem[]> {
   await ensurePackages(['@typescript-eslint/eslint-plugin', '@typescript-eslint/parser'])
 
   const [pluginTs, parserTs] = await Promise.all([
@@ -18,15 +12,14 @@ export default async function typescript(
 
   return [
     {
-      files,
+      files: [GLOB_TS, GLOB_TSX, GLOB_VUE],
       languageOptions: {
         parser: parserTs,
         parserOptions: {
           ecmaVersion: 2022,
           projectService: { allowDefaultProject: ['./*.js'], defaultProject: './tsconfig.json' },
           sourceType: 'module',
-          tsconfigRootDir: process.cwd(),
-          ...parserOptions
+          tsconfigRootDir: process.cwd()
         }
       },
       name: 'typescript/setup',
@@ -49,8 +42,7 @@ export default async function typescript(
         '@typescript-eslint/prefer-for-of': 'off',
         '@typescript-eslint/prefer-includes': 'off',
         '@typescript-eslint/prefer-promise-reject-errors': 'off',
-        '@typescript-eslint/restrict-template-expressions': 'error',
-        ...overrides
+        '@typescript-eslint/restrict-template-expressions': 'error'
       }
     }
   ]

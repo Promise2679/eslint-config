@@ -1,9 +1,8 @@
 import unicornPlugin from 'eslint-plugin-unicorn'
 
-import type { FlatConfigItem, OptionsOverrides } from '../types'
+import type { FlatConfigItem } from '../types'
 
-export default function unicorn(options?: OptionsOverrides): FlatConfigItem[] {
-  const enableTs = options?.ts
+export default function unicorn(enableTs: boolean): FlatConfigItem[] {
   return [
     {
       name: 'unicorn',

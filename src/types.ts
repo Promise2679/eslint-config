@@ -1,4 +1,3 @@
-import { ParserOptions } from '@typescript-eslint/parser'
 import { Linter } from 'eslint'
 import { Options as PrettierOptions } from 'prettier'
 
@@ -10,41 +9,22 @@ export type FlatConfigItem = {
 } & Omit<Linter.Config, 'plugins' | 'rules'>
 
 export interface OptionsConfig {
+  enable?: { ts?: boolean; vue?: boolean }
   ignores?: string[]
-  overrides?: OverridesConfigs
   prettier?: boolean | OptionsPrettier
-  ts?: boolean | OptionsTypeScriptParserOptions
-  vue?: boolean
-}
-
-export interface OptionsIgnores {
-  userIgnores?: string[]
-}
-
-export interface OptionsOverrides {
-  overrides?: Linter.RulesRecord
-  ts?: boolean
+  rules?: FlatConfigItem['rules']
 }
 
 export interface OptionsPrettier {
   /** 对哪些文件启用 prettier，默认全部启用 */
   lang?: {
     /** css, less, scss 文件 */
-    css: boolean
+    css?: boolean
     /** js, ts, vue 文件 */
-    es: boolean
-    html: boolean
+    es?: boolean
+    html?: boolean
     /** json, json5, jsonc 文件 */
-    json: boolean
+    json?: boolean
   }
   prettierSelfOptions?: PrettierOptions
-}
-
-export interface OptionsTypeScriptParserOptions {
-  parserOptions?: Partial<ParserOptions>
-}
-
-export interface OverridesConfigs {
-  ts?: Linter.RulesRecord
-  vue?: Linter.RulesRecord
 }

@@ -1,7 +1,6 @@
-import { Linter } from 'eslint'
 import { isPackageExists } from 'local-pkg'
 
-import { OptionsConfig, OverridesConfigs } from './types'
+import { OptionsConfig } from './types'
 
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>
 
@@ -20,10 +19,6 @@ export async function ensurePackages(packages: Array<string | undefined>) {
     const { installPackage } = await import('@antfu/install-pkg')
     await installPackage(nonExistingPackages, { dev: true })
   }
-}
-
-export function getOverrides(options: OptionsConfig, key: keyof OverridesConfigs): Linter.RulesRecord {
-  return { ...options.overrides?.[key] }
 }
 
 export async function interopDefault<T>(m: Awaitable<T>): Promise<T extends { default: infer U } ? U : T> {

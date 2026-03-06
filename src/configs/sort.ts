@@ -1,4 +1,4 @@
-import eslintImportPlugin from 'eslint-plugin-import'
+import eslintImportPlugin from 'eslint-plugin-import-x'
 import perfectionistPlugin from 'eslint-plugin-perfectionist'
 
 import type { FlatConfigItem } from '../types'

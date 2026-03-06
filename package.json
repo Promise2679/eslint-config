@@ -42,7 +42,7 @@
     "@antfu/install-pkg": "catalog:helper",
     "@clack/prompts": "catalog:helper",
     "@eslint/js": "catalog:lint",
-    "eslint-plugin-import": "catalog:",
+    "eslint-plugin-import-x": "catalog:",
     "eslint-plugin-perfectionist": "catalog:",
     "eslint-plugin-sonarjs": "catalog:",
     "eslint-plugin-unicorn": "catalog:",

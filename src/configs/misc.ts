@@ -20,6 +20,7 @@ export default function misc(enableTs: boolean): FlatConfigItem[] {
         'sonarjs/no-nested-functions': 'off',
         'sonarjs/no-unused-vars': 'off',
         'sonarjs/prefer-regexp-exec': enableTs ? 'off' : 'error',
+        'sonarjs/pseudo-random': 'warn',
         'sonarjs/todo-tag': 'off',
         'sonarjs/unused-import': 'off'
       }

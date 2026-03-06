@@ -5,14 +5,44 @@ settings:
   excludeLinksFromLockfile: false
 
 catalogs:
-  binary:
+  default:
+    '@typescript-eslint/eslint-plugin':
+      specifier: ^8.56.1
+      version: 8.56.1
     eslint:
       specifier: ^9.39.3
       version: 9.39.3
+    eslint-plugin-import:
+      specifier: ^2.32.0
+      version: 2.32.0
+    eslint-plugin-perfectionist:
+      specifier: ^5.6.0
+      version: 5.6.0
+    eslint-plugin-sonarjs:
+      specifier: ^4.0.0
+      version: 4.0.0
+    eslint-plugin-unicorn:
+      specifier: ^63.0.0
+      version: 63.0.0
+    eslint-plugin-vue:
+      specifier: ^10.8.0
+      version: 10.8.0
+    prettier:
+      specifier: ^3.8.1
+      version: 3.8.1
   dev:
     eslint-typegen:
       specifier: ^2.3.1
       version: 2.3.1
+    simple-git-hooks:
+      specifier: ^2.13.1
+      version: 2.13.1
+    tsdown:
+      specifier: ^0.21.0
+      version: 0.21.0
+    typescript:
+      specifier: ^5.9.3
+      version: 5.9.3
   helper:
     '@antfu/install-pkg':
       specifier: ^1.1.0
@@ -30,19 +60,10 @@ catalogs:
     jiti:
       specifier: ^2.6.1
       version: 2.6.1
-    simple-git-hooks:
-      specifier: ^2.13.1
-      version: 2.13.1
-    tsdown:
-      specifier: ^0.21.0
-      version: 0.21.0
-    typescript:
-      specifier: ^5.9.3
-      version: 5.9.3
-  optional:
-    '@typescript-eslint/eslint-plugin':
-      specifier: ^8.56.1
-      version: 8.56.1
+  lint:
+    '@eslint/js':
+      specifier: ^9.39.3
+      version: 9.39.3
     '@typescript-eslint/parser':
       specifier: ^8.56.1
       version: 8.56.1
@@ -55,31 +76,9 @@ catalogs:
     eslint-plugin-prettier:
       specifier: ^5.5.5
       version: 5.5.5
-    eslint-plugin-vue:
-      specifier: ^10.8.0
-      version: 10.8.0
-    prettier:
-      specifier: ^3.8.1
-      version: 3.8.1
     vue-eslint-parser:
       specifier: ^10.4.0
       version: 10.4.0
-  required:
-    '@eslint/js':
-      specifier: ^9.39.3
-      version: 9.39.3
-    eslint-plugin-import:
-      specifier: ^2.32.0
-      version: 2.32.0
-    eslint-plugin-perfectionist:
-      specifier: ^5.6.0
-      version: 5.6.0
-    eslint-plugin-sonarjs:
-      specifier: ^4.0.0
-      version: 4.0.0
-    eslint-plugin-unicorn:
-      specifier: ^63.0.0
-      version: 63.0.0
   typing:
     '@types/node':
       specifier: ^25.3.5
@@ -99,19 +98,19 @@ importers:
         specifier: catalog:helper
         version: 1.1.0
       '@eslint/js':
-        specifier: catalog:required
+        specifier: catalog:lint
         version: 9.39.3
       eslint-plugin-import:
-        specifier: catalog:required
+        specifier: 'catalog:'
         version: 2.32.0(@typescript-eslint/parser@8.56.1(eslint@9.39.3(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.3(jiti@2.6.1))
       eslint-plugin-perfectionist:
-        specifier: catalog:required
+        specifier: 'catalog:'
         version: 5.6.0(eslint@9.39.3(jiti@2.6.1))(typescript@5.9.3)
       eslint-plugin-sonarjs:
-        specifier: catalog:required
+        specifier: 'catalog:'
         version: 4.0.0(eslint@9.39.3(jiti@2.6.1))
       eslint-plugin-unicorn:
-        specifier: catalog:required
+        specifier: 'catalog:'
         version: 63.0.0(eslint@9.39.3(jiti@2.6.1))
       globals:
         specifier: catalog:helper
@@ -124,25 +123,25 @@ importers:
         specifier: catalog:typing
         version: 25.3.5
       '@typescript-eslint/eslint-plugin':
-        specifier: catalog:optional
+        specifier: 'catalog:'
         version: 8.56.1(@typescript-eslint/parser@8.56.1(eslint@9.39.3(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.3(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/parser':
-        specifier: catalog:optional
+        specifier: catalog:lint
         version: 8.56.1(eslint@9.39.3(jiti@2.6.1))(typescript@5.9.3)
       eslint:
-        specifier: catalog:binary
+        specifier: 'catalog:'
         version: 9.39.3(jiti@2.6.1)
       eslint-config-prettier:
-        specifier: catalog:optional
+        specifier: catalog:lint
         version: 10.1.8(eslint@9.39.3(jiti@2.6.1))
       eslint-plugin-format:
-        specifier: catalog:optional
+        specifier: catalog:lint
         version: 2.0.1(eslint@9.39.3(jiti@2.6.1))
       eslint-plugin-prettier:
-        specifier: catalog:optional
+        specifier: catalog:lint
         version: 5.5.5(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.39.3(jiti@2.6.1)))(eslint@9.39.3(jiti@2.6.1))(prettier@3.8.1)
       eslint-plugin-vue:
-        specifier: catalog:optional
+        specifier: 'catalog:'
         version: 10.8.0(@stylistic/eslint-plugin@5.4.0(eslint@9.39.3(jiti@2.6.1)))(@typescript-eslint/parser@8.56.1(eslint@9.39.3(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.3(jiti@2.6.1))(vue-eslint-parser@10.4.0(eslint@9.39.3(jiti@2.6.1)))
       eslint-typegen:
         specifier: catalog:dev
@@ -151,19 +150,19 @@ importers:
         specifier: catalog:infra
         version: 2.6.1
       prettier:
-        specifier: catalog:optional
+        specifier: 'catalog:'
         version: 3.8.1
       simple-git-hooks:
-        specifier: catalog:infra
+        specifier: catalog:dev
         version: 2.13.1
       tsdown:
-        specifier: catalog:infra
+        specifier: catalog:dev
         version: 0.21.0(synckit@0.11.12)(typescript@5.9.3)
       typescript:
-        specifier: catalog:infra
+        specifier: catalog:dev
         version: 5.9.3
       vue-eslint-parser:
-        specifier: catalog:optional
+        specifier: catalog:lint
         version: 10.4.0(eslint@9.39.3(jiti@2.6.1))
 
 packages:

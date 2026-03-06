@@ -1,8 +1,19 @@
+catalog:
+  '@typescript-eslint/eslint-plugin': ^8.56.1
+  eslint: ^9.39.3
+  eslint-plugin-import: ^2.32.0
+  eslint-plugin-perfectionist: ^5.6.0
+  eslint-plugin-sonarjs: ^4.0.0
+  eslint-plugin-unicorn: ^63.0.0
+  eslint-plugin-vue: ^10.8.0
+  prettier: ^3.8.1
+
 catalogs:
-  binary:
-    eslint: ^9.39.3
   dev:
     eslint-typegen: ^2.3.1
+    simple-git-hooks: ^2.13.1
+    tsdown: ^0.21.0
+    typescript: ^5.9.3
   helper:
     '@antfu/install-pkg': ^1.1.0
     '@clack/prompts': ^1.1.0
@@ -10,24 +21,13 @@ catalogs:
     local-pkg: ^1.1.2
   infra:
     jiti: ^2.6.1
-    simple-git-hooks: ^2.13.1
-    tsdown: ^0.21.0
-    typescript: ^5.9.3
-  optional:
-    '@typescript-eslint/eslint-plugin': ^8.56.1
+  lint:
+    '@eslint/js': ^9.39.3
     '@typescript-eslint/parser': ^8.56.1
     eslint-config-prettier: ^10.1.8
     eslint-plugin-format: ^2.0.1
     eslint-plugin-prettier: ^5.5.5
-    eslint-plugin-vue: ^10.8.0
-    prettier: ^3.8.1
     vue-eslint-parser: ^10.4.0
-  required:
-    '@eslint/js': ^9.39.3
-    eslint-plugin-import: ^2.32.0
-    eslint-plugin-perfectionist: ^5.6.0
-    eslint-plugin-sonarjs: ^4.0.0
-    eslint-plugin-unicorn: ^63.0.0
   typing:
     '@types/node': ^25.3.5
 

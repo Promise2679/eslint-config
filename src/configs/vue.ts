@@ -29,7 +29,8 @@ export default async function vue(enableTs: boolean): Promise<FlatConfigItem[]> 
         ...pluginVue.configs.essential.rules,
         'vue/multi-word-component-names': 'off',
         'vue/prefer-true-attribute-shorthand': 'error',
-        'vue/return-in-computed-property': 'off'
+        'vue/return-in-computed-property': 'off',
+        'vue/valid-v-slot': ['error', { allowModifiers: true }]
       }
     }
   ]

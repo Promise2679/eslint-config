@@ -8,6 +8,8 @@ catalog:
   eslint-plugin-vue: ^10.8.0
   prettier: ^3.8.1
 
+catalogMode: prefer
+
 catalogs:
   dev:
     eslint-typegen: ^2.3.1

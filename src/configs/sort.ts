@@ -7,8 +7,13 @@ export default function sort(): FlatConfigItem[] {
   return [
     {
       name: 'sort',
-      plugins: { import: eslintImportPlugin, perfectionist: perfectionistPlugin },
-      rules: { ...perfectionistPlugin.configs['recommended-alphabetical'].rules, 'import/no-duplicates': 'error' }
+      plugins: { 'import-x': eslintImportPlugin, perfectionist: perfectionistPlugin },
+      rules: {
+        ...perfectionistPlugin.configs['recommended-alphabetical'].rules,
+        ...eslintImportPlugin.configs['flat/recommended'].rules,
+        'import-x/no-named-as-default-member': 'off',
+        'import-x/no-unresolved': 'off'
+      }
     }
   ]
 }

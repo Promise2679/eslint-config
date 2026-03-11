@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsdown",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit",
+    "test": "tsc --noEmit",
     "typegen": "jiti scripts/typegen.ts",
     "postinstall": "npx simple-git-hooks"
   },

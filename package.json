@@ -58,14 +58,14 @@
   "devDependencies": {
     "@types/node": "catalog:typing",
     "eslint": "catalog:",
-    "eslint-typegen": "catalog:dev",
+    "eslint-typegen": "catalog:infra",
     "jiti": "catalog:infra",
-    "nano-staged": "catalog:dev",
-    "simple-git-hooks": "catalog:dev",
-    "tsdown": "catalog:dev",
-    "typescript": "catalog:dev"
+    "nano-staged": "catalog:infra",
+    "simple-git-hooks": "catalog:infra",
+    "tsdown": "catalog:infra",
+    "typescript": "catalog:infra"
   },
   "peerDependencies": {
-    "eslint": "catalog:peer"
+    "eslint": "^10"
   }
 }

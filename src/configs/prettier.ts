@@ -1,3 +1,5 @@
+import pluginFormat from 'eslint-plugin-format'
+import configPrettier from 'eslint-plugin-prettier/recommended'
 import { Options as PrettierOptions } from 'prettier'
 
 import {
@@ -15,7 +17,6 @@ import {
   GLOB_VUE
 } from '../globs'
 import { FlatConfigItem, OptionsPrettier } from '../types'
-import { ensurePackages, interopDefault } from '../utils'
 
 /**
  * @see https://prettier.io/docs/options
@@ -29,14 +30,7 @@ const prettierOptions: PrettierOptions = {
   trailingComma: 'none'
 }
 
-export default async function prettier(options: OptionsPrettier) {
-  await ensurePackages(['eslint-plugin-format', 'eslint-plugin-prettier', 'eslint-config-prettier', 'prettier'])
-
-  const [configPrettier, pluginFormat] = await Promise.all([
-    interopDefault(import('eslint-plugin-prettier/recommended')),
-    interopDefault(import('eslint-plugin-format'))
-  ])
-
+export default function prettier(options: OptionsPrettier) {
   const {
     css: enableCSSFormat = true,
     es: enableESFormat = true,

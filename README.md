@@ -21,12 +21,6 @@ import promise from '@promise2/eslint-config'
 export default promise()
 ```
 
-初次在项目中使用请运行一遍 ESLint，本依赖会自动检测需要安装的插件
-
-```shell
-npm eslint
-```
-
 然后就可以使用啦
 
 ## 自定义配置

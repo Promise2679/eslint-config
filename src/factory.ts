@@ -11,21 +11,24 @@ import vue from './configs/vue'
 import { OptionsConfig } from './types'
 import { resolveSubOptions } from './utils'
 
-export default async function promise(options: OptionsConfig = {}) {
+export default function promise(options: OptionsConfig = {}) {
   const { enable = {}, ignores: userIgnores = [], prettier: enablePrettier = true, rules } = options
-  const { ts: enableTs = isPackageExists('typescript'), vue: enableVue = isPackageExists('vue') } = enable
+  const {
+    ts: enableTs = isPackageExists('typescript'),
+    vue: enableVue = isPackageExists('vue') || isPackageExists('nuxt')
+  } = enable
 
   const configs = [ignores(userIgnores), javascript(), misc(enableTs), sort(), unicorn(enableTs)]
 
-  if (enableTs) configs.push(await typescript())
+  if (enableTs) configs.push(typescript())
 
-  if (enableVue) configs.push(await vue(enableTs))
+  if (enableVue) configs.push(vue(enableTs))
 
   if (rules) configs.push([{ name: 'overrides', rules }])
 
   // 放到最后，eslint-config-prettier 需要覆盖一些冲突的配置
   const codeStyleOptions = resolveSubOptions(options, 'prettier')
-  if (enablePrettier) configs.push(await prettier(codeStyleOptions))
+  if (enablePrettier) configs.push(prettier(codeStyleOptions))
 
   return configs.flat()
 }

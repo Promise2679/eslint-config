@@ -1,15 +1,11 @@
+import parserTs from '@typescript-eslint/parser'
+import pluginVue from 'eslint-plugin-vue'
+import parserVue from 'vue-eslint-parser'
+
 import { GLOB_VUE } from '../globs'
 import { FlatConfigItem } from '../types'
-import { ensurePackages, interopDefault } from '../utils'
 
-export default async function vue(enableTs: boolean): Promise<FlatConfigItem[]> {
-  await ensurePackages(['eslint-plugin-vue', 'vue-eslint-parser'])
-
-  const [pluginVue, parserVue] = await Promise.all([
-    interopDefault(import('eslint-plugin-vue')),
-    interopDefault(import('vue-eslint-parser'))
-  ])
-
+export default function vue(enableTs: boolean): FlatConfigItem[] {
   return [
     {
       files: [GLOB_VUE],
@@ -18,7 +14,7 @@ export default async function vue(enableTs: boolean): Promise<FlatConfigItem[]> 
         parserOptions: {
           ecmaFeatures: { jsx: true },
           extraFileExtensions: ['.vue'],
-          parser: enableTs ? await interopDefault(import('@typescript-eslint/parser')) : null,
+          parser: enableTs ? parserTs : null,
           sourceType: 'module'
         }
       },

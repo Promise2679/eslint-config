@@ -1,15 +1,10 @@
+import pluginTs from '@typescript-eslint/eslint-plugin'
+import parserTs from '@typescript-eslint/parser'
+
 import { GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
 import { FlatConfigItem } from '../types'
-import { ensurePackages, interopDefault } from '../utils'
 
-export default async function typescript(): Promise<FlatConfigItem[]> {
-  await ensurePackages(['@typescript-eslint/eslint-plugin', '@typescript-eslint/parser'])
-
-  const [pluginTs, parserTs] = await Promise.all([
-    interopDefault(import('@typescript-eslint/eslint-plugin')),
-    interopDefault(import('@typescript-eslint/parser'))
-  ])
-
+export default function typescript(): FlatConfigItem[] {
   return [
     {
       files: [GLOB_TS, GLOB_TSX, GLOB_VUE],

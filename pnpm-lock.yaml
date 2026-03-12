@@ -47,12 +47,6 @@ catalogs:
       specifier: ^5.9.3
       version: 5.9.3
   helper:
-    '@antfu/install-pkg':
-      specifier: ^1.1.0
-      version: 1.1.0
-    '@clack/prompts':
-      specifier: ^1.1.0
-      version: 1.1.0
     globals:
       specifier: ^17.4.0
       version: 17.4.0
@@ -91,58 +85,58 @@ importers:
 
   .:
     dependencies:
-      '@antfu/install-pkg':
-        specifier: catalog:helper
-        version: 1.1.0
-      '@clack/prompts':
-        specifier: catalog:helper
-        version: 1.1.0
       '@eslint/js':
         specifier: catalog:lint
         version: 10.0.1(eslint@10.0.3(jiti@2.6.1))
-      eslint-plugin-import-x:
-        specifier: 'catalog:'
-        version: 4.16.2(@typescript-eslint/utils@8.57.0(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@10.0.3(jiti@2.6.1))
-      eslint-plugin-perfectionist:
-        specifier: 'catalog:'
-        version: 5.6.0(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3)
-      eslint-plugin-sonarjs:
-        specifier: 'catalog:'
-        version: 4.0.2(eslint@10.0.3(jiti@2.6.1))
-      eslint-plugin-unicorn:
-        specifier: 'catalog:'
-        version: 63.0.0(eslint@10.0.3(jiti@2.6.1))
-      globals:
-        specifier: catalog:helper
-        version: 17.4.0
-      local-pkg:
-        specifier: catalog:helper
-        version: 1.1.2
-    devDependencies:
-      '@types/node':
-        specifier: catalog:typing
-        version: 25.4.0
       '@typescript-eslint/eslint-plugin':
         specifier: 'catalog:'
         version: 8.57.0(@typescript-eslint/parser@8.57.0(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3))(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/parser':
         specifier: catalog:lint
         version: 8.57.0(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3)
-      eslint:
-        specifier: 'catalog:'
-        version: 10.0.3(jiti@2.6.1)
       eslint-config-prettier:
         specifier: catalog:lint
         version: 10.1.8(eslint@10.0.3(jiti@2.6.1))
       eslint-plugin-format:
         specifier: catalog:lint
         version: 2.0.1(eslint@10.0.3(jiti@2.6.1))
+      eslint-plugin-import-x:
+        specifier: 'catalog:'
+        version: 4.16.2(@typescript-eslint/utils@8.57.0(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint@10.0.3(jiti@2.6.1))
+      eslint-plugin-perfectionist:
+        specifier: 'catalog:'
+        version: 5.6.0(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3)
       eslint-plugin-prettier:
         specifier: catalog:lint
         version: 5.5.5(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@10.0.3(jiti@2.6.1)))(eslint@10.0.3(jiti@2.6.1))(prettier@3.8.1)
+      eslint-plugin-sonarjs:
+        specifier: 'catalog:'
+        version: 4.0.2(eslint@10.0.3(jiti@2.6.1))
+      eslint-plugin-unicorn:
+        specifier: 'catalog:'
+        version: 63.0.0(eslint@10.0.3(jiti@2.6.1))
       eslint-plugin-vue:
         specifier: 'catalog:'
         version: 10.8.0(@stylistic/eslint-plugin@5.4.0(eslint@10.0.3(jiti@2.6.1)))(@typescript-eslint/parser@8.57.0(eslint@10.0.3(jiti@2.6.1))(typescript@5.9.3))(eslint@10.0.3(jiti@2.6.1))(vue-eslint-parser@10.4.0(eslint@10.0.3(jiti@2.6.1)))
+      globals:
+        specifier: catalog:helper
+        version: 17.4.0
+      local-pkg:
+        specifier: catalog:helper
+        version: 1.1.2
+      prettier:
+        specifier: 'catalog:'
+        version: 3.8.1
+      vue-eslint-parser:
+        specifier: catalog:lint
+        version: 10.4.0(eslint@10.0.3(jiti@2.6.1))
+    devDependencies:
+      '@types/node':
+        specifier: catalog:typing
+        version: 25.4.0
+      eslint:
+        specifier: 'catalog:'
+        version: 10.0.3(jiti@2.6.1)
       eslint-typegen:
         specifier: catalog:dev
         version: 2.3.1(eslint@10.0.3(jiti@2.6.1))
@@ -152,9 +146,6 @@ importers:
       nano-staged:
         specifier: catalog:dev
         version: 0.9.0
-      prettier:
-        specifier: 'catalog:'
-        version: 3.8.1
       simple-git-hooks:
         specifier: catalog:dev
         version: 2.13.1
@@ -164,14 +155,8 @@ importers:
       typescript:
         specifier: catalog:dev
         version: 5.9.3
-      vue-eslint-parser:
-        specifier: catalog:lint
-        version: 10.4.0(eslint@10.0.3(jiti@2.6.1))
 
 packages:
-
-  '@antfu/install-pkg@1.1.0':
-    resolution: {integrity: sha512-MGQsmw10ZyI+EJo45CdSER4zEb+p31LpDAFp2Z3gkSd1yqVZGi0Ebx++YTEMonJy4oChEMLsxZ64j8FH6sSqtQ==}
 
   '@apidevtools/json-schema-ref-parser@14.2.1':
     resolution: {integrity: sha512-HmdFw9CDYqM6B25pqGBpNeLCKvGPlIx1EbLrVL0zPvj50CJQUHyBNBw45Muk0kEIkogo1VZvOKHajdMuAzSxRg==}
@@ -203,12 +188,6 @@ packages:
   '@babel/types@8.0.0-rc.2':
     resolution: {integrity: sha512-91gAaWRznDwSX4E2tZ1YjBuIfnQVOFDCQ2r0Toby0gu4XEbyF623kXLMA8d4ZbCu+fINcrudkmEcwSUHgDDkNw==}
     engines: {node: ^20.19.0 || >=22.12.0}
-
-  '@clack/core@1.1.0':
-    resolution: {integrity: sha512-SVcm4Dqm2ukn64/8Gub2wnlA5nS2iWJyCkdNHcvNHPIeBTGojpdJ+9cZKwLfmqy7irD4N5qLteSilJlE0WLAtA==}
-
-  '@clack/prompts@1.1.0':
-    resolution: {integrity: sha512-pkqbPGtohJAvm4Dphs2M8xE29ggupihHdy1x84HNojZuMtFsHiUlRvqD24tM2+XmI+61LlfNceM3Wr7U5QES5g==}
 
   '@dprint/formatter@0.5.1':
     resolution: {integrity: sha512-cdZUrm0iv/FnnY3CKE2dEcVhNEzrC551aE2h2mTFwQCRBrqyARLDnb7D+3PlXTUVp3s34ftlnGOVCmhLT9DeKA==}
@@ -1238,9 +1217,6 @@ packages:
     resolution: {integrity: sha512-LaNjtRWUBY++zB5nE/NwcaoMylSPk+S+ZHNB1TzdbMJMny6dynpAGt7X/tl/QYq3TIeE6nxHppbo2LGymrG5Pw==}
     engines: {node: '>=10'}
 
-  package-manager-detector@1.3.0:
-    resolution: {integrity: sha512-ZsEbbZORsyHuO00lY1kV3/t72yp6Ysay6Pd17ZAlNGuGwmWDLCJxFpRs0IzfXfj1o4icJOkUEioexFHzyPurSQ==}
-
   path-exists@4.0.0:
     resolution: {integrity: sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==}
     engines: {node: '>=8'}
@@ -1367,9 +1343,6 @@ packages:
   simple-git-hooks@2.13.1:
     resolution: {integrity: sha512-WszCLXwT4h2k1ufIXAgsbiTOazqqevFCIncOuUBZJ91DdvWcC5+OFkluWRQPrcuSYd8fjq+o2y1QfWqYMoAToQ==}
     hasBin: true
-
-  sisteransi@1.0.5:
-    resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
   stable-hash-x@0.2.0:
     resolution: {integrity: sha512-o3yWv49B/o4QZk5ZcsALc6t0+eCelPc44zZsLtCQnZPDwFpDYSWcDnrv2TtMmMbQ7uKo3J0HTURCqckw23czNQ==}
@@ -1508,11 +1481,6 @@ packages:
 
 snapshots:
 
-  '@antfu/install-pkg@1.1.0':
-    dependencies:
-      package-manager-detector: 1.3.0
-      tinyexec: 1.0.2
-
   '@apidevtools/json-schema-ref-parser@14.2.1(@types/json-schema@7.0.15)':
     dependencies:
       '@types/json-schema': 7.0.15
@@ -1541,15 +1509,6 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 8.0.0-rc.2
       '@babel/helper-validator-identifier': 8.0.0-rc.2
-
-  '@clack/core@1.1.0':
-    dependencies:
-      sisteransi: 1.0.5
-
-  '@clack/prompts@1.1.0':
-    dependencies:
-      '@clack/core': 1.1.0
-      sisteransi: 1.0.5
 
   '@dprint/formatter@0.5.1': {}
 
@@ -2465,8 +2424,6 @@ snapshots:
     dependencies:
       p-limit: 3.1.0
 
-  package-manager-detector@1.3.0: {}
-
   path-exists@4.0.0: {}
 
   path-key@3.1.1: {}
@@ -2590,8 +2547,6 @@ snapshots:
   shebang-regex@3.0.0: {}
 
   simple-git-hooks@2.13.1: {}
-
-  sisteransi@1.0.5: {}
 
   stable-hash-x@0.2.0: {}
 

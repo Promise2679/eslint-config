@@ -39,69 +39,33 @@
     "pre-commit": "pnpm nano-staged"
   },
   "dependencies": {
-    "@antfu/install-pkg": "catalog:helper",
-    "@clack/prompts": "catalog:helper",
     "@eslint/js": "catalog:lint",
+    "@typescript-eslint/eslint-plugin": "catalog:",
+    "@typescript-eslint/parser": "catalog:lint",
+    "eslint-config-prettier": "catalog:lint",
+    "eslint-plugin-format": "catalog:lint",
     "eslint-plugin-import-x": "catalog:",
     "eslint-plugin-perfectionist": "catalog:",
+    "eslint-plugin-prettier": "catalog:lint",
     "eslint-plugin-sonarjs": "catalog:",
     "eslint-plugin-unicorn": "catalog:",
+    "eslint-plugin-vue": "catalog:",
     "globals": "catalog:helper",
-    "local-pkg": "catalog:helper"
+    "local-pkg": "catalog:helper",
+    "prettier": "catalog:",
+    "vue-eslint-parser": "catalog:lint"
   },
   "devDependencies": {
     "@types/node": "catalog:typing",
-    "@typescript-eslint/eslint-plugin": "catalog:",
-    "@typescript-eslint/parser": "catalog:lint",
     "eslint": "catalog:",
-    "eslint-config-prettier": "catalog:lint",
-    "eslint-plugin-format": "catalog:lint",
-    "eslint-plugin-prettier": "catalog:lint",
-    "eslint-plugin-vue": "catalog:",
     "eslint-typegen": "catalog:dev",
     "jiti": "catalog:infra",
     "nano-staged": "catalog:dev",
-    "prettier": "catalog:",
     "simple-git-hooks": "catalog:dev",
     "tsdown": "catalog:dev",
-    "typescript": "catalog:dev",
-    "vue-eslint-parser": "catalog:lint"
+    "typescript": "catalog:dev"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "catalog:",
-    "@typescript-eslint/parser": "catalog:lint",
-    "eslint": "catalog:",
-    "eslint-config-prettier": "catalog:lint",
-    "eslint-plugin-format": "catalog:lint",
-    "eslint-plugin-prettier": "catalog:lint",
-    "eslint-plugin-vue": "catalog:",
-    "prettier": "catalog:",
-    "vue-eslint-parser": "catalog:lint"
-  },
-  "peerDependenciesMeta": {
-    "@typescript-eslint/eslint-plugin": {
-      "optional": true
-    },
-    "@typescript-eslint/parser": {
-      "optional": true
-    },
-    "eslint-config-prettier": {
-      "optional": true
-    },
-    "eslint-plugin-format": {
-      "optional": true
-    },
-    "eslint-plugin-prettier": {
-      "optional": true
-    },
-    "eslint-plugin-vue": {
-      "optional": true
-    },
-    "vue-eslint-parser": {
-      "optional": true
-    },
-    "prettier": {
-      "optional": true
-    }
+    "eslint": "catalog:"
   }
 }

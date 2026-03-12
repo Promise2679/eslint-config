@@ -1,30 +1,6 @@
-import { isPackageExists } from 'local-pkg'
-
 import { OptionsConfig } from './types'
 
-export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>
-
-type Awaitable<T> = Promise<T> | T
-
-export async function ensurePackages(packages: Array<string | undefined>) {
-  const nonExistingPackages = packages.filter(i => i && !isPackageExists(i)) as string[]
-  if (nonExistingPackages.length === 0) return
-
-  const p = await import('@clack/prompts')
-  const confirmed = await p.confirm({
-    message: `${nonExistingPackages.length === 1 ? 'Package is' : 'Packages are'} required for this config: ${nonExistingPackages.join(', ')}. Do you want to install them?`
-  })
-
-  if (confirmed) {
-    const { installPackage } = await import('@antfu/install-pkg')
-    await installPackage(nonExistingPackages, { dev: true })
-  }
-}
-
-export async function interopDefault<T>(m: Awaitable<T>): Promise<T extends { default: infer U } ? U : T> {
-  const resolved = (await m) as { default?: unknown }
-  return (resolved.default ?? resolved) as T extends { default: infer U } ? U : T
-}
+type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>
 
 export function resolveSubOptions<K extends keyof OptionsConfig>(
   options: OptionsConfig,

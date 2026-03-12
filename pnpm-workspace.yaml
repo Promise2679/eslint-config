@@ -31,5 +31,7 @@ catalogs:
     vue-eslint-parser: ^10.4.0
   typing:
     '@types/node': ^25.4.0
+  peer:
+    eslint: ^10.0.0
 
 cleanupUnusedCatalogs: true

@@ -29,6 +29,7 @@ export default async function typescript(): Promise<FlatConfigItem[]> {
         ...pluginTs.configs['stylistic-type-checked'].rules,
         '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
         '@typescript-eslint/no-deprecated': 'off',
+        '@typescript-eslint/no-explicit-any': 'warn',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-unsafe-argument': 'warn',
         '@typescript-eslint/no-unsafe-assignment': 'warn',

@@ -4,7 +4,7 @@ import { Options as PrettierOptions } from 'prettier'
 import type { RuleOptions } from './typegen'
 
 export type FlatConfigItem = {
-  plugins?: Record<string, unknown>
+  plugins?: Record<string, any>
   rules?: Record<string, Linter.RuleEntry> & RuleOptions
 } & Omit<Linter.Config, 'plugins' | 'rules'>
 

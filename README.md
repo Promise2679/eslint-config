@@ -32,25 +32,15 @@ export default promise({
     // 启用相关规则，默认会自动检测是否需要启用
     enable: {
         ts: true,
-        vue: true
-    },
-    // 忽略路径
-    ignores: ['**/*.ts'],
-    // prettier 相关配置，也可以是布尔值，默认为 true
-    prettier: {
-        // 生效语言配置，默认全为 true
-        lang: {
-            css: true,
-            es: true,
-            html: true,
-            json: true
-        },
-        // 格式化配置
-        prettierSelfOptions: {
+        vue: true,
+        // prettier 相关配置
+        prettier: {
             semi: false,
             printWidth: 120
         }
     },
+    // 忽略路径
+    ignores: ['**/*.ts'],
     // ESLint 规则覆盖
     rules: {
         'no-console': 'off'

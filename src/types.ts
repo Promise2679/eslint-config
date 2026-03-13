@@ -13,3 +13,5 @@ export interface OptionsConfig {
   ignores?: string[]
   rules?: FlatConfigItem['rules']
 }
+
+export type ResolvedOptions<T> = Exclude<NonNullable<T>, boolean>

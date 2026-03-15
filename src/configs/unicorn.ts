@@ -20,6 +20,7 @@ export default function unicorn(enableTs: boolean): FlatConfigItem[] {
         'unicorn/no-static-only-class': 'off',
         'unicorn/numeric-separators-style': 'off',
         'unicorn/prefer-import-meta-properties': 'error',
+        'unicorn/prefer-query-selector': 'off',
         'unicorn/prefer-string-starts-ends-with': enableTs ? 'off' : 'error',
         'unicorn/prevent-abbreviations': 'off',
         'unicorn/switch-case-braces': ['error', 'avoid']

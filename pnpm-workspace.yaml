@@ -28,6 +28,6 @@ catalogs:
     eslint-plugin-prettier: ^5.5.5
     vue-eslint-parser: ^10.4.0
   typing:
-    '@types/node': ^25.4.0
+    '@types/node': ^25.5.0
 
 cleanupUnusedCatalogs: true

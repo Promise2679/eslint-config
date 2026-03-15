@@ -9,7 +9,6 @@ import { FlatConfigItem } from '../types'
  */
 const prettierOptions: PrettierOptions = {
   arrowParens: 'avoid',
-  objectWrap: 'collapse',
   printWidth: 120,
   semi: false,
   singleQuote: true,

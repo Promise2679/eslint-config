@@ -24,6 +24,7 @@ export default function vue(enableTs: boolean): FlatConfigItem[] {
       rules: {
         ...pluginVue.configs.essential.rules,
         'vue/multi-word-component-names': 'off',
+        'vue/no-multiple-template-root': 'off',
         'vue/prefer-true-attribute-shorthand': 'error',
         'vue/return-in-computed-property': 'off',
         'vue/valid-v-slot': ['error', { allowModifiers: true }]

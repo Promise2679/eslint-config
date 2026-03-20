@@ -19,7 +19,7 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
     vue: enableVue = isPackageExists('vue') || isPackageExists('nuxt')
   } = enable
 
-  const configs = [ignores(userIgnores), javascript(), misc(enableTs), sort(), unicorn(enableTs)]
+  const configs = [ignores(userIgnores), javascript(), misc(), sort(), unicorn()]
 
   if (enableTs) configs.push(typescript())
 

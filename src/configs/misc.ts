@@ -3,7 +3,7 @@ import sonarjsPlugin from 'eslint-plugin-sonarjs'
 
 import { FlatConfigItem } from '../types'
 
-export default function misc(enableTs: boolean): FlatConfigItem[] {
+export default function misc(): FlatConfigItem[] {
   return [
     {
       name: 'sonarjs',
@@ -18,8 +18,9 @@ export default function misc(enableTs: boolean): FlatConfigItem[] {
         'sonarjs/no-hardcoded-passwords': 'off',
         'sonarjs/no-misleading-array-reverse': 'off',
         'sonarjs/no-nested-functions': 'off',
+        'sonarjs/no-unused-collection': 'off',
         'sonarjs/no-unused-vars': 'off',
-        'sonarjs/prefer-regexp-exec': enableTs ? 'off' : 'error',
+        'sonarjs/prefer-regexp-exec': 'off',
         'sonarjs/pseudo-random': 'warn',
         'sonarjs/todo-tag': 'off',
         'sonarjs/unused-import': 'off'

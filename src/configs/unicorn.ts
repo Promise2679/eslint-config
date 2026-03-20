@@ -2,7 +2,7 @@ import unicornPlugin from 'eslint-plugin-unicorn'
 
 import type { FlatConfigItem } from '../types'
 
-export default function unicorn(enableTs: boolean): FlatConfigItem[] {
+export default function unicorn(): FlatConfigItem[] {
   return [
     {
       name: 'unicorn',
@@ -21,7 +21,7 @@ export default function unicorn(enableTs: boolean): FlatConfigItem[] {
         'unicorn/numeric-separators-style': 'off',
         'unicorn/prefer-import-meta-properties': 'error',
         'unicorn/prefer-query-selector': 'off',
-        'unicorn/prefer-string-starts-ends-with': enableTs ? 'off' : 'error',
+        'unicorn/prefer-string-starts-ends-with': 'off',
         'unicorn/prevent-abbreviations': 'off',
         'unicorn/switch-case-braces': ['error', 'avoid']
       }

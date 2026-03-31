@@ -9,7 +9,12 @@ export type FlatConfigItem = {
 } & Omit<Linter.Config, 'plugins' | 'rules'>
 
 export interface OptionsConfig {
-  enable?: { prettier?: boolean | PrettierOptions; ts?: boolean; vue?: boolean }
+  enable?: {
+    perfectionist?: boolean
+    prettier?: boolean | PrettierOptions
+    ts?: boolean
+    vue?: boolean
+  }
   ignores?: string[]
   rules?: FlatConfigItem['rules']
 }

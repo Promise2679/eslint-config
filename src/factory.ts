@@ -1,6 +1,7 @@
 import { isPackageExists } from 'local-pkg'
 
 import ignores from './configs/ignores'
+import importX from './configs/import-x'
 import javascript from './configs/javascript'
 import misc from './configs/misc'
 import prettier from './configs/prettier'
@@ -14,17 +15,17 @@ import { resolveOptions } from './utils'
 export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
   const { enable = {}, ignores: userIgnores = [], rules } = options
   const {
+    perfectionist: enablePerfectionist = true,
     prettier: enablePrettier = true,
     ts: enableTs = isPackageExists('typescript'),
     vue: enableVue = isPackageExists('vue') || isPackageExists('nuxt')
   } = enable
 
-  const configs = [ignores(userIgnores), javascript(), misc(), sort(), unicorn()]
+  const configs = [ignores(userIgnores), javascript(), misc(), importX(), unicorn()]
 
+  if (enablePerfectionist) sort()
   if (enableTs) configs.push(typescript())
-
   if (enableVue) configs.push(vue(enableTs))
-
   if (rules) configs.push([{ name: 'overrides', rules }])
 
   // 放到最后，eslint-config-prettier 需要覆盖一些冲突的配置

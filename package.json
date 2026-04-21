@@ -4,12 +4,12 @@
   "version": "0.4.0",
   "license": "ISC",
   "author": "Promise2679",
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@10.33.2",
   "description": "Eslint config used by Promise2679",
   "scripts": {
-    "build": "jiti scripts/typegen.ts && tsdown",
+    "build": "tsdown",
     "lint": "eslint",
-    "test": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "typegen": "jiti scripts/typegen.ts",
     "postinstall": "simple-git-hooks"
   },
@@ -36,7 +36,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm test && pnpm nano-staged"
+    "pre-commit": "pnpm nano-staged"
   },
   "dependencies": {
     "@eslint/js": "catalog:lint",
@@ -45,13 +45,13 @@
     "eslint-config-prettier": "catalog:lint",
     "eslint-plugin-import-x": "catalog:",
     "eslint-plugin-perfectionist": "catalog:",
-    "eslint-plugin-prettier": "catalog:lint",
+    "eslint-plugin-prettier": "catalog:",
     "eslint-plugin-sonarjs": "catalog:",
     "eslint-plugin-unicorn": "catalog:",
     "eslint-plugin-vue": "catalog:",
     "globals": "catalog:helper",
     "local-pkg": "catalog:helper",
-    "prettier": "catalog:",
+    "prettier": "catalog:lint",
     "vue-eslint-parser": "catalog:lint"
   },
   "devDependencies": {

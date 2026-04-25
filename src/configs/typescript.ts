@@ -35,6 +35,10 @@ export default function typescript(): FlatConfigItem[] {
           'error',
           { allowShortCircuit: true, allowTaggedTemplates: true, allowTernary: true }
         ],
+        '@typescript-eslint/no-unnecessary-condition': [
+          'error',
+          { allowConstantLoopConditions: 'only-allowed-literals' }
+        ],
         '@typescript-eslint/prefer-find': 'off',
         '@typescript-eslint/prefer-for-of': 'off',
         '@typescript-eslint/prefer-includes': 'off',

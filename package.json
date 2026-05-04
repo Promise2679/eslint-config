@@ -46,6 +46,7 @@
     "eslint-plugin-import-x": "catalog:",
     "eslint-plugin-perfectionist": "catalog:",
     "eslint-plugin-prettier": "catalog:",
+    "eslint-plugin-simple-import-sort": "catalog:",
     "eslint-plugin-sonarjs": "catalog:",
     "eslint-plugin-unicorn": "catalog:",
     "eslint-plugin-vue": "catalog:",

@@ -33,6 +33,8 @@ export default promise({
     enable: {
         ts: true,
         vue: true,
+        // 'perfectionist' | 'simple-import-sort' | boolean
+        sort: 'perfectionist',
         // prettier 相关配置
         prettier: {
             semi: false,

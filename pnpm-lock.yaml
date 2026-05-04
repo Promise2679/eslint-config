@@ -21,6 +21,9 @@ catalogs:
     eslint-plugin-prettier:
       specifier: ^5.5.5
       version: 5.5.5
+    eslint-plugin-simple-import-sort:
+      specifier: ^13.0.0
+      version: 13.0.0
     eslint-plugin-sonarjs:
       specifier: ^4.0.3
       version: 4.0.3
@@ -102,6 +105,9 @@ importers:
       eslint-plugin-prettier:
         specifier: 'catalog:'
         version: 5.5.5(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@10.3.0(jiti@2.6.1)))(eslint@10.3.0(jiti@2.6.1))(prettier@3.8.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 13.0.0(eslint@10.3.0(jiti@2.6.1))
       eslint-plugin-sonarjs:
         specifier: 'catalog:'
         version: 4.0.3(eslint@10.3.0(jiti@2.6.1))
@@ -772,6 +778,11 @@ packages:
         optional: true
       eslint-config-prettier:
         optional: true
+
+  eslint-plugin-simple-import-sort@13.0.0:
+    resolution: {integrity: sha512-McAc+/Nlvcg4byY/CABGH8kqnefWBj8s3JA2okEtz8ixbECQgU46p0HkTUKa4YS7wvgGceimlc34p1nXqbWqtA==}
+    peerDependencies:
+      eslint: '>=5.0.0'
 
   eslint-plugin-sonarjs@4.0.3:
     resolution: {integrity: sha512-5drkJKLC9qQddIiaATV0e8+ygbUc7b0Ti6VB7M2d3jmKNh3X0RaiIJYTs3dr9xnlhlrxo+/s1FoO3Jgv6O/c7g==}
@@ -1846,6 +1857,10 @@ snapshots:
     optionalDependencies:
       '@types/eslint': 9.6.1
       eslint-config-prettier: 10.1.8(eslint@10.3.0(jiti@2.6.1))
+
+  eslint-plugin-simple-import-sort@13.0.0(eslint@10.3.0(jiti@2.6.1)):
+    dependencies:
+      eslint: 10.3.0(jiti@2.6.1)
 
   eslint-plugin-sonarjs@4.0.3(eslint@10.3.0(jiti@2.6.1)):
     dependencies:

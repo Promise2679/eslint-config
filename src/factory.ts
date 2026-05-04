@@ -5,7 +5,7 @@ import importX from './configs/import-x'
 import javascript from './configs/javascript'
 import misc from './configs/misc'
 import prettier from './configs/prettier'
-import sort from './configs/sort'
+import { perfectionist, simpleImportSort } from './configs/sort'
 import typescript from './configs/typescript'
 import unicorn from './configs/unicorn'
 import vue from './configs/vue'
@@ -15,15 +15,26 @@ import { resolveOptions } from './utils'
 export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
   const { enable = {}, ignores: userIgnores = [], rules } = options
   const {
-    perfectionist: enablePerfectionist = true,
     prettier: enablePrettier = true,
+    sort: enableSort = 'perfectionist',
     ts: enableTs = isPackageExists('typescript'),
     vue: enableVue = isPackageExists('vue') || isPackageExists('nuxt')
   } = enable
 
   const configs = [ignores(userIgnores), javascript(), misc(), importX(), unicorn()]
 
-  if (enablePerfectionist) configs.push(sort())
+  switch (enableSort) {
+    case 'perfectionist':
+      configs.push(perfectionist())
+      break
+    case 'simple-import-sort':
+      configs.push(simpleImportSort())
+      break
+    case true:
+      configs.push(perfectionist(), simpleImportSort())
+      break
+  }
+
   if (enableTs) configs.push(typescript())
   if (enableVue) configs.push(vue(enableTs))
   if (rules) configs.push([{ name: 'overrides', rules }])

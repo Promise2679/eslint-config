@@ -12,6 +12,7 @@ export default function misc(): FlatConfigItem[] {
         ...(sonarjsPlugin.configs?.recommended as Linter.Config).rules,
         'sonarjs/cognitive-complexity': 'off',
         'sonarjs/concise-regex': 'off',
+        'sonarjs/deprecation': 'off',
         'sonarjs/function-return-type': 'off',
         'sonarjs/no-clear-text-protocols': 'off',
         'sonarjs/no-dead-store': 'off',
@@ -22,6 +23,7 @@ export default function misc(): FlatConfigItem[] {
         'sonarjs/no-unused-vars': 'off',
         'sonarjs/prefer-regexp-exec': 'off',
         'sonarjs/pseudo-random': 'warn',
+        'sonarjs/reduce-initial-value': 'off',
         'sonarjs/todo-tag': 'off',
         'sonarjs/unused-import': 'off'
       }

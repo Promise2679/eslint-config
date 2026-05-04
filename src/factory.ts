@@ -23,7 +23,7 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
 
   const configs = [ignores(userIgnores), javascript(), misc(), importX(), unicorn()]
 
-  if (enablePerfectionist) sort()
+  if (enablePerfectionist) configs.push(sort())
   if (enableTs) configs.push(typescript())
   if (enableVue) configs.push(vue(enableTs))
   if (rules) configs.push([{ name: 'overrides', rules }])

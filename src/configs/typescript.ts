@@ -26,6 +26,10 @@ export default function typescript(): FlatConfigItem[] {
         '@typescript-eslint/no-deprecated': 'off',
         '@typescript-eslint/no-explicit-any': 'warn',
         '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-unnecessary-condition': [
+          'error',
+          { allowConstantLoopConditions: 'only-allowed-literals' }
+        ],
         '@typescript-eslint/no-unsafe-argument': 'warn',
         '@typescript-eslint/no-unsafe-assignment': 'warn',
         '@typescript-eslint/no-unsafe-call': 'warn',
@@ -35,13 +39,10 @@ export default function typescript(): FlatConfigItem[] {
           'error',
           { allowShortCircuit: true, allowTaggedTemplates: true, allowTernary: true }
         ],
-        '@typescript-eslint/no-unnecessary-condition': [
-          'error',
-          { allowConstantLoopConditions: 'only-allowed-literals' }
-        ],
         '@typescript-eslint/prefer-find': 'off',
         '@typescript-eslint/prefer-for-of': 'off',
         '@typescript-eslint/prefer-includes': 'off',
+        '@typescript-eslint/prefer-nullish-coalescing': ['error', { ignorePrimitives: { number: true } }],
         '@typescript-eslint/prefer-promise-reject-errors': 'off',
         '@typescript-eslint/restrict-template-expressions': 'error'
       }

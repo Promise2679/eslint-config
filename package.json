@@ -1,7 +1,7 @@
 {
   "name": "@promise2/eslint-config",
   "type": "module",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "license": "ISC",
   "author": "Promise2679",
   "packageManager": "pnpm@10.33.4",
@@ -11,7 +11,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "typegen": "jiti scripts/typegen.ts",
-    "postinstall": "simple-git-hooks"
+    "prepare": "simple-git-hooks"
   },
   "nano-staged": {
     "*.ts": "eslint"
@@ -44,6 +44,7 @@
     "@typescript-eslint/eslint-plugin": "catalog:",
     "@typescript-eslint/parser": "catalog:lint",
     "eslint-config-prettier": "catalog:lint",
+    "eslint-plugin-better-tailwindcss": "catalog:",
     "eslint-plugin-import-x": "catalog:",
     "eslint-plugin-perfectionist": "catalog:",
     "eslint-plugin-prettier": "catalog:",

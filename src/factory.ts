@@ -7,6 +7,7 @@ import misc from './configs/misc'
 import prettier from './configs/prettier'
 import react from './configs/react'
 import { perfectionist, simpleImportSort } from './configs/sort'
+import { tailwindcss } from './configs/tailwindcss'
 import typescript from './configs/typescript'
 import unicorn from './configs/unicorn'
 import vue from './configs/vue'
@@ -19,6 +20,7 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
     prettier: enablePrettier = true,
     react: enableReact = isPackageExists('react'),
     sort: enableSort = 'perfectionist',
+    tailwindcss: enableTailwindcss = isPackageExists('tailwindcss'),
     ts: enableTs = isPackageExists('typescript'),
     vue: enableVue = isPackageExists('vue') || isPackageExists('nuxt')
   } = enable
@@ -37,6 +39,7 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
       break
   }
 
+  if (enableTailwindcss) configs.push(tailwindcss())
   if (enableTs) configs.push(typescript())
   if (enableVue) configs.push(vue(enableTs))
   if (enableReact) configs.push(react())

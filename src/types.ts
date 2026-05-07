@@ -13,6 +13,7 @@ export interface OptionsConfig {
     prettier?: boolean | PrettierOptions
     react?: boolean
     sort?: 'perfectionist' | 'simple-import-sort' | boolean
+    tailwindcss?: boolean
     ts?: boolean
     vue?: boolean
   }

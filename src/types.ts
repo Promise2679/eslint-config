@@ -11,6 +11,7 @@ export type FlatConfigItem = {
 export interface OptionsConfig {
   enable?: {
     prettier?: boolean | PrettierOptions
+    react?: boolean
     sort?: 'perfectionist' | 'simple-import-sort' | boolean
     ts?: boolean
     vue?: boolean

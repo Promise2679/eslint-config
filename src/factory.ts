@@ -5,6 +5,7 @@ import importX from './configs/import-x'
 import javascript from './configs/javascript'
 import misc from './configs/misc'
 import prettier from './configs/prettier'
+import react from './configs/react'
 import { perfectionist, simpleImportSort } from './configs/sort'
 import typescript from './configs/typescript'
 import unicorn from './configs/unicorn'
@@ -16,6 +17,7 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
   const { enable = {}, ignores: userIgnores = [], rules } = options
   const {
     prettier: enablePrettier = true,
+    react: enableReact = isPackageExists('react'),
     sort: enableSort = 'perfectionist',
     ts: enableTs = isPackageExists('typescript'),
     vue: enableVue = isPackageExists('vue') || isPackageExists('nuxt')
@@ -37,6 +39,7 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
 
   if (enableTs) configs.push(typescript())
   if (enableVue) configs.push(vue(enableTs))
+  if (enableReact) configs.push(react())
   if (rules) configs.push([{ name: 'overrides', rules }])
 
   // 放到最后，eslint-config-prettier 需要覆盖一些冲突的配置

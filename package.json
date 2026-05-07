@@ -4,7 +4,7 @@
   "version": "0.4.0",
   "license": "ISC",
   "author": "Promise2679",
-  "packageManager": "pnpm@10.33.2",
+  "packageManager": "pnpm@10.33.4",
   "description": "Eslint config used by Promise2679",
   "scripts": {
     "build": "tsdown",
@@ -39,6 +39,7 @@
     "pre-commit": "pnpm nano-staged"
   },
   "dependencies": {
+    "@eslint-react/eslint-plugin": "catalog:",
     "@eslint/js": "catalog:lint",
     "@typescript-eslint/eslint-plugin": "catalog:",
     "@typescript-eslint/parser": "catalog:lint",

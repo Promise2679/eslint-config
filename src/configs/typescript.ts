@@ -7,7 +7,7 @@ import { FlatConfigItem } from '../types'
 export default function typescript(): FlatConfigItem[] {
   return [
     {
-      files: [GLOB_TS, GLOB_TSX, GLOB_VUE],
+      files: [GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_TSX],
       languageOptions: {
         parser: parserTs,
         parserOptions: {

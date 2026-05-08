@@ -15,6 +15,7 @@ export default function unicorn(): FlatConfigItem[] {
         'unicorn/error-message': 'off',
         'unicorn/explicit-length-check': 'off',
         'unicorn/filename-case': 'off',
+        'unicorn/no-abusive-eslint-disable': 'off',
         'unicorn/no-array-reduce': 'off',
         'unicorn/no-null': 'off',
         'unicorn/no-static-only-class': 'off',

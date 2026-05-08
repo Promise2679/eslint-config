@@ -8,8 +8,9 @@ export function tailwindcss(): FlatConfigItem[] {
       name: 'tailwindcss',
       plugins: { 'better-tailwindcss': tailwindcssPlugin },
       rules: {
-        ...tailwindcssPlugin.configs['recommended-error'].rules,
-        'better-tailwindcss/enforce-consistent-line-wrapping': 'off'
+        ...tailwindcssPlugin.configs.recommended.rules,
+        'better-tailwindcss/enforce-consistent-line-wrapping': 'off',
+        'better-tailwindcss/no-unknown-classes': 'off'
       }
     }
   ]

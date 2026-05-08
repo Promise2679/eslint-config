@@ -17,7 +17,11 @@ export default function react(): FlatConfigItem[] {
       },
       name: 'react',
       plugins: { '@eslint-react': reactPlugin },
-      rules: { ...(reactPlugin.configs['strict-type-checked'].rules as FlatConfigItem['rules']) }
+      rules: {
+        ...reactPlugin.configs['strict-type-checked'].rules,
+        '@eslint-react/naming-convention-context-name': 'off',
+        '@eslint-react/use-state': ['error', { enforceSetterName: false }]
+      }
     }
   ]
 }

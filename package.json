@@ -1,10 +1,10 @@
 {
   "name": "@promise2/eslint-config",
   "type": "module",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "license": "ISC",
   "author": "Promise2679",
-  "packageManager": "pnpm@10.33.4",
+  "packageManager": "pnpm@11.0.8",
   "description": "Eslint config used by Promise2679",
   "scripts": {
     "build": "tsdown",
@@ -26,7 +26,7 @@
     }
   },
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=22.18.0"
   },
   "repository": {
     "type": "git",

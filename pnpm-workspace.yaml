@@ -1,3 +1,6 @@
+cleanupUnusedCatalogs: true
+catalogMode: prefer
+
 catalog:
   '@eslint-react/eslint-plugin': 5.7.3
   '@typescript-eslint/eslint-plugin': ^8.59.2
@@ -11,8 +14,6 @@ catalog:
   eslint-plugin-unicorn: ^64.0.0
   eslint-plugin-vue: ^10.9.1
 
-catalogMode: prefer
-
 catalogs:
   helper:
     globals: ^17.6.0
@@ -22,7 +23,7 @@ catalogs:
     jiti: ^2.7.0
     nano-staged: ^1.0.2
     simple-git-hooks: ^2.13.1
-    tsdown: ^0.21.10
+    tsdown: ^0.22.0
     typescript: ^6.0.3
   lint:
     '@eslint/js': ^10.0.1
@@ -31,6 +32,8 @@ catalogs:
     prettier: ^3.8.3
     vue-eslint-parser: ^10.4.0
   typing:
-    '@types/node': ^25.6.0
+    '@types/node': ^25.6.2
 
-cleanupUnusedCatalogs: true
+allowBuilds:
+  simple-git-hooks: false
+  unrs-resolver: false

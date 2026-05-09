@@ -4,7 +4,7 @@ import { Options as PrettierOptions } from 'prettier'
 import type { RuleOptions } from './typegen'
 
 export type FlatConfigItem = {
-  plugins?: Record<string, any>
+  plugins?: Record<string, any> // eslint-disable-line @typescript-eslint/no-explicit-any
   rules?: Record<string, Linter.RuleEntry> & RuleOptions
 } & Omit<Linter.Config, 'plugins' | 'rules'>
 

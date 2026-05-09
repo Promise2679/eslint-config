@@ -29,10 +29,12 @@ export default function vue(enableTs: boolean): FlatConfigItem[] {
       rules: {
         ...vueRecommendedRules,
         'vue/html-self-closing': ['warn', { html: { void: 'always' } }],
+        'vue/max-attributes-per-line': 'off',
         'vue/multi-word-component-names': 'off',
         'vue/no-multiple-template-root': 'off',
         'vue/prefer-true-attribute-shorthand': 'error',
         'vue/return-in-computed-property': 'off',
+        'vue/singleline-html-element-content-newline': 'off',
         'vue/valid-v-slot': ['error', { allowModifiers: true }]
       }
     }

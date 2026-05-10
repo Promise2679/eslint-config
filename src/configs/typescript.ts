@@ -30,6 +30,7 @@ export default function typescript(): FlatConfigItem[] {
           'error',
           { allowConstantLoopConditions: 'only-allowed-literals' }
         ],
+        '@typescript-eslint/no-unnecessary-type-assertion': 'off',
         '@typescript-eslint/no-unsafe-argument': 'warn',
         '@typescript-eslint/no-unsafe-assignment': 'warn',
         '@typescript-eslint/no-unsafe-call': 'warn',

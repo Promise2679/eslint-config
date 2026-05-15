@@ -2,9 +2,9 @@ cleanupUnusedCatalogs: true
 catalogMode: prefer
 
 catalog:
-  '@eslint-react/eslint-plugin': ^5.7.5
-  '@typescript-eslint/eslint-plugin': ^8.59.2
-  eslint: ^10.3.0
+  '@eslint-react/eslint-plugin': ^5.8.3
+  '@typescript-eslint/eslint-plugin': ^8.59.4
+  eslint: ^10.4.0
   eslint-plugin-better-tailwindcss: ^4.5.0
   eslint-plugin-import-x: ^4.16.2
   eslint-plugin-perfectionist: ^5.9.0
@@ -17,7 +17,7 @@ catalog:
 catalogs:
   helper:
     globals: ^17.6.0
-    local-pkg: ^1.1.2
+    local-pkg: ^1.2.1
   infra:
     eslint-typegen: ^2.3.1
     jiti: ^2.7.0
@@ -27,13 +27,26 @@ catalogs:
     typescript: ^6.0.3
   lint:
     '@eslint/js': ^10.0.1
-    '@typescript-eslint/parser': ^8.59.2
+    '@typescript-eslint/parser': ^8.59.4
     eslint-config-prettier: ^10.1.8
     prettier: ^3.8.3
     vue-eslint-parser: ^10.4.0
   typing:
-    '@types/node': ^25.6.2
+    '@types/node': ^25.9.1
 
 allowBuilds:
   simple-git-hooks: false
   unrs-resolver: false
+
+minimumReleaseAgeExclude:
+  - '@types/node@25.9.0'
+  - '@typescript-eslint/eslint-plugin@8.59.4'
+  - '@typescript-eslint/parser@8.59.4'
+  - '@typescript-eslint/project-service@8.59.4'
+  - '@typescript-eslint/scope-manager@8.59.4'
+  - '@typescript-eslint/tsconfig-utils@8.59.4'
+  - '@typescript-eslint/type-utils@8.59.4'
+  - '@typescript-eslint/types@8.59.4'
+  - '@typescript-eslint/typescript-estree@8.59.4'
+  - '@typescript-eslint/utils@8.59.4'
+  - '@typescript-eslint/visitor-keys@8.59.4'

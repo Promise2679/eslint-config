@@ -28,7 +28,6 @@ export default function vue(enableTs: boolean): FlatConfigItem[] {
       processor: pluginVue.processors['.vue'],
       rules: {
         ...vueRecommendedRules,
-        'vue/component-name-in-template-casing': ['error', 'kebab-case'],
         'vue/html-self-closing': ['warn', { html: { void: 'always' } }],
         'vue/max-attributes-per-line': 'off',
         'vue/multi-word-component-names': 'off',

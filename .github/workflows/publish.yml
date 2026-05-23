@@ -27,4 +27,4 @@ jobs:
       - run: pnpm typegen
       - run: pnpm build
       - run: pnpm typecheck
-      - run: pnpm publish
+      - run: pnpm publish --no-git-checks

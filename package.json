@@ -4,7 +4,7 @@
   "version": "0.5.7",
   "license": "ISC",
   "author": "Promise2679",
-  "packageManager": "pnpm@11.2.1",
+  "packageManager": "pnpm@11.2.2",
   "description": "Eslint config used by Promise2679",
   "scripts": {
     "build": "tsdown",

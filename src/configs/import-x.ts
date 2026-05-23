@@ -10,6 +10,7 @@ export default function importX(): FlatConfigItem[] {
       rules: {
         ...eslintImportPlugin.configs['flat/recommended'].rules,
         'import-x/named': 'off',
+        'import-x/no-named-as-default': 'off',
         'import-x/no-named-as-default-member': 'off',
         'import-x/no-unresolved': 'off'
       }

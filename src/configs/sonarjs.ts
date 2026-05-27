@@ -1,11 +1,13 @@
 import { Linter } from 'eslint'
 import sonarjsPlugin from 'eslint-plugin-sonarjs'
 
+import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
 import { FlatConfigItem } from '../types'
 
 export default function sonarjs(): FlatConfigItem[] {
   return [
     {
+      files: [GLOB_JS, GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
       name: 'sonarjs',
       plugins: { sonarjs: sonarjsPlugin },
       rules: {

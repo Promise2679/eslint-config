@@ -1,13 +1,13 @@
 import pluginTs from '@typescript-eslint/eslint-plugin'
 import parserTs from '@typescript-eslint/parser'
 
-import { GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
+import { GLOB_JSX, GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
 import { FlatConfigItem } from '../types'
 
 export default function typescript(): FlatConfigItem[] {
   return [
     {
-      files: [GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_TSX],
+      files: [GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
       languageOptions: {
         parser: parserTs,
         parserOptions: {

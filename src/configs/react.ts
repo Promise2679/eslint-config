@@ -7,7 +7,7 @@ import { FlatConfigItem } from '../types'
 export default function react(): FlatConfigItem[] {
   return [
     {
-      files: [GLOB_TS, GLOB_JS, GLOB_TSX, GLOB_JSX],
+      files: [GLOB_JS, GLOB_TS, GLOB_JSX, GLOB_TSX],
       languageOptions: {
         parser: tsParser,
         parserOptions: {

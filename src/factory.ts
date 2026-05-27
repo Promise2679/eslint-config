@@ -1,6 +1,5 @@
 import { isPackageExists } from 'local-pkg'
 
-import ignores from './configs/ignores'
 import importX from './configs/import-x'
 import javascript from './configs/javascript'
 import perfectionist from './configs/perfectionist'
@@ -13,6 +12,7 @@ import typescript from './configs/typescript'
 import unicorn from './configs/unicorn'
 import vue from './configs/vue'
 import yml from './configs/yml'
+import { GLOBS_EXCLUDES } from './globs'
 import { FlatConfigItem, OptionsConfig } from './types'
 import { resolveOptions } from './utils'
 
@@ -27,7 +27,7 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
     vue: enableVue = isPackageExists('vue') || isPackageExists('nuxt')
   } = enable
 
-  const configs = [ignores(userIgnores), javascript(), sonarjs(), importX(), unicorn(), yml()]
+  const configs = [javascript(), sonarjs(), importX(), unicorn(), yml()]
 
   switch (enableSort) {
     case 'perfectionist':
@@ -46,6 +46,7 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
   if (enableVue) configs.push(vue(enableTs))
   if (enableReact) configs.push(react())
 
+  configs.push([{ ignores: [...GLOBS_EXCLUDES, ...userIgnores], name: 'ignores' }])
   if (rules) configs.push([{ name: 'overrides', rules }])
 
   // 放到最后，eslint-config-prettier 需要覆盖一些冲突的配置

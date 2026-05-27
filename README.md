@@ -57,7 +57,8 @@ import promise from '@promise2/eslint-config'
 
 export default promise({
     enable: {
-        // 导入排序策略：'perfectionist'（默认）| 'simple-import-sort' | boolean（为 true 会同时启用，不建议）
+        // 导入排序策略：'perfectionist'（默认）| 'simple-import-sort' | boolean
+        // 为 true 会同时启用，用于测试，不建议实际使用
         sort: 'perfectionist',
         // Prettier 配置：boolean 或 PrettierOptions 对象，详见 https://prettier.io/docs/options
         prettier: true,

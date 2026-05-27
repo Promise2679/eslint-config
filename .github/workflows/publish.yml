@@ -15,30 +15,30 @@ jobs:
 
     steps:
       - name: Checkout
-      - uses: actions/checkout@v6
+        uses: actions/checkout@v6
 
       - name: Install node
-      - uses: actions/setup-node@v6
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
 
       - name: Install pnpm
-      - uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v6
         with:
           cache: true
 
       - name: Install dependencies
-      - run: pnpm ci
+        run: pnpm ci
 
       - name: Typegen
-      - run: pnpm typegen
+        run: pnpm typegen
 
       - name: Typecheck
-      - run: pnpm typecheck
+        run: pnpm typecheck
 
       - name: Build
-      - run: pnpm build
+        run: pnpm build
 
       - name: Publish
-      - run: pnpm publish
+        run: pnpm publish

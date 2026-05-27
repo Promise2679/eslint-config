@@ -2,11 +2,7 @@ import ymlPlugin from 'eslint-plugin-yml'
 
 import { GLOB_YML } from '../globs'
 import { FlatConfigItem } from '../types'
-
-const ymlRecommendedRules = ymlPlugin.configs.standard.reduce((rules, config) => {
-  if (config.rules) return { ...rules, ...config.rules }
-  return rules
-}, {}) as FlatConfigItem['rules']
+import { resolveRules } from '../utils'
 
 export function yml(): FlatConfigItem[] {
   return [
@@ -16,7 +12,7 @@ export function yml(): FlatConfigItem[] {
       name: 'yml',
       plugins: { yml: ymlPlugin },
       rules: {
-        ...ymlRecommendedRules,
+        ...resolveRules(ymlPlugin.configs.standard),
         'yml/quotes': ['error', { prefer: 'single' }]
       }
     }

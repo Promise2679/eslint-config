@@ -4,11 +4,7 @@ import parserVue from 'vue-eslint-parser'
 
 import { GLOB_VUE } from '../globs'
 import { FlatConfigItem } from '../types'
-
-const vueRecommendedRules = pluginVue.configs['flat/recommended'].reduce((rules, config) => {
-  if (config.rules) return { ...rules, ...config.rules }
-  return rules
-}, {}) as FlatConfigItem['rules']
+import { resolveRules } from '../utils'
 
 export default function vue(enableTs: boolean): FlatConfigItem[] {
   return [
@@ -27,7 +23,7 @@ export default function vue(enableTs: boolean): FlatConfigItem[] {
       plugins: { vue: pluginVue },
       processor: pluginVue.processors['.vue'],
       rules: {
-        ...vueRecommendedRules,
+        ...resolveRules(pluginVue.configs['flat/recommended']),
         'vue/html-self-closing': ['warn', { html: { void: 'always' } }],
         'vue/max-attributes-per-line': 'off',
         'vue/multi-word-component-names': 'off',

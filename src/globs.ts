@@ -1,9 +1,9 @@
 export const GLOB_VUE = '**/*.vue'
-
 export const GLOB_JS = '**/*.?([cm])js'
 export const GLOB_TS = '**/*.?([cm])ts'
 export const GLOB_JSX = '**/*.?([cm])jsx'
 export const GLOB_TSX = '**/*.?([cm])tsx'
+export const GLOB_YML = '**/*.{yml,yaml}'
 
 /**
  * @see https://github.com/antfu/eslint-config/blob/04ae86dd43e86d8b925555d85adf080494efeab3/src/globs.ts#L56

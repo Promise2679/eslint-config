@@ -53,6 +53,7 @@
     "eslint-plugin-sonarjs": "catalog:",
     "eslint-plugin-unicorn": "catalog:",
     "eslint-plugin-vue": "catalog:",
+    "eslint-plugin-yml": "catalog:",
     "globals": "catalog:helper",
     "local-pkg": "catalog:helper",
     "prettier": "catalog:lint",

@@ -11,6 +11,7 @@ import { tailwindcss } from './configs/tailwindcss'
 import typescript from './configs/typescript'
 import unicorn from './configs/unicorn'
 import vue from './configs/vue'
+import { yml } from './configs/yml'
 import { FlatConfigItem, OptionsConfig } from './types'
 import { resolveOptions } from './utils'
 
@@ -25,7 +26,7 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
     vue: enableVue = isPackageExists('vue') || isPackageExists('nuxt')
   } = enable
 
-  const configs = [ignores(userIgnores), javascript(), misc(), importX(), unicorn()]
+  const configs = [ignores(userIgnores), javascript(), misc(), importX(), unicorn(), yml()]
 
   switch (enableSort) {
     case 'perfectionist':

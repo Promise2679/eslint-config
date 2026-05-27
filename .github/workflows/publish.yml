@@ -3,7 +3,7 @@ name: Publish Package
 on:
   push:
     tags:
-      - 'v*'
+      - v*
 
 permissions:
   id-token: write
@@ -12,19 +12,33 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Checkout
       - uses: actions/checkout@v6
 
-      - uses: pnpm/action-setup@v4
-
+      - name: Install node
       - uses: actions/setup-node@v6
         with:
-          node-version: '24'
-          registry-url: 'https://registry.npmjs.org'
-          package-manager-cache: false
+          node-version: 22
+          registry-url: https://registry.npmjs.org
 
+      - name: Install pnpm
+      - uses: pnpm/action-setup@v6
+        with:
+          cache: true
+
+      - name: Install dependencies
       - run: pnpm ci
+
+      - name: Typegen
       - run: pnpm typegen
-      - run: pnpm build
+
+      - name: Typecheck
       - run: pnpm typecheck
-      - run: pnpm publish --no-git-checks
+
+      - name: Build
+      - run: pnpm build
+
+      - name: Publish
+      - run: pnpm publish

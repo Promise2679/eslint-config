@@ -4,15 +4,14 @@
   "version": "0.5.10",
   "license": "ISC",
   "author": "Promise2679",
-  "packageManager": "pnpm@11.2.2",
+  "packageManager": "pnpm@11.3.0",
   "description": "Eslint config used by Promise2679",
   "scripts": {
     "build": "tsdown",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "typegen": "jiti scripts/typegen.ts",
-    "prepare": "simple-git-hooks",
-    "postversion": "git push && git push --tags"
+    "prepare": "simple-git-hooks"
   },
   "nano-staged": {
     "*.ts": "eslint"

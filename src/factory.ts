@@ -3,15 +3,16 @@ import { isPackageExists } from 'local-pkg'
 import ignores from './configs/ignores'
 import importX from './configs/import-x'
 import javascript from './configs/javascript'
-import misc from './configs/misc'
+import perfectionist from './configs/perfectionist'
 import prettier from './configs/prettier'
 import react from './configs/react'
-import { perfectionist, simpleImportSort } from './configs/sort'
-import { tailwindcss } from './configs/tailwindcss'
+import simpleImportSort from './configs/simple-import-sort'
+import sonarjs from './configs/sonarjs'
+import tailwindcss from './configs/tailwindcss'
 import typescript from './configs/typescript'
 import unicorn from './configs/unicorn'
 import vue from './configs/vue'
-import { yml } from './configs/yml'
+import yml from './configs/yml'
 import { FlatConfigItem, OptionsConfig } from './types'
 import { resolveOptions } from './utils'
 
@@ -26,7 +27,7 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
     vue: enableVue = isPackageExists('vue') || isPackageExists('nuxt')
   } = enable
 
-  const configs = [ignores(userIgnores), javascript(), misc(), importX(), unicorn(), yml()]
+  const configs = [ignores(userIgnores), javascript(), sonarjs(), importX(), unicorn(), yml()]
 
   switch (enableSort) {
     case 'perfectionist':
@@ -44,6 +45,7 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
   if (enableTs) configs.push(typescript())
   if (enableVue) configs.push(vue(enableTs))
   if (enableReact) configs.push(react())
+
   if (rules) configs.push([{ name: 'overrides', rules }])
 
   // 放到最后，eslint-config-prettier 需要覆盖一些冲突的配置

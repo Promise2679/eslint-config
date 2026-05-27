@@ -3,7 +3,7 @@ import sonarjsPlugin from 'eslint-plugin-sonarjs'
 
 import { FlatConfigItem } from '../types'
 
-export default function misc(): FlatConfigItem[] {
+export default function sonarjs(): FlatConfigItem[] {
   return [
     {
       name: 'sonarjs',

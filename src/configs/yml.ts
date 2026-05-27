@@ -4,7 +4,7 @@ import { GLOB_YML } from '../globs'
 import { FlatConfigItem } from '../types'
 import { resolveRules } from '../utils'
 
-export function yml(): FlatConfigItem[] {
+export default function yml(): FlatConfigItem[] {
   return [
     {
       files: [GLOB_YML],

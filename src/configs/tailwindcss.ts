@@ -2,7 +2,7 @@ import tailwindcssPlugin from 'eslint-plugin-better-tailwindcss'
 
 import { FlatConfigItem } from '../types'
 
-export function tailwindcss(): FlatConfigItem[] {
+export default function tailwindcss(): FlatConfigItem[] {
   return [
     {
       name: 'tailwindcss',

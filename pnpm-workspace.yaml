@@ -1,10 +1,10 @@
-cleanupUnusedCatalogs: true
 catalogMode: prefer
-
-gitChecks: false
+cleanupUnusedCatalogs: true
 
 nodeVersion: 22.18.0
 engineStrict: true
+
+gitChecks: false
 
 catalog:
   '@eslint-react/eslint-plugin': ^5.8.5

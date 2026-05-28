@@ -11,6 +11,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "typegen": "jiti scripts/typegen.ts",
+    "preview": "config-inspector",
     "prepare": "simple-git-hooks",
     "postversion": "git push"
   },
@@ -60,6 +61,7 @@
     "vue-eslint-parser": "catalog:lint"
   },
   "devDependencies": {
+    "@eslint/config-inspector": "catalog:infra",
     "@types/node": "catalog:typing",
     "eslint": "catalog:",
     "eslint-typegen": "catalog:infra",

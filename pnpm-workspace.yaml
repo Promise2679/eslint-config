@@ -25,6 +25,7 @@ catalogs:
     globals: ^17.6.0
     local-pkg: ^1.2.1
   infra:
+    '@eslint/config-inspector': ^3.0.3
     eslint-typegen: ^2.3.1
     jiti: ^2.7.0
     nano-staged: ^1.0.2

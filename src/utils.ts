@@ -8,9 +8,10 @@ export function resolveOptions<K>(value: K): ResolvedOptions<K> {
   return (value || {}) as ResolvedOptions<K>
 }
 
-export function resolveRules(value: Linter.Config[]) {
-  return value.reduce((rules, config) => {
-    if (config.rules) return { ...rules, ...config.rules }
-    return rules
-  }, {}) as RuleOptions
+export function resolveRules(value: Linter.Config[]): RuleOptions {
+  const rules = {}
+
+  for (const config of value) if (config.rules) Object.assign(rules, config.rules)
+
+  return rules
 }

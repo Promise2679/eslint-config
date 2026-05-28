@@ -30,7 +30,7 @@ export default function typescript(): FlatConfigItem[] {
           'error',
           { allowConstantLoopConditions: 'only-allowed-literals' }
         ],
-        '@typescript-eslint/no-unnecessary-type-assertion': 'off',
+        '@typescript-eslint/no-unnecessary-type-assertion': 'error',
         '@typescript-eslint/no-unsafe-argument': 'warn',
         '@typescript-eslint/no-unsafe-assignment': 'warn',
         '@typescript-eslint/no-unsafe-call': 'warn',
@@ -40,8 +40,11 @@ export default function typescript(): FlatConfigItem[] {
           'error',
           { allowShortCircuit: true, allowTaggedTemplates: true, allowTernary: true }
         ],
+        // 与 unicorn/prefer-array-find 重复
         '@typescript-eslint/prefer-find': 'off',
+        // 与 unicorn/no-for-loop 重复
         '@typescript-eslint/prefer-for-of': 'off',
+        // 与 unicorn/prefer-includes 重复
         '@typescript-eslint/prefer-includes': 'off',
         '@typescript-eslint/prefer-nullish-coalescing': ['error', { ignorePrimitives: { number: true } }],
         '@typescript-eslint/prefer-promise-reject-errors': 'off',

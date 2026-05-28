@@ -5,7 +5,7 @@ import type { RuleOptions } from './typegen'
 
 export type FlatConfigItem = {
   plugins?: Record<string, any> // eslint-disable-line @typescript-eslint/no-explicit-any
-  rules?: Record<string, Linter.RuleEntry> & RuleOptions
+  rules?: RuleOptions
 } & Omit<Linter.Config, 'plugins' | 'rules'>
 
 export interface OptionsConfig {
@@ -18,7 +18,7 @@ export interface OptionsConfig {
     vue?: boolean
   }
   ignores?: string[]
-  rules?: FlatConfigItem['rules']
+  rules?: RuleOptions
 }
 
 export type ResolvedOptions<T> = Exclude<NonNullable<T>, boolean>

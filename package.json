@@ -16,7 +16,7 @@
     "postversion": "git push"
   },
   "nano-staged": {
-    "*.ts": "eslint"
+    "*.ts": "eslint --fix"
   },
   "files": [
     "dist"

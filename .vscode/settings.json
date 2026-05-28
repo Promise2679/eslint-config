@@ -2,6 +2,7 @@
   "eslint.validate": [
     "typescript",
     "yaml",
+    "json",
     "jsonc"
   ]
 }

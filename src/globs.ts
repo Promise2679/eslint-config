@@ -11,7 +11,6 @@ export const GLOB_YML = '**/*.{yml,yaml}'
 export const GLOBS_EXCLUDES = [
   '**/node_modules',
   '**/dist',
-  '**/package.json',
   '**/package-lock.json',
   '**/yarn.lock',
   '**/pnpm-lock.yaml',

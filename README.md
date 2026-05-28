@@ -14,7 +14,7 @@
 pnpm add -D eslint jiti @promise2/eslint-config
 ```
 
-> 如果使用 Bun 运行时则不需要安装 `jiti`
+> 如果使用 Bun 运行时或 node 版本 >=24 则不需要安装 `jiti`
 
 在项目根目录创建 `eslint.config.ts`：
 
@@ -61,8 +61,7 @@ export default promise({
         // 为 true 会同时启用，用于测试，不建议实际使用
         sort: 'perfectionist',
         // Prettier 配置：boolean 或 PrettierOptions 对象，详见 https://prettier.io/docs/options
-        prettier: true,
-        
+        prettier: true
     },
     // 忽略路径
     ignores: ['dist/**'],

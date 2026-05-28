@@ -8,7 +8,7 @@ export default function perfectionist(): FlatConfigItem[] {
   return [
     {
       files: [GLOB_JS, GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
-      name: 'sort',
+      name: 'perfectionist',
       plugins: { perfectionist: perfectionistPlugin },
       rules: perfectionistPlugin.configs['recommended-alphabetical'].rules as FlatConfigItem['rules']
     }

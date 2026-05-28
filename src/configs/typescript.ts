@@ -17,7 +17,7 @@ export default function typescript(): FlatConfigItem[] {
           tsconfigRootDir: process.cwd()
         }
       },
-      name: 'typescript/setup',
+      name: 'typescript',
       plugins: { '@typescript-eslint': pluginTs },
       rules: {
         ...pluginTs.configs['strict-type-checked'].rules,

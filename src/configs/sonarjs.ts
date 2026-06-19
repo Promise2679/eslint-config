@@ -19,6 +19,8 @@ export default function sonarjs(): FlatConfigItem[] {
         'sonarjs/no-clear-text-protocols': 'off',
         'sonarjs/no-dead-store': 'off',
         'sonarjs/no-hardcoded-passwords': 'off',
+        // 与 unicorn/no-negated-comparison 重复
+        'sonarjs/no-inverted-boolean-check': 'off',
         'sonarjs/no-misleading-array-reverse': 'off',
         'sonarjs/no-nested-functions': 'off',
         'sonarjs/no-unused-collection': 'off',
@@ -26,6 +28,7 @@ export default function sonarjs(): FlatConfigItem[] {
         'sonarjs/prefer-regexp-exec': 'off',
         'sonarjs/pseudo-random': 'warn',
         'sonarjs/reduce-initial-value': 'off',
+        'sonarjs/slow-regex': 'warn',
         'sonarjs/todo-tag': 'off',
         'sonarjs/unused-import': 'off'
       }

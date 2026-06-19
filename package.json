@@ -4,7 +4,7 @@
   "version": "0.6.1",
   "license": "ISC",
   "author": "Promise2679",
-  "packageManager": "pnpm@11.3.0",
+  "packageManager": "pnpm@11.8.0",
   "description": "Eslint config used by Promise2679",
   "scripts": {
     "build": "tsdown",
@@ -72,6 +72,6 @@
     "typescript": "catalog:infra"
   },
   "peerDependencies": {
-    "eslint": "^10"
+    "eslint": "^10.4.0"
   }
 }

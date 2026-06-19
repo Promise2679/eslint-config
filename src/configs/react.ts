@@ -12,7 +12,7 @@ export default function react(): FlatConfigItem[] {
         parser: tsParser,
         parserOptions: {
           projectService: true,
-          tsconfigRootDir: import.meta.dirname
+          tsconfigRootDir: process.cwd()
         }
       },
       name: 'react',

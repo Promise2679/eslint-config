@@ -9,5 +9,6 @@
   ],
   "postUpdateOptions": ["pnpmDedupe"],
   "lockFileMaintenance": { "enabled": true },
-  "labels": ["automated-pr"]
+  "labels": ["automated-pr"],
+  "minimumReleaseAge": "1 day"
 }

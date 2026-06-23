@@ -1,9 +1,9 @@
 import tailwindcssPlugin from 'eslint-plugin-better-tailwindcss'
 
 import { GLOB_JSX, GLOB_TSX, GLOB_VUE } from '../globs'
-import { FlatConfigItem } from '../types'
+import { ConfigContext, FlatConfigItem } from '../types'
 
-export default function tailwindcss(): FlatConfigItem[] {
+export default function tailwindcss(_ctx: ConfigContext): FlatConfigItem[] {
   return [
     {
       files: [GLOB_JSX, GLOB_TSX, GLOB_VUE],

@@ -1,9 +1,9 @@
 import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort'
 
 import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
-import { FlatConfigItem } from '../types'
+import { ConfigContext, FlatConfigItem } from '../types'
 
-export default function simpleImportSort(): FlatConfigItem[] {
+export default function simpleImportSort(_ctx: ConfigContext): FlatConfigItem[] {
   return [
     {
       files: [GLOB_JS, GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],

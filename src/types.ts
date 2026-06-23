@@ -3,6 +3,12 @@ import { Options as PrettierOptions } from 'prettier'
 
 import type { RuleOptions } from './typegen'
 
+/** 各 config 函数统一接收的上下文 */
+export interface ConfigContext {
+  esYear: number
+  ts: boolean
+}
+
 export type FlatConfigItem = {
   plugins?: Record<string, any> // eslint-disable-line @typescript-eslint/no-explicit-any
   rules?: RuleOptions
@@ -21,4 +27,4 @@ export interface OptionsConfig {
   rules?: RuleOptions
 }
 
-export type ResolvedOptions<T> = Exclude<NonNullable<T>, boolean>
+export type RulesTable = Partial<Record<keyof RuleOptions, number>>

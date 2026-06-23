@@ -3,10 +3,10 @@ import pluginVue from 'eslint-plugin-vue'
 import parserVue from 'vue-eslint-parser'
 
 import { GLOB_VUE } from '../globs'
-import { FlatConfigItem } from '../types'
+import { ConfigContext, FlatConfigItem } from '../types'
 import { resolveRules } from '../utils'
 
-export default function vue(enableTs: boolean): FlatConfigItem[] {
+export default function vue({ ts }: ConfigContext): FlatConfigItem[] {
   return [
     {
       files: [GLOB_VUE],
@@ -15,7 +15,7 @@ export default function vue(enableTs: boolean): FlatConfigItem[] {
         parserOptions: {
           ecmaFeatures: { jsx: true },
           extraFileExtensions: ['.vue'],
-          parser: enableTs ? parserTs : null,
+          parser: ts ? parserTs : null,
           sourceType: 'module'
         }
       },

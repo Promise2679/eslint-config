@@ -2,9 +2,9 @@ import pluginTs from '@typescript-eslint/eslint-plugin'
 import parserTs from '@typescript-eslint/parser'
 
 import { GLOB_JSX, GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
-import { FlatConfigItem } from '../types'
+import { ConfigContext, FlatConfigItem } from '../types'
 
-export default function typescript(): FlatConfigItem[] {
+export default function typescript(_ctx: ConfigContext): FlatConfigItem[] {
   return [
     {
       files: [GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
@@ -40,6 +40,7 @@ export default function typescript(): FlatConfigItem[] {
           'error',
           { allowShortCircuit: true, allowTaggedTemplates: true, allowTernary: true }
         ],
+        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
         // 与 unicorn/prefer-array-find 重复
         '@typescript-eslint/prefer-find': 'off',
         // 与 unicorn/no-for-loop 重复

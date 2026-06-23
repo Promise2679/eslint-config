@@ -1,10 +1,10 @@
 import ymlPlugin from 'eslint-plugin-yml'
 
 import { GLOB_YML } from '../globs'
-import { FlatConfigItem } from '../types'
+import { ConfigContext, FlatConfigItem } from '../types'
 import { resolveRules } from '../utils'
 
-export default function yml(): FlatConfigItem[] {
+export default function yml(_ctx: ConfigContext): FlatConfigItem[] {
   return [
     {
       files: [GLOB_YML],

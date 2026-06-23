@@ -2,9 +2,9 @@ import { Linter } from 'eslint'
 import sonarjsPlugin from 'eslint-plugin-sonarjs'
 
 import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
-import { FlatConfigItem } from '../types'
+import { ConfigContext, FlatConfigItem } from '../types'
 
-export default function sonarjs(): FlatConfigItem[] {
+export default function sonarjs(_ctx: ConfigContext): FlatConfigItem[] {
   return [
     {
       files: [GLOB_JS, GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
@@ -29,6 +29,7 @@ export default function sonarjs(): FlatConfigItem[] {
         'sonarjs/pseudo-random': 'warn',
         'sonarjs/reduce-initial-value': 'off',
         'sonarjs/slow-regex': 'warn',
+        'sonarjs/super-linear-regex': 'off',
         'sonarjs/todo-tag': 'off',
         'sonarjs/unused-import': 'off'
       }

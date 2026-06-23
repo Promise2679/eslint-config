@@ -13,8 +13,8 @@ import unicorn from './configs/unicorn'
 import vue from './configs/vue'
 import yml from './configs/yml'
 import { GLOBS_EXCLUDES } from './globs'
-import { FlatConfigItem, OptionsConfig } from './types'
-import { resolveOptions } from './utils'
+import { ConfigContext, FlatConfigItem, OptionsConfig } from './types'
+import { resolveProjectEsYear } from './utils'
 
 export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
   const { enable = {}, ignores: userIgnores = [], rules } = options
@@ -27,30 +27,31 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
     vue: enableVue = isPackageExists('vue') || isPackageExists('nuxt')
   } = enable
 
-  const configs = [javascript(), sonarjs(), importX(), unicorn(), yml()]
+  const ctx: ConfigContext = { esYear: resolveProjectEsYear(), ts: enableTs }
+  const configs = [javascript(ctx), sonarjs(ctx), importX(ctx), unicorn(ctx), yml(ctx)]
 
   switch (enableSort) {
     case 'perfectionist':
-      configs.push(perfectionist())
+      configs.push(perfectionist(ctx))
       break
     case 'simple-import-sort':
-      configs.push(simpleImportSort())
+      configs.push(simpleImportSort(ctx))
       break
     case true:
-      configs.push(perfectionist(), simpleImportSort())
+      configs.push(perfectionist(ctx), simpleImportSort(ctx))
       break
   }
 
-  if (enableTailwindcss) configs.push(tailwindcss())
-  if (enableTs) configs.push(typescript())
-  if (enableVue) configs.push(vue(enableTs))
-  if (enableReact) configs.push(react())
+  if (enableTailwindcss) configs.push(tailwindcss(ctx))
+  if (enableTs) configs.push(typescript(ctx))
+  if (enableVue) configs.push(vue(ctx))
+  if (enableReact) configs.push(react(ctx))
 
   configs.push([{ ignores: [...GLOBS_EXCLUDES, ...userIgnores], name: 'ignores' }])
   if (rules) configs.push([{ name: 'overrides', rules }])
 
   // 放到最后，eslint-config-prettier 需要覆盖一些冲突的配置
-  const codeStyleOptions = resolveOptions(enablePrettier)
+  const codeStyleOptions = typeof enablePrettier === 'boolean' ? {} : enablePrettier
   if (enablePrettier) configs.push(prettier(codeStyleOptions))
 
   return configs.flat()

@@ -2,9 +2,9 @@ import reactPlugin from '@eslint-react/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
 
 import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from '../globs'
-import { FlatConfigItem } from '../types'
+import { ConfigContext, FlatConfigItem } from '../types'
 
-export default function react(): FlatConfigItem[] {
+export default function react(_ctx: ConfigContext): FlatConfigItem[] {
   return [
     {
       files: [GLOB_JS, GLOB_TS, GLOB_JSX, GLOB_TSX],

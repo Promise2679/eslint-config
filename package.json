@@ -55,6 +55,7 @@
     "eslint-plugin-unicorn": "catalog:",
     "eslint-plugin-vue": "catalog:",
     "eslint-plugin-yml": "catalog:",
+    "get-tsconfig": "catalog:helper",
     "globals": "catalog:helper",
     "local-pkg": "catalog:helper",
     "prettier": "catalog:lint",

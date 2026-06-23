@@ -4,7 +4,7 @@
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "non-major"
+      "groupName": "non-major deps"
     }
   ],
   "postUpdateOptions": ["pnpmDedupe"],

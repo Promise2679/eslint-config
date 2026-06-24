@@ -9,6 +9,9 @@
     },
     {
       "matchDepNames": ["node"],
+      "rangeStrategy": "auto"
+    },
+    {
       "matchDepTypes": ["peerDependencies"],
       "rangeStrategy": "auto"
     }

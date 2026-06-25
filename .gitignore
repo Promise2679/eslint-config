@@ -6,6 +6,3 @@ dist/
 src/typegen.d.ts
 
 .claude
-openspec
-
-.codegraph

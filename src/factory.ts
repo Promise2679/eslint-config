@@ -5,6 +5,7 @@ import javascript from './configs/javascript'
 import perfectionist from './configs/perfectionist'
 import prettier from './configs/prettier'
 import react from './configs/react'
+import regexp from './configs/regexp'
 import simpleImportSort from './configs/simple-import-sort'
 import sonarjs from './configs/sonarjs'
 import tailwindcss from './configs/tailwindcss'
@@ -28,7 +29,7 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
   } = enable
 
   const ctx: ConfigContext = { esYear: resolveProjectEsYear(), ts: enableTs }
-  const configs = [javascript(ctx), sonarjs(ctx), importX(ctx), unicorn(ctx), yml(ctx)]
+  const configs = [javascript(ctx), sonarjs(ctx), importX(ctx), unicorn(ctx), yml(ctx), regexp(ctx)]
 
   switch (enableSort) {
     case 'perfectionist':

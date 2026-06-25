@@ -23,8 +23,7 @@ export function resolveProjectEsYear() {
 
   if (compilerOptions.lib?.length) {
     const years = compilerOptions.lib.map(token => parseEsYear(token)).filter(year => !Number.isNaN(year))
-    const year = years.length > 0 ? Math.max(...years) : undefined
-    if (year !== undefined) return year
+    if (years.length > 0) return Math.max(...years)
   }
 
   if (compilerOptions.target) {

@@ -1,23 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "rangeStrategy": "bump",
+  "extends": ["config:best-practices"],
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "lockFileMaintenance"],
+      "matchUpdateTypes": ["minor", "patch"],
       "groupName": "non-major deps"
-    },
-    {
-      "matchDepNames": ["node"],
-      "rangeStrategy": "auto"
-    },
-    {
-      "matchDepTypes": ["peerDependencies"],
-      "rangeStrategy": "auto"
     }
   ],
   "postUpdateOptions": ["pnpmDedupe"],
-  "lockFileMaintenance": { "enabled": true },
-  "labels": ["automated-pr"],
-  "minimumReleaseAge": "1 day"
+  "labels": ["automated-pr"]
 }

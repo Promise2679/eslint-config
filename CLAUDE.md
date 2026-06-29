@@ -45,3 +45,4 @@ CI（[.github/workflows](.github/workflows)）依次执行 `typegen → lint →
 - 依赖版本统一走 pnpm catalog（[pnpm-workspace.yaml](pnpm-workspace.yaml) 的 `catalog:` / `catalogs:`），`package.json` 里写 `catalog:xxx` 而非具体版本号。增删依赖需同步改这两处。
 - 代码风格由自身 prettier 配置约束：无分号、单引号、`printWidth: 120`、`arrowParens: 'avoid'`、`trailingComma: 'none'`（见 [src/configs/prettier.ts](src/configs/prettier.ts)）。
 - 仅发布 `dist/`（`package.json` 的 `files`）。
+- 每次改动需同步更新相关文档（README、CLAUDE.md 等），保持文档与实现一致。

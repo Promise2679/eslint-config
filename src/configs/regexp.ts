@@ -9,7 +9,7 @@ export default function regexp(_ctx: ConfigContext): FlatConfigItem[] {
       files: [GLOB_JS, GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
       name: 'regexp',
       plugins: { regexp: regexpPlugin },
-      rules: { ...regexpPlugin.configs.recommended.rules }
+      rules: regexpPlugin.configs.recommended.rules
     }
   ]
 }

@@ -31,7 +31,7 @@ jobs:
         run: pnpm typegen
 
       - name: Lint
-        run: pnpm lint
+        run: pnpm lint-staged
 
       - name: Typecheck
         run: pnpm typecheck

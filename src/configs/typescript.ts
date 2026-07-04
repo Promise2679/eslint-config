@@ -26,6 +26,7 @@ export default function typescript(_ctx: ConfigContext): FlatConfigItem[] {
         '@typescript-eslint/no-deprecated': 'off',
         '@typescript-eslint/no-explicit-any': 'warn',
         '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-shadow': 'error',
         '@typescript-eslint/no-unnecessary-condition': [
           'error',
           { allowConstantLoopConditions: 'only-allowed-literals' }
@@ -34,6 +35,7 @@ export default function typescript(_ctx: ConfigContext): FlatConfigItem[] {
         '@typescript-eslint/no-unsafe-argument': 'warn',
         '@typescript-eslint/no-unsafe-assignment': 'warn',
         '@typescript-eslint/no-unsafe-call': 'warn',
+        '@typescript-eslint/no-unsafe-enum-comparison': 'warn',
         '@typescript-eslint/no-unsafe-member-access': 'warn',
         '@typescript-eslint/no-unsafe-return': 'warn',
         '@typescript-eslint/no-unused-expressions': [

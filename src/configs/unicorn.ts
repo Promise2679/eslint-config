@@ -48,6 +48,7 @@ export default function unicorn({ esYear }: ConfigContext): FlatConfigItem[] {
         'unicorn/numeric-separators-style': 'off',
         'unicorn/prefer-global-number-constants': 'off',
         'unicorn/prefer-import-meta-properties': 'error',
+        'unicorn/prefer-number-coercion': 'off',
         'unicorn/prefer-number-is-safe-integer': 'off',
         'unicorn/prefer-number-properties': ['error', { checkNaN: true }],
         // querySelector 和 getElementById 返回类型并不一致

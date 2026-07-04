@@ -1,7 +1,7 @@
 catalogMode: prefer
 cleanupUnusedCatalogs: true
 
-nodeVersion: 22.18.0
+nodeVersion: 22.22.1
 engineStrict: true
 
 gitChecks: false
@@ -32,7 +32,7 @@ catalogs:
     '@eslint/config-inspector': ^3.0.4
     eslint-typegen: ^2.3.1
     jiti: ^2.7.0
-    nano-staged: ^1.0.2
+    lint-staged: ^17.0.8
     simple-git-hooks: ^2.13.1
     tsdown: ^0.22.3
     typescript: ^6.0.3

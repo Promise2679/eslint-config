@@ -1,7 +1,7 @@
 {
   "name": "@promise2/eslint-config",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "ISC",
   "author": "Promise2679",
   "packageManager": "pnpm@11.9.0",

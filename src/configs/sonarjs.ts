@@ -23,6 +23,8 @@ export default function sonarjs(_ctx: ConfigContext): FlatConfigItem[] {
         'sonarjs/no-inverted-boolean-check': 'off',
         'sonarjs/no-misleading-array-reverse': 'off',
         'sonarjs/no-nested-functions': 'off',
+        // 有误报，先暂时关掉
+        'sonarjs/no-redundant-optional': 'off',
         'sonarjs/no-unused-collection': 'off',
         'sonarjs/no-unused-vars': 'off',
         'sonarjs/prefer-regexp-exec': 'off',

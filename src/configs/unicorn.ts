@@ -39,8 +39,7 @@ export default function unicorn({ esYear }: ConfigContext): FlatConfigItem[] {
         'unicorn/no-misrefactored-assignment': 'off',
         'unicorn/no-non-function-verb-prefix': 'off',
         'unicorn/no-null': 'off',
-        // 这个规则会误报非 array 类型的 push 方法调用，如 router
-        'unicorn/no-return-array-push': 'off',
+        'unicorn/no-return-array-push': 'error',
         // 与 @typescript-eslint/no-extraneous-class 重复
         'unicorn/no-static-only-class': 'off',
         'unicorn/no-unreadable-for-of-expression': 'off',

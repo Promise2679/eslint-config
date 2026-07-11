@@ -9,6 +9,8 @@ export interface ConfigContext {
   ts: boolean
 }
 
+export type ConfigFn = (ctx: ConfigContext) => FlatConfigItem
+
 export type FlatConfigItem = {
   plugins?: Record<string, any> // eslint-disable-line @typescript-eslint/no-explicit-any
   rules?: RuleOptions

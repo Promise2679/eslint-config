@@ -48,12 +48,12 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
   if (enableVue) configs.push(vue(ctx))
   if (enableReact) configs.push(react(ctx))
 
-  configs.push([{ ignores: [...GLOBS_EXCLUDES, ...userIgnores], name: 'ignores' }])
-  if (rules) configs.push([{ name: 'overrides', rules }])
+  configs.push({ ignores: [...GLOBS_EXCLUDES, ...userIgnores], name: 'ignores' })
+  if (rules) configs.push({ name: 'overrides', rules })
 
   // 放到最后，eslint-config-prettier 需要覆盖一些冲突的配置
   const codeStyleOptions = typeof enablePrettier === 'boolean' ? {} : enablePrettier
   if (enablePrettier) configs.push(prettier(codeStyleOptions))
 
-  return configs.flat()
+  return configs
 }

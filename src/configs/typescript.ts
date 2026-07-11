@@ -2,57 +2,52 @@ import pluginTs from '@typescript-eslint/eslint-plugin'
 import parserTs from '@typescript-eslint/parser'
 
 import { GLOB_JSX, GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
-import { ConfigContext, FlatConfigItem } from '../types'
+import { ConfigFn } from '../types'
 
-export default function typescript(_ctx: ConfigContext): FlatConfigItem[] {
-  return [
-    {
-      files: [GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
-      languageOptions: {
-        parser: parserTs,
-        parserOptions: {
-          ecmaVersion: 2022,
-          projectService: { allowDefaultProject: ['./*.js'], defaultProject: './tsconfig.json' },
-          sourceType: 'module',
-          tsconfigRootDir: process.cwd()
-        }
-      },
-      name: 'typescript',
-      plugins: { '@typescript-eslint': pluginTs },
-      rules: {
-        ...pluginTs.configs['strict-type-checked'].rules,
-        ...pluginTs.configs['stylistic-type-checked'].rules,
-        '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
-        '@typescript-eslint/no-deprecated': 'off',
-        '@typescript-eslint/no-explicit-any': 'warn',
-        '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/no-shadow': 'error',
-        '@typescript-eslint/no-unnecessary-condition': [
-          'error',
-          { allowConstantLoopConditions: 'only-allowed-literals' }
-        ],
-        '@typescript-eslint/no-unnecessary-type-assertion': 'error',
-        '@typescript-eslint/no-unsafe-argument': 'warn',
-        '@typescript-eslint/no-unsafe-assignment': 'warn',
-        '@typescript-eslint/no-unsafe-call': 'warn',
-        '@typescript-eslint/no-unsafe-enum-comparison': 'warn',
-        '@typescript-eslint/no-unsafe-member-access': 'warn',
-        '@typescript-eslint/no-unsafe-return': 'warn',
-        '@typescript-eslint/no-unused-expressions': [
-          'error',
-          { allowShortCircuit: true, allowTaggedTemplates: true, allowTernary: true }
-        ],
-        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
-        // 与 unicorn/prefer-array-find 重复
-        '@typescript-eslint/prefer-find': 'off',
-        // 与 unicorn/no-for-loop 重复
-        '@typescript-eslint/prefer-for-of': 'off',
-        // 与 unicorn/prefer-includes 重复
-        '@typescript-eslint/prefer-includes': 'off',
-        '@typescript-eslint/prefer-nullish-coalescing': ['error', { ignorePrimitives: { number: true } }],
-        '@typescript-eslint/prefer-promise-reject-errors': 'off',
-        '@typescript-eslint/restrict-template-expressions': 'error'
-      }
+const typescript: ConfigFn = _ctx => ({
+  files: [GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
+  languageOptions: {
+    parser: parserTs,
+    parserOptions: {
+      ecmaVersion: 2022,
+      projectService: { allowDefaultProject: ['./*.js'], defaultProject: './tsconfig.json' },
+      sourceType: 'module',
+      tsconfigRootDir: process.cwd()
     }
-  ]
-}
+  },
+  name: 'typescript',
+  plugins: { '@typescript-eslint': pluginTs },
+  rules: {
+    ...pluginTs.configs['strict-type-checked'].rules,
+    ...pluginTs.configs['stylistic-type-checked'].rules,
+    '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
+    '@typescript-eslint/no-deprecated': 'off',
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-shadow': 'error',
+    '@typescript-eslint/no-unnecessary-condition': ['error', { allowConstantLoopConditions: 'only-allowed-literals' }],
+    '@typescript-eslint/no-unnecessary-type-assertion': 'error',
+    '@typescript-eslint/no-unsafe-argument': 'warn',
+    '@typescript-eslint/no-unsafe-assignment': 'warn',
+    '@typescript-eslint/no-unsafe-call': 'warn',
+    '@typescript-eslint/no-unsafe-enum-comparison': 'warn',
+    '@typescript-eslint/no-unsafe-member-access': 'warn',
+    '@typescript-eslint/no-unsafe-return': 'warn',
+    '@typescript-eslint/no-unused-expressions': [
+      'error',
+      { allowShortCircuit: true, allowTaggedTemplates: true, allowTernary: true }
+    ],
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+    // 与 unicorn/prefer-array-find 重复
+    '@typescript-eslint/prefer-find': 'off',
+    // 与 unicorn/no-for-loop 重复
+    '@typescript-eslint/prefer-for-of': 'off',
+    // 与 unicorn/prefer-includes 重复
+    '@typescript-eslint/prefer-includes': 'off',
+    '@typescript-eslint/prefer-nullish-coalescing': ['error', { ignorePrimitives: { number: true } }],
+    '@typescript-eslint/prefer-promise-reject-errors': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'error'
+  }
+})
+
+export default typescript

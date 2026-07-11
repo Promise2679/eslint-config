@@ -15,13 +15,11 @@ const prettierOptions: PrettierOptions = {
   trailingComma: 'none'
 }
 
-export default function prettier(options: PrettierOptions): FlatConfigItem[] {
-  return [
-    {
-      files: [GLOB_JS, GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
-      name: 'prettier',
-      ...configPrettier,
-      rules: { 'prettier/prettier': ['error', { ...prettierOptions, ...options }] }
-    }
-  ]
-}
+const prettier = (options: PrettierOptions): FlatConfigItem => ({
+  files: [GLOB_JS, GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
+  name: 'prettier',
+  ...configPrettier,
+  rules: { 'prettier/prettier': ['error', { ...prettierOptions, ...options }] }
+})
+
+export default prettier

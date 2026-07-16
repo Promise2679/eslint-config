@@ -54,6 +54,7 @@ const unicorn: ConfigFn = ({ esYear }) => ({
     // 与 @typescript-eslint/prefer-string-starts-ends-with 重复
     'unicorn/prefer-string-starts-ends-with': 'off',
     'unicorn/prefer-type-literal-last': 'off',
+    'unicorn/require-array-join-separator': 'off',
     'unicorn/switch-case-braces': ['error', 'avoid']
   }
 })

@@ -26,6 +26,7 @@ const vue: ConfigFn = ({ ts }) => ({
     'vue/max-attributes-per-line': 'off',
     'vue/multi-word-component-names': 'off',
     'vue/no-multiple-template-root': 'off',
+    'vue/prefer-separate-static-class': 'warn',
     'vue/prefer-true-attribute-shorthand': 'error',
     'vue/require-default-prop': 'off',
     'vue/return-in-computed-property': 'off',

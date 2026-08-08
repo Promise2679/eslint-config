@@ -19,7 +19,7 @@ const vue: ConfigFn = ({ ts }) => ({
   },
   name: 'vue',
   plugins: { vue: pluginVue },
-  processor: pluginVue.processors['.vue'],
+  processor: pluginVue.processors['.vue'], // eslint-disable-line @typescript-eslint/no-unsafe-assignment
   rules: {
     ...resolveRules(pluginVue.configs['flat/recommended']),
     'vue/html-self-closing': ['warn', { html: { void: 'always' } }],

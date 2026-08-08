@@ -29,6 +29,7 @@ const unicorn: ConfigFn = ({ esYear }) => ({
     'unicorn/error-message': 'off',
     'unicorn/explicit-timer-delay': ['error', 'never'],
     'unicorn/filename-case': 'off',
+    'unicorn/iteration-fallback-style': 'error',
     'unicorn/max-nested-calls': 'off',
     'unicorn/name-replacements': 'off',
     'unicorn/no-abusive-eslint-disable': 'off',
@@ -56,6 +57,7 @@ const unicorn: ConfigFn = ({ esYear }) => ({
     'unicorn/prefer-string-starts-ends-with': 'off',
     'unicorn/prefer-type-literal-last': 'off',
     'unicorn/require-array-join-separator': 'off',
+    'unicorn/single-line-block-comment-style': ['error', 'single-line'],
     'unicorn/switch-case-braces': ['error', 'avoid']
   }
 })

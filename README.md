@@ -85,4 +85,4 @@ export default promise({
 
 ## License
 
-ISC
+MIT

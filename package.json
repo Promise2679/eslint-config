@@ -2,7 +2,7 @@
   "name": "@promise2/eslint-config",
   "type": "module",
   "version": "1.1.0",
-  "license": "ISC",
+  "license": "MIT",
   "author": "Promise2679",
   "packageManager": "pnpm@11.20.0",
   "description": "Eslint config used by Promise2679",

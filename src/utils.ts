@@ -21,21 +21,19 @@ export function gateRules(esYear: number, table: RulesTable): RuleOptions {
 export function resolveProjectEsYear() {
   const cwd = process.cwd()
   const compilerOptions = getTsconfig(cwd)?.config.compilerOptions
-  if (!compilerOptions) {
-    return 2022
-  }
-
-  if (compilerOptions.lib?.length) {
-    const years = compilerOptions.lib.map(token => parseEsYear(token)).filter(year => !Number.isNaN(year))
-    if (years.length > 0) {
-      return Math.max(...years)
+  if (compilerOptions) {
+    if (compilerOptions.lib?.length) {
+      const years = compilerOptions.lib.map(token => parseEsYear(token)).filter(Boolean) as number[]
+      if (years.length > 0) {
+        return Math.max(...years)
+      }
     }
-  }
 
-  if (compilerOptions.target) {
-    const year = parseEsYear(compilerOptions.target)
-    if (!Number.isNaN(year)) {
-      return year
+    if (compilerOptions.target) {
+      const year = parseEsYear(compilerOptions.target)
+      if (year) {
+        return year
+      }
     }
   }
 
@@ -55,7 +53,6 @@ export function resolveRules(value: Linter.Config[]): RuleOptions {
 
 /**
  * 将 tsconfig 的 lib/target 归一为 ES 年份
- * 非 ES token 返回 NaN。
  */
 function parseEsYear(token: string) {
   const normalized = token.toLowerCase()
@@ -65,7 +62,7 @@ function parseEsYear(token: string) {
 
   const match = /^es(\d+)/.exec(normalized)
   if (!match) {
-    return Number.NaN
+    return
   }
 
   const num = Number(match[1])
@@ -73,8 +70,5 @@ function parseEsYear(token: string) {
     return num
   }
   // ES6->2015 ES7->2016
-  if (num >= 6) {
-    return 2009 + num
-  }
-  return num
+  return 2009 + num
 }

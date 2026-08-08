@@ -43,17 +43,29 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
       break
   }
 
-  if (enableTailwindcss) configs.push(tailwindcss(ctx))
+  if (enableTailwindcss) {
+    configs.push(tailwindcss(ctx))
+  }
 
-  if (enableTs) configs.push(typescript(ctx))
+  if (enableTs) {
+    configs.push(typescript(ctx))
+  }
 
-  if (enableVue) configs.push(vue(ctx))
+  if (enableVue) {
+    configs.push(vue(ctx))
+  }
 
-  if (enableReact) configs.push(react(ctx))
+  if (enableReact) {
+    configs.push(react(ctx))
+  }
 
-  if (enablePrettier) configs.push(prettier(enablePrettier === true ? {} : enablePrettier))
+  if (enablePrettier) {
+    configs.push(prettier(enablePrettier === true ? {} : enablePrettier))
+  }
 
-  if (rules) configs.push({ name: 'overrides', rules })
+  if (rules) {
+    configs.push({ name: 'overrides', rules })
+  }
 
   configs.push({ ignores: [...GLOBS_EXCLUDES, ...userIgnores], name: 'ignores' })
   return configs

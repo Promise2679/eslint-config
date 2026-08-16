@@ -4,8 +4,7 @@
   "version": "1.1.0",
   "license": "MIT",
   "author": "Promise2679",
-  "packageManager": "pnpm@11.20.0",
-  "description": "Eslint config used by Promise2679",
+  "description": "ESLint config used by Promise2679",
   "scripts": {
     "build": "tsdown",
     "lint": "eslint",
@@ -14,6 +13,21 @@
     "preview": "config-inspector",
     "prepare": "simple-git-hooks",
     "postversion": "git push"
+  },
+  "engines": {
+    "node": "^22.22.2 || >=24.15.0"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^22.22.2 || >=24.15.0",
+      "onFail": "warn"
+    },
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.20.0",
+      "onFail": "warn"
+    }
   },
   "lint-staged": {
     "*.ts": "eslint --fix"
@@ -26,9 +40,6 @@
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.mts"
     }
-  },
-  "engines": {
-    "node": "^22.22.1 || >=24.11.0"
   },
   "repository": {
     "type": "git",

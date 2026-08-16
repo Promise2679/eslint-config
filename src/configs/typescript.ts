@@ -10,7 +10,7 @@ const typescript: ConfigFn = _ctx => ({
     parser: parserTs,
     parserOptions: {
       ecmaVersion: 2022,
-      projectService: { allowDefaultProject: ['./*.js'], defaultProject: './tsconfig.json' },
+      projectService: true,
       sourceType: 'module',
       tsconfigRootDir: process.cwd()
     }

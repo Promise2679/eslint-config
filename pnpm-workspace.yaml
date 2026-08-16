@@ -1,7 +1,7 @@
 catalogMode: prefer
 cleanupUnusedCatalogs: true
 
-nodeVersion: 22.22.1
+nodeVersion: 22.22.2
 engineStrict: true
 
 gitChecks: false

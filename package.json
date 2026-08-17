@@ -7,7 +7,9 @@
   "description": "ESLint config used by Promise2679",
   "scripts": {
     "build": "tsdown",
+    "build:inspector": "config-inspector build",
     "lint": "eslint",
+    "lint:fix": "eslint --fix",
     "typecheck": "tsc --noEmit",
     "typegen": "jiti scripts/typegen.ts",
     "preview": "config-inspector",
@@ -30,7 +32,7 @@
     }
   },
   "lint-staged": {
-    "*.ts": "eslint --fix"
+    "*.ts": "pnpm lint:fix"
   },
   "files": [
     "dist"

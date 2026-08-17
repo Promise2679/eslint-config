@@ -8,7 +8,6 @@ const configs = promise({
     react: true,
     sort: true,
     tailwindcss: true,
-    ts: true,
     vue: true
   }
 }) as Linter.Config[]

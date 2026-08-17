@@ -17,8 +17,8 @@ const prettierOptions: PrettierOptions = {
 
 const prettier = (options: PrettierOptions): FlatConfigItem => ({
   files: [GLOB_JS, GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
-  name: 'prettier',
   ...configPrettier,
+  name: 'prettier',
   rules: { 'prettier/prettier': ['error', { ...prettierOptions, ...options }] }
 })
 

@@ -4,7 +4,7 @@ import parserTs from '@typescript-eslint/parser'
 import { GLOB_JSX, GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
 import { ConfigFn } from '../types'
 
-const typescript: ConfigFn = _ctx => ({
+const typescript: ConfigFn = () => ({
   files: [GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
   languageOptions: {
     parser: parserTs,

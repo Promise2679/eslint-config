@@ -6,7 +6,6 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "noEmit": false,
     "types": ["node"]
   },
   "include": ["**/*.ts"]

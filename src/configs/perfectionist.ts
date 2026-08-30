@@ -4,7 +4,7 @@ import type { ConfigFn } from '../types'
 
 import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
 
-const perfectionist: ConfigFn = _ctx => ({
+const perfectionist: ConfigFn = () => ({
   files: [GLOB_JS, GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
   name: 'perfectionist',
   plugins: { perfectionist: perfectionistPlugin },

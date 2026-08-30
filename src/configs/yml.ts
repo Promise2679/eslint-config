@@ -4,7 +4,7 @@ import { GLOB_YML } from '../globs'
 import { ConfigFn } from '../types'
 import { resolveRules } from '../utils'
 
-const yml: ConfigFn = _ctx => ({
+const yml: ConfigFn = () => ({
   files: [GLOB_YML],
   language: 'yml/yaml',
   name: 'yml',

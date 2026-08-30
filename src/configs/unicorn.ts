@@ -45,11 +45,10 @@ const unicorn: ConfigFn = ({ esYear }) => ({
     'unicorn/no-unreadable-for-of-expression': 'off',
     'unicorn/no-xor-as-exponentiation': 'off',
     'unicorn/numeric-separators-style': 'off',
-    'unicorn/prefer-global-number-constants': 'off',
     'unicorn/prefer-import-meta-properties': 'error',
     'unicorn/prefer-number-coercion': 'off',
     'unicorn/prefer-number-is-safe-integer': 'off',
-    'unicorn/prefer-number-properties': ['error', { checkNaN: true }],
+    'unicorn/prefer-number-properties': ['error'],
     // querySelector 和 getElementById 返回类型并不一致
     'unicorn/prefer-query-selector': 'off',
     'unicorn/prefer-split-limit': 'off',

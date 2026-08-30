@@ -5,19 +5,16 @@ import type { ConfigFn } from '../types'
 
 import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
 
-const javascript: ConfigFn = _ctx => ({
+const javascript: ConfigFn = () => ({
   files: [GLOB_JS, GLOB_TS, GLOB_JSX, GLOB_TSX, GLOB_VUE],
   languageOptions: {
     ecmaVersion: 2022,
     globals: {
       ...globals.browser,
       ...globals.es2021,
-      ...globals.node,
-      document: 'readonly',
-      navigator: 'readonly',
-      window: 'readonly'
+      ...globals.node
     },
-    parserOptions: { ecmaFeatures: { jsx: true }, ecmaVersion: 2022, sourceType: 'module' },
+    parserOptions: { ecmaFeatures: { jsx: true } },
     sourceType: 'module'
   },
   linterOptions: { reportUnusedDisableDirectives: true },

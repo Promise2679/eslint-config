@@ -23,7 +23,7 @@ export function resolveProjectEsYear() {
   const compilerOptions = getTsconfig(cwd)?.config.compilerOptions
   if (compilerOptions) {
     if (compilerOptions.lib?.length) {
-      const years = compilerOptions.lib.map(token => parseEsYear(token)).filter(Boolean) as number[]
+      const years = compilerOptions.lib.map(token => parseEsYear(token)).filter(Boolean)
       if (years.length > 0) {
         return Math.max(...years)
       }
@@ -40,15 +40,8 @@ export function resolveProjectEsYear() {
   return 2022
 }
 
-export function resolveRules(value: Linter.Config[]): RuleOptions {
-  const rules = {}
-  for (const config of value) {
-    if (config.rules) {
-      Object.assign(rules, config.rules)
-    }
-  }
-
-  return rules
+export function resolveRules(value: Linter.Config[]) {
+  return Object.assign({}, ...value.map(config => config.rules)) as RuleOptions
 }
 
 /**
@@ -62,7 +55,7 @@ function parseEsYear(token: string) {
 
   const match = /^es(\d+)/.exec(normalized)
   if (!match) {
-    return
+    return NaN
   }
 
   const num = Number(match[1])

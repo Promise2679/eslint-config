@@ -41,6 +41,7 @@ const unicorn: ConfigFn = ({ esYear }) => ({
     'unicorn/no-return-array-push': 'error',
     // 与 @typescript-eslint/no-extraneous-class 重复
     'unicorn/no-static-only-class': 'off',
+    'unicorn/no-top-level-assignment-in-function': 'off',
     'unicorn/no-unnecessary-string-trim': 'off',
     'unicorn/no-unreadable-for-of-expression': 'off',
     'unicorn/no-xor-as-exponentiation': 'off',

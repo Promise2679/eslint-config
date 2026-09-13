@@ -1,23 +1,16 @@
 import { isPackageExists } from 'local-pkg'
 
+import type { ConfigContext, FlatConfigItem, OptionsConfig } from './types'
+
 import importX from './configs/import-x'
 import javascript from './configs/javascript'
-import perfectionist from './configs/perfectionist'
-import prettier from './configs/prettier'
-import react from './configs/react'
 import regexp from './configs/regexp'
-import simpleImportSort from './configs/simple-import-sort'
-import sonarjs from './configs/sonarjs'
-import tailwindcss from './configs/tailwindcss'
-import typescript from './configs/typescript'
 import unicorn from './configs/unicorn'
-import vue from './configs/vue'
 import yml from './configs/yml'
 import { GLOBS_EXCLUDES } from './globs'
-import { ConfigContext, FlatConfigItem, OptionsConfig } from './types'
 import { resolveProjectEsYear } from './utils'
 
-export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
+export default async function promise(options: OptionsConfig = {}): Promise<FlatConfigItem[]> {
   const { enable = {}, ignores: userIgnores = [], rules } = options
   const {
     prettier: enablePrettier = true,
@@ -29,37 +22,51 @@ export default function promise(options: OptionsConfig = {}): FlatConfigItem[] {
   } = enable
 
   const ctx: ConfigContext = { esYear: resolveProjectEsYear(), ts: enableTs }
-  const configs = [javascript(ctx), sonarjs(ctx), importX(ctx), unicorn(ctx), yml(ctx), regexp(ctx)]
+  const configs = [javascript(ctx), importX(ctx), unicorn(ctx), yml(ctx), regexp(ctx)]
 
   switch (enableSort) {
-    case 'perfectionist':
+    case 'perfectionist': {
+      const { default: perfectionist } = await import('./configs/perfectionist')
       configs.push(perfectionist(ctx))
       break
-    case 'simple-import-sort':
+    }
+    case 'simple-import-sort': {
+      const { default: simpleImportSort } = await import('./configs/simple-import-sort')
       configs.push(simpleImportSort(ctx))
       break
-    case true:
+    }
+    case true: {
+      const [{ default: perfectionist }, { default: simpleImportSort }] = await Promise.all([
+        import('./configs/perfectionist'),
+        import('./configs/simple-import-sort')
+      ])
       configs.push(perfectionist(ctx), simpleImportSort(ctx))
       break
+    }
   }
 
   if (enableTailwindcss) {
+    const { default: tailwindcss } = await import('./configs/tailwindcss')
     configs.push(tailwindcss(ctx))
   }
 
   if (enableTs) {
+    const { default: typescript } = await import('./configs/typescript')
     configs.push(typescript(ctx))
   }
 
   if (enableVue) {
+    const { default: vue } = await import('./configs/vue')
     configs.push(vue(ctx))
   }
 
   if (enableReact) {
+    const { default: react } = await import('./configs/react')
     configs.push(react(ctx))
   }
 
   if (enablePrettier) {
+    const { default: prettier } = await import('./configs/prettier')
     configs.push(prettier(enablePrettier === true ? {} : enablePrettier))
   }
 

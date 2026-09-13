@@ -3,13 +3,13 @@ import typegen from 'eslint-typegen'
 
 import promise from '../src'
 
-const configs = promise({
+const configs = (await promise({
   enable: {
     react: true,
     sort: true,
     tailwindcss: true,
     vue: true
   }
-}) as Linter.Config[]
+})) as Linter.Config[]
 
 await typegen(configs, { dtsPath: 'src/typegen.d.ts' })

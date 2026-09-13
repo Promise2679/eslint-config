@@ -30,7 +30,7 @@ export default promise()
 
 | 类别 | 插件 |
 |------|------|
-| 基础 | `@eslint/js`、`eslint-plugin-unicorn`、`eslint-plugin-sonarjs` |
+| 基础 | `@eslint/js`、`eslint-plugin-unicorn` |
 | TypeScript | `@typescript-eslint/eslint-plugin` |
 | 框架 | `@eslint-react/eslint-plugin`、`eslint-plugin-vue` |
 | 样式 | `eslint-plugin-better-tailwindcss` |

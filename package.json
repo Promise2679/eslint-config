@@ -65,7 +65,6 @@
     "eslint-plugin-prettier": "catalog:",
     "eslint-plugin-regexp": "catalog:",
     "eslint-plugin-simple-import-sort": "catalog:",
-    "eslint-plugin-sonarjs": "catalog:",
     "eslint-plugin-unicorn": "catalog:",
     "eslint-plugin-vue": "catalog:",
     "eslint-plugin-yml": "catalog:",

@@ -27,6 +27,7 @@ const unicorn: ConfigFn = ({ esYear }) => ({
     'unicorn/consistent-destructuring': 'error',
     'unicorn/empty-brace-spaces': 'off',
     'unicorn/error-message': 'off',
+    'unicorn/explicit-length-check': 'off',
     'unicorn/explicit-timer-delay': ['error', 'never'],
     'unicorn/filename-case': 'off',
     'unicorn/iteration-fallback-style': 'error',
@@ -42,6 +43,7 @@ const unicorn: ConfigFn = ({ esYear }) => ({
     // 与 @typescript-eslint/no-extraneous-class 重复
     'unicorn/no-static-only-class': 'off',
     'unicorn/no-top-level-assignment-in-function': 'off',
+    'unicorn/no-top-level-side-effects': 'off',
     'unicorn/no-unnecessary-string-trim': 'off',
     'unicorn/no-unreadable-for-of-expression': 'off',
     'unicorn/no-xor-as-exponentiation': 'off',

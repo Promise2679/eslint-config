@@ -22,8 +22,6 @@ const javascript: ConfigFn = () => ({
   rules: {
     ...eslintJS.configs.recommended.rules,
     'arrow-body-style': 'error',
-    camelcase: 'warn',
-    curly: ['error', 'all'],
     'dot-notation': 'error',
     'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
     'no-else-return': ['error', { allowElseIf: false }],

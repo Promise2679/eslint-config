@@ -4,9 +4,9 @@
 
 ## 特性
 
-- **插件集成** — 集成了 13 个常用 ESLint 插件，覆盖代码质量、排序、格式化、框架规则等维度，无需逐个配置
+- **插件集成** — 集成了 12 个常用 ESLint 插件，覆盖代码质量、排序、格式化、框架规则等维度，无需逐个配置
 - **实战打磨** — 规则设计基于真实项目使用反馈持续调整，在严格与实用之间取得平衡
-- **环境自动检测** — 通过 `local-pkg` 自动检测项目依赖，智能启用 TypeScript、React、Vue、Tailwind CSS 等相关规则，零配置即可使用
+- **环境自动检测** — 通过 `local-pkg` 自动检测项目依赖，智能启用 TypeScript、Vue、Tailwind CSS 等相关规则，零配置即可使用
 
 ## 快速开始
 
@@ -32,7 +32,7 @@ export default promise()
 |------|------|
 | 基础 | `@eslint/js`、`eslint-plugin-unicorn` |
 | TypeScript | `@typescript-eslint/eslint-plugin` |
-| 框架 | `@eslint-react/eslint-plugin`、`eslint-plugin-vue` |
+| 框架 | `eslint-plugin-vue` |
 | 样式 | `eslint-plugin-better-tailwindcss` |
 | 导入排序 | `eslint-plugin-perfectionist`、`eslint-plugin-simple-import-sort` |
 | 导入规范 | `eslint-plugin-import-x` |
@@ -46,7 +46,6 @@ export default promise()
 | 依赖 | 检测条件 | 启用规则 |
 |------|----------|----------|
 | TypeScript | 安装了 `typescript` | TypeScript 严格类型检查规则 |
-| React | 安装了 `react` | React 严格类型检查规则 |
 | Vue | 安装了 `vue` 或 `nuxt` | Vue 推荐规则 |
 | Tailwind CSS | 安装了 `tailwindcss` | Tailwind CSS 规则 |
 
@@ -77,7 +76,6 @@ export default promise({
 | 选项 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
 | `ts` | `boolean` | 自动检测 | TypeScript 规则 |
-| `react` | `boolean` | 自动检测 | React 规则 |
 | `vue` | `boolean` | 自动检测 | Vue 规则 |
 | `tailwindcss` | `boolean` | 自动检测 | Tailwind CSS 规则 |
 | `sort` | `'perfectionist'` \| `'simple-import-sort'` \| `boolean` | `'perfectionist'` | 导入排序策略 |

@@ -54,7 +54,6 @@
     "pre-commit": "pnpm lint-staged"
   },
   "dependencies": {
-    "@eslint-react/eslint-plugin": "catalog:",
     "@eslint/js": "catalog:lint",
     "@typescript-eslint/eslint-plugin": "catalog:",
     "@typescript-eslint/parser": "catalog:lint",

@@ -14,7 +14,6 @@ export default async function promise(options: OptionsConfig = {}): Promise<Flat
   const { enable = {}, ignores: userIgnores = [], rules } = options
   const {
     prettier: enablePrettier = true,
-    react: enableReact = isPackageExists('react'),
     sort: enableSort = 'perfectionist',
     tailwindcss: enableTailwindcss = isPackageExists('tailwindcss'),
     ts: enableTs = isPackageExists('typescript'),
@@ -58,11 +57,6 @@ export default async function promise(options: OptionsConfig = {}): Promise<Flat
   if (enableVue) {
     const { default: vue } = await import('./configs/vue')
     configs.push(vue(ctx))
-  }
-
-  if (enableReact) {
-    const { default: react } = await import('./configs/react')
-    configs.push(react(ctx))
   }
 
   if (enablePrettier) {

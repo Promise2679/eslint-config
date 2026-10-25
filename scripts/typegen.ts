@@ -5,7 +5,6 @@ import promise from '../src'
 
 const configs = (await promise({
   enable: {
-    react: true,
     sort: true,
     tailwindcss: true,
     vue: true

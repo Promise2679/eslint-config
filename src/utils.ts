@@ -44,9 +44,7 @@ export function resolveRules(value: Linter.Config[]) {
   return Object.assign({}, ...value.map(config => config.rules)) as RuleOptions
 }
 
-/**
- * 将 tsconfig 的 lib/target 归一为 ES 年份
- */
+/** 将 tsconfig 的 lib/target 归一为 ES 年份 */
 function parseEsYear(token: string) {
   const normalized = token.toLowerCase()
   if (normalized.startsWith('esnext')) {
@@ -59,9 +57,7 @@ function parseEsYear(token: string) {
   }
 
   const num = Number(match[1])
-  if (num >= 2015) {
-    return num
-  }
+
   // ES6->2015 ES7->2016
-  return 2009 + num
+  return num >= 2015 ? num : 2009 + num
 }

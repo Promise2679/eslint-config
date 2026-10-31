@@ -21,6 +21,7 @@ const typescript: ConfigFn = () => ({
     ...pluginTs.configs['strict-type-checked'].rules,
     ...pluginTs.configs['stylistic-type-checked'].rules,
     '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
+    '@typescript-eslint/no-confusing-void-expression': ['error', { ignoreVoidReturningFunctions: true }],
     '@typescript-eslint/no-deprecated': 'off',
     '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/no-floating-promises': 'off',

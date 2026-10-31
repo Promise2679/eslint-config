@@ -26,7 +26,6 @@ const typescript: ConfigFn = () => ({
     '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-unnecessary-condition': ['error', { allowConstantLoopConditions: 'only-allowed-literals' }],
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
     '@typescript-eslint/no-unsafe-argument': 'warn',

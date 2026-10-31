@@ -24,6 +24,7 @@ const javascript: ConfigFn = () => ({
     'arrow-body-style': 'error',
     'dot-notation': 'error',
     'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
+    'no-constant-condition': 'off',
     'no-else-return': ['error', { allowElseIf: false }],
     'no-implicit-coercion': 'error',
     'no-lonely-if': 'error',

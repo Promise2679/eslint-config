@@ -25,7 +25,7 @@ catalogs:
   helper:
     get-tsconfig: ^4.14.0
     globals: ^17.6.0
-    local-pkg: ^1.2.1
+    local-pkg: ^2.0.0
   infra:
     '@eslint/config-inspector': ^3.0.4
     eslint-typegen: ^2.3.1
